@@ -1,0 +1,31 @@
+ Network attack_path_prediction_indentity_default Creating 
+ Volume attack_path_prediction_indentity_postgres-data Creating 
+ Volume attack_path_prediction_indentity_neo4j-data Creating 
+ Volume attack_path_prediction_indentity_neo4j-data Creating 
+ Network attack_path_prediction_indentity_default Creating 
+ Volume attack_path_prediction_indentity_postgres-data Creating 
+ Volume attack_path_prediction_indentity_neo4j-data Created 
+ Volume attack_path_prediction_indentity_neo4j-data Created 
+ Volume attack_path_prediction_indentity_postgres-data Created 
+ Volume attack_path_prediction_indentity_postgres-data Created 
+ Network attack_path_prediction_indentity_default Created 
+ Network attack_path_prediction_indentity_default Created 
+ Container attack_path_prediction_indentity-app-db-1 Creating 
+ Container attack_path_prediction_indentity-graph-db-1 Creating 
+ Container attack_path_prediction_indentity-app-db-1 Created 
+ Container attack_path_prediction_indentity-graph-db-1 Created 
+ Container attack_path_prediction_indentity-bloodhound-1 Creating 
+ Container attack_path_prediction_indentity-bloodhound-1 Created 
+ Container attack_path_prediction_indentity-app-db-1 Starting 
+ Container attack_path_prediction_indentity-graph-db-1 Starting 
+ Container attack_path_prediction_indentity-app-db-1 Started 
+ Container attack_path_prediction_indentity-graph-db-1 Started 
+ Container attack_path_prediction_indentity-graph-db-1 Waiting 
+ Container attack_path_prediction_indentity-app-db-1 Waiting 
+ Container attack_path_prediction_indentity-app-db-1 Healthy 
+ Container attack_path_prediction_indentity-graph-db-1 Healthy 
+ Container attack_path_prediction_indentity-bloodhound-1 Starting 
+ Container attack_path_prediction_indentity-bloodhound-1 Started 
+{"data":{"status":"idle","updated_at":"2026-11-16T10:55:40.524342Z","last_complete_analysis_at":"2026-11-16T10:55:40.489769Z","last_analysis_run_at":"2026-11-16T10:55:30.862998Z","last_complete_optimize_at":"2026-11-16T10:55:30.830958Z","next_scheduled_analysis_at":null}}
+nodes
+1

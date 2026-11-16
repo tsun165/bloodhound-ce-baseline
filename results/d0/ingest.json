@@ -6,12 +6,16 @@
   "analysis_s": 11.22,
   "analysis_s_definition": "'Graph Analysis' summary elapsed (bloodhound log) = post-processing + Tier Zero / asset group tagging",
   "upload_to_analysis_complete_s": 51.227,
-  "store_bytes": 18184908,
-  "tx_log_bytes": 262148160,
+  "store_bytes": 22989123,
+  "tx_log_bytes": 262148352,
+  "store_definition": "du -sb /data/databases/neo4j (incl. schema/index dirs) AFTER `docker compose restart graph-db` (clean shutdown = checkpoint; Neo4j 4.4 Community has no db.checkpoint()). Source: logs/stats/d0/store_size_after_restart.txt. For d0 this was measured on a re-ingest of D0 into a fresh DB (logs/ingest/d0_store_rerun/), same node/edge/Tier0 counts as the main run; D0's main-run DB had been deleted before the issue was found.",
+  "tx_log_definition": "du -sb /data/transactions/neo4j: one preallocated file neostore.transaction.db.0 of 262144000 bytes + checkpoint file; reflects preallocation, NOT the amount of data written",
+  "store_bytes_right_after_analysis_unflushed": 18184908,
+  "tx_log_bytes_right_after_analysis": 262148160,
+  "store_unflushed_note": "logs/stats/d0/store_size.txt, taken right after analysis: equals the empty-DB size (logs/env/before/neo4j.txt) because nothing was checkpointed yet -> not meaningful",
   "store_paths": {
     "store": "/data/databases/neo4j",
-    "tx_log": "/data/transactions/neo4j",
-    "source": "logs/stats/d0/store_size.txt (du -sb inside graph-db)"
+    "tx_log": "/data/transactions/neo4j"
   },
   "ram_graph_db_bytes": 1069547520,
   "ram_graph_db_raw": "1020MiB / 4.803GiB",

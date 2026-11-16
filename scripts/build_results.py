@@ -184,11 +184,20 @@ def mem_of(svc):
     k = next(k for k in stats if k.endswith(f"-{svc}-1"))
     return mem_bytes(stats[k].split("/")[0].strip()), stats[k]
 
-store = {}
-for l in open(f"{S}/store_size.txt", encoding="utf-8"):
-    m = re.match(r"^(\d+)\s+(/data/\S+)$", l.strip())
-    if m:
-        store[m.group(2)] = int(m.group(1))
+def du_sb(path):
+    """First `du -sb` block of a store-size file -> {dir: bytes}."""
+    d = {}
+    for l in open(path, encoding="utf-8"):
+        if l.startswith("## du -sk"):
+            break
+        m = re.match(r"^(\d+)\s+(/data/\S+)$", l.strip())
+        if m:
+            d[m.group(2)] = int(m.group(1))
+    return d
+
+
+store_unflushed = du_sb(f"{S}/store_size.txt")                  # right after analysis (not checkpointed)
+store = du_sb(f"{S}/store_size_after_restart.txt")             # after restart = checkpoint
 
 node_count = sum(1 for _ in open(f"{R}/nodes.csv", encoding="utf-8")) - 1
 edge_count = sum(int(r[1]) for r in csv.reader(open(f"{R}/edge_counts.csv", encoding="utf-8"), skipinitialspace=True) if r and r[0] != "kind")
@@ -205,7 +214,17 @@ ingest = {
     "upload_to_analysis_complete_s": round((ts(ga_end["time"]) - ts(upload_begin[0])).total_seconds(), 3),
     "store_bytes": store.get("/data/databases/neo4j"),
     "tx_log_bytes": store.get("/data/transactions/neo4j"),
-    "store_paths": {"store": "/data/databases/neo4j", "tx_log": "/data/transactions/neo4j", "source": f"{S}/store_size.txt (du -sb inside graph-db)"},
+    "store_definition": ("du -sb /data/databases/neo4j (incl. schema/index dirs) AFTER `docker compose restart graph-db` "
+                         "(clean shutdown = checkpoint; Neo4j 4.4 Community has no db.checkpoint()). "
+                         f"Source: {S}/store_size_after_restart.txt."
+                         + (" For d0 this was measured on a re-ingest of D0 into a fresh DB (logs/ingest/d0_store_rerun/), "
+                            "same node/edge/Tier0 counts as the main run; D0's main-run DB had been deleted before the issue was found."
+                            if ds == "d0" else " Measured on the same DB after the performance runs.")),
+    "tx_log_definition": "du -sb /data/transactions/neo4j: one preallocated file neostore.transaction.db.0 of 262144000 bytes + checkpoint file; reflects preallocation, NOT the amount of data written",
+    "store_bytes_right_after_analysis_unflushed": store_unflushed.get("/data/databases/neo4j"),
+    "tx_log_bytes_right_after_analysis": store_unflushed.get("/data/transactions/neo4j"),
+    "store_unflushed_note": f"{S}/store_size.txt, taken right after analysis: equals the empty-DB size (logs/env/before/neo4j.txt) because nothing was checkpointed yet -> not meaningful",
+    "store_paths": {"store": "/data/databases/neo4j", "tx_log": "/data/transactions/neo4j"},
     "ram_graph_db_bytes": ram_g, "ram_graph_db_raw": ram_g_raw,
     "ram_bloodhound_bytes": ram_b, "ram_bloodhound_raw": ram_b_raw,
     "ram_source": f"{S}/after_analysis.txt (docker stats --no-stream right after analysis; MiB/GiB = 2^20/2^30)",

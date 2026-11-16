@@ -320,3 +320,42 @@ echo "CALL dbms.queryJmx(\"org.neo4j:*\") YIELD name RETURN name;" | docker comp
 - cmd: `bash scripts/store_after_restart.sh d1`
 - output: logs/raw/048-d1-store-after-restart.log
 - ghi chú: D1: restart graph-db (checkpoint) rồi du, cùng phương pháp sẽ dùng cho D0 rerun
+
+### 49. compose-down-v-2
+- start: 2026-11-16T17:54:05+07:00 · end: 2026-11-16T17:54:11+07:00 · duration_s: 5.567 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose down -v 2>&1; docker volume ls | grep attack_path || echo "no project volumes left"`
+- output: logs/raw/049-compose-down-v-2.log
+- ghi chú: User đồng ý: down -v lần 2 (xoá volume D1, D1 đã xuất đủ) để nạp lại D0 chỉ nhằm đo store sau checkpoint
+
+### 50. compose-up-d0-rerun
+- start: 2026-11-16T17:54:11+07:00 · end: 2026-11-16T17:55:46+07:00 · duration_s: 94.294 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose up -d 2>&1; for i in $(seq 1 120); do bash scripts/bh_api.sh login >/dev/null 2>&1 && break; sleep 2; done; for i in $(seq 1 60); do bash scripts/bh_api.sh GET /api/v2/datapipe/status | grep -q "\"status\":\"idle\"" && break; sleep 5; done; bash scripts/bh_api.sh GET /api/v2/datapipe/status; echo; echo "MATCH (n) RETURN count(n) AS nodes;" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain`
+- output: logs/raw/050-compose-up-d0-rerun.log
+
+### 51. ingest-d0-store-rerun
+- start: 2026-11-16T17:55:46+07:00 · end: 2026-11-16T17:57:22+07:00 · duration_s: 95.874 · exit: 0
+- cmd: `bash scripts/ingest.sh d0_store_rerun data/d0/ad_sampledata.zip`
+- output: logs/raw/051-ingest-d0-store-rerun.log
+- ghi chú: Nạp lại D0 (cùng quy trình) chỉ để đo store; số ingest/perf chính thức của D0 vẫn là lần đầu (mục 14)
+
+### 52. d0-store-after-restart
+- start: 2026-11-16T17:57:23+07:00 · end: 2026-11-16T17:58:16+07:00 · duration_s: 52.326 · exit: 0
+- cmd: `bash scripts/store_after_restart.sh d0`
+- output: logs/raw/052-d0-store-after-restart.log
+- ghi chú: D0 rerun: restart graph-db (checkpoint) rồi du
+
+### 53. collect-d0-store-rerun
+- start: 2026-11-16T17:58:26+07:00 · end: 2026-11-16T17:58:32+07:00 · duration_s: 5.056 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose logs --timestamps bloodhound | perl scripts/redact.pl > logs/ingest/d0_store_rerun/bloodhound.log; echo "MATCH (n:Tag_Tier_Zero) RETURN count(n) AS t0;" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain; docker stats --no-stream`
+- output: logs/raw/053-collect-d0-store-rerun.log
+
+### 54. build-results-d0-d1-2
+- start: 2026-11-16T17:58:49+07:00 · end: 2026-11-16T17:58:53+07:00 · duration_s: 4.528 · exit: 0
+- cmd: `for d in d0 d1; do MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/build_results.py $d; done`
+- output: logs/raw/054-build-results-d0-d1-2.log
+- ghi chú: Dựng lại results: store_bytes = số sau checkpoint (restart graph-db); giữ số chưa flush trong trường riêng
+
+### 55. summarize-2
+- start: 2026-11-16T17:58:54+07:00 · end: 2026-11-16T17:58:55+07:00 · duration_s: 1.294 · exit: 0
+- cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/summarize.py d0 d1 > logs/summary_tables.md`
+- output: logs/raw/055-summarize-2.log

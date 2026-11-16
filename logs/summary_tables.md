@@ -1,0 +1,57 @@
+### cpu_ref (s, trung vị 5 vòng mỗi lần chạy)
+
+| | lần 1 | lần 2 | lần 3 | trung vị 3 lần |
+|---|---|---|---|---|
+| trước | 0.834 | 0.858 | 0.819 | **0.834** |
+| sau | 0.854 | 0.815 | 0.837 | **0.837** |
+
+Lệch trung vị sau so với trước: +0.4 %
+
+
+## d0
+
+| node | cạnh (tất cả) | cạnh 22 loại | Tier 0 | principal (User/Group/Computer ngoài T0) | tới được T0 theo `reach_22` | trong đó User | theo `reach_all` |
+|---|---|---|---|---|---|---|---|
+| 1520 | 16654 | 11862 | 280 | 277 | 65 | 34 | 72 |
+
+| ingest_s | analysis_s | upload→phân tích xong (s) | store_bytes | tx_log_bytes | RAM graph-db | RAM bloodhound |
+|---|---|---|---|---|---|---|
+| 14.607 | 11.22 | 51.227 | 22989123 | 262148352 | 1020MiB | 1.223GiB |
+
+| query_id | rows | result_value | db hits (PROFILE) | lạnh (ms) | trung vị ấm (ms) | min–max ấm (ms) | wall trung vị ấm (ms) | status |
+|---|---|---|---|---|---|---|---|---|
+| p1_reach_per_source | 277 | 65 | 174371 | 4627 | 3275 | 3254–3314 | 4661 | ok |
+| p2_exists_all | — | — | — (PROFILE timeout) | timeout (>300 s wall) | 5/5 timeout | — | — | timeout |
+| p3_reverse_traversal | | | | | | | | skipped (CE không bật APOC) |
+| p5_prebuilt | 1000 | 1000 | 117633 | 1155 | 385 | 338–452 | 2334 | ok |
+
+`p4_single_source`: 68 user × (1 lạnh + 3 ấm) trong một phiên cypher-shell (wall cả phiên 8845 ms). db hits PROFILE 5 user đầu: [563, 563, 839, 839, 839].
+
+| lượt | n | p50 (ms) | p95 (ms) | max (ms) | trung bình (ms) |
+|---|---|---|---|---|---|
+| lạnh (lượt 1) | 68 | 26 | 61 | 475 | 35.0 |
+| ấm (lượt 2–4) | 204 | 17 | 34 | 58 | 20.5 |
+
+## d1
+
+| node | cạnh (tất cả) | cạnh 22 loại | Tier 0 | principal (User/Group/Computer ngoài T0) | tới được T0 theo `reach_22` | trong đó User | theo `reach_all` |
+|---|---|---|---|---|---|---|---|
+| 784 | 8268 | 5745 | 187 | 173 | 19 | 14 | 25 |
+
+| ingest_s | analysis_s | upload→phân tích xong (s) | store_bytes | tx_log_bytes | RAM graph-db | RAM bloodhound |
+|---|---|---|---|---|---|---|
+| 17.671 | 6.89 | 57.419 | 21289821 | 262149120 | 820.7MiB | 2.31GiB |
+
+| query_id | rows | result_value | db hits (PROFILE) | lạnh (ms) | trung vị ấm (ms) | min–max ấm (ms) | wall trung vị ấm (ms) | status |
+|---|---|---|---|---|---|---|---|---|
+| p1_reach_per_source | 173 | 19 | 67134 | 2319 | 884 | 851–1075 | 2188 | ok |
+| p2_exists_all | — | — | — (PROFILE timeout) | timeout (>300 s wall) | 5/5 timeout | — | — | timeout |
+| p3_reverse_traversal | | | | | | | | skipped (CE không bật APOC) |
+| p5_prebuilt | 1000 | 1000 | 127742 | 1915 | 947 | 905–1046 | 2919 | ok |
+
+`p4_single_source`: 28 user × (1 lạnh + 3 ấm) trong một phiên cypher-shell (wall cả phiên 4411 ms). db hits PROFILE 5 user đầu: [479, 479, 479, 479, 479].
+
+| lượt | n | p50 (ms) | p95 (ms) | max (ms) | trung bình (ms) |
+|---|---|---|---|---|---|
+| lạnh (lượt 1) | 28 | 15 | 71 | 638 | 45.8 |
+| ấm (lượt 2–4) | 84 | 12 | 29 | 36 | 15.6 |
