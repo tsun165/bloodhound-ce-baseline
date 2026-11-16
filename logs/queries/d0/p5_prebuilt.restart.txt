@@ -1,0 +1,5 @@
+restart_begin 2026-11-16T16:57:57,359037900+07:00
+ Container attack_path_prediction_indentity-graph-db-1 Restarting 
+ Container attack_path_prediction_indentity-graph-db-1 Started 
+restart_cmd_done 2026-11-16T16:58:01,488437400+07:00 after_ms=4209
+neo4j_ready 2026-11-16T16:58:12,338840700+07:00 total_wait_ms_since_restart_begin=15053 probes=5

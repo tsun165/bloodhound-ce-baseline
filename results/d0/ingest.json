@@ -1,0 +1,78 @@
+{
+  "dataset": "d0",
+  "method": "CE API: POST /api/v2/file-upload/start -> POST /api/v2/file-upload/{id} (application/zip) per zip -> POST /api/v2/file-upload/{id}/end; poll every 5 s",
+  "ingest_s": 14.607,
+  "ingest_s_definition": "sum of 'Ingest run finished'.duration (bloodhound log) = datapipe ingest work only, excludes upload and wait for datapipe tick",
+  "analysis_s": 11.22,
+  "analysis_s_definition": "'Graph Analysis' summary elapsed (bloodhound log) = post-processing + Tier Zero / asset group tagging",
+  "upload_to_analysis_complete_s": 51.227,
+  "store_bytes": 18184908,
+  "tx_log_bytes": 262148160,
+  "store_paths": {
+    "store": "/data/databases/neo4j",
+    "tx_log": "/data/transactions/neo4j",
+    "source": "logs/stats/d0/store_size.txt (du -sb inside graph-db)"
+  },
+  "ram_graph_db_bytes": 1069547520,
+  "ram_graph_db_raw": "1020MiB / 4.803GiB",
+  "ram_bloodhound_bytes": 1313186250,
+  "ram_bloodhound_raw": "1.223GiB / 4.803GiB",
+  "ram_source": "logs/stats/d0/after_analysis.txt (docker stats --no-stream right after analysis; MiB/GiB = 2^20/2^30)",
+  "node_count": 1520,
+  "edge_count": 16654,
+  "edge_count_22_kinds": 11862,
+  "tier_zero_tagged": 280,
+  "analysis_steps_s": {
+    "Active Directory Post Processing": 4.479,
+    "Azure Post Processing": 0.5,
+    "Tag Asset Groups and Tier Zero": 4.556
+  },
+  "timestamps_utc": {
+    "upload_begin": [
+      "2026-11-16T09:15:39.795042900Z"
+    ],
+    "upload_end": [
+      "2026-11-16T09:15:40.161485600Z"
+    ],
+    "job_end_called": "2026-11-16T09:15:40.436807600Z",
+    "ingest_run_starting": [
+      "2026-11-16T09:16:05.171964119Z"
+    ],
+    "ingest_run_finished": [
+      "2026-11-16T09:16:19.776270621Z"
+    ],
+    "graph_analysis_start": "2026-11-16T09:16:19.802913125Z",
+    "graph_analysis_end": "2026-11-16T09:16:31.021980987Z",
+    "job_record": {
+      "id": 1,
+      "status": 2,
+      "status_message": "Complete",
+      "start_time": "2026-11-16T09:15:39.328852Z",
+      "end_time": "2026-11-16T09:16:30.895568Z",
+      "last_ingest": "2026-11-16T09:15:40.076149Z",
+      "total_files": 31,
+      "failed_files": 0,
+      "partial_failed_files": 0
+    },
+    "datapipe_at_done": {
+      "status": "idle",
+      "updated_at": "2026-11-16T09:16:31.269128Z",
+      "last_complete_analysis_at": "2026-11-16T09:16:30.815962Z",
+      "last_analysis_run_at": "2026-11-16T09:16:19.803115Z",
+      "last_complete_optimize_at": "2026-11-16T09:09:01.474413Z",
+      "next_scheduled_analysis_at": null
+    }
+  },
+  "ingest_runs": [
+    {
+      "time": "2026-11-16T09:16:19.776270621Z",
+      "task_count": 1,
+      "duration_s": 14.607
+    }
+  ],
+  "sources": [
+    "logs/ingest/d0/timeline.log",
+    "logs/ingest/d0/datapipe_poll.log",
+    "logs/ingest/d0/bloodhound.log"
+  ]
+}

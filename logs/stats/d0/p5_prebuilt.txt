@@ -1,0 +1,12 @@
+## before 2026-11-16T16:57:50+07:00
+CONTAINER ID   NAME                                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+3e5ce06636fa   attack_path_prediction_indentity-bloodhound-1   0.14%     63.15MiB / 4.803GiB   1.28%     13MB / 6.99MB    83.1MB / 3.75MB   18
+40626595213d   attack_path_prediction_indentity-graph-db-1     3.46%     541.7MiB / 4.803GiB   11.01%    872B / 126B      22.9MB / 3.48MB   89
+3a7e252072fb   attack_path_prediction_indentity-app-db-1       0.06%     88.41MiB / 4.803GiB   1.80%     1.04MB / 908kB   103MB / 103MB     14
+
+## after 2026-11-16T16:58:27+07:00
+CONTAINER ID   NAME                                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+3e5ce06636fa   attack_path_prediction_indentity-bloodhound-1   0.00%     62.69MiB / 4.803GiB   1.27%     13MB / 7MB       83.1MB / 3.75MB   18
+40626595213d   attack_path_prediction_indentity-graph-db-1     0.77%     528.6MiB / 4.803GiB   10.75%    872B / 126B      22.9MB / 1.07MB   114
+3a7e252072fb   attack_path_prediction_indentity-app-db-1       0.00%     88.46MiB / 4.803GiB   1.80%     1.04MB / 910kB   103MB / 104MB     14
+

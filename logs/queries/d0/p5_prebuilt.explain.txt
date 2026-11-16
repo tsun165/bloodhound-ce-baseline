@@ -1,0 +1,41 @@
++---+
+| p |
++---+
++---+
+
++-------------------------------------------------------------------------+
+| Plan      | Statement   | Version      | Planner | Runtime       | Time |
++-------------------------------------------------------------------------+
+| "EXPLAIN" | "READ_ONLY" | "CYPHER 4.4" | "COST"  | "INTERPRETED" | 230  |
++-------------------------------------------------------------------------+
+
+
++--------------------------+------------------------------------------------------------------------------------------------------+----------------+
+| Operator                 | Details                                                                                              | Estimated Rows |
++--------------------------+------------------------------------------------------------------------------------------------------+----------------+
+| +ProduceResults@neo4j    | p                                                                                                    |           1000 |
+| |                        +------------------------------------------------------------------------------------------------------+----------------+
+| +Limit@neo4j             | 1000                                                                                                 |           1000 |
+| |                        +------------------------------------------------------------------------------------------------------+----------------+
+| +ShortestPath@neo4j      | p = (s)-[anon_0:Owns|GenericAll|GenericWrite|WriteOwner|WriteDacl|MemberOf|ForceChangePassword|AllEx |           1000 |
+| |                        | tendedRights|AddMember|HasSession|GPLink|AllowedToDelegate|CoerceToTGT|AllowedToAct|AdminTo|CanPSRem |                |
+| |                        | ote|CanRDP|ExecuteDCOM|HasSIDHistory|AddSelf|DCSync|ReadLAPSPassword|ReadGMSAPassword|DumpSMSAPasswo |                |
+| |                        | rd|SQLAdmin|AddAllowedToAct|WriteSPN|AddKeyCredentialLink|SyncLAPSPassword|WriteAccountRestrictions| |                |
+| |                        | WriteGPLink|GoldenCert|ADCSESC1|ADCSESC3|ADCSESC4|ADCSESC6a|ADCSESC6b|ADCSESC9a|ADCSESC9b|ADCSESC10a |                |
+| |                        | |ADCSESC10b|ADCSESC13|SyncedToADUser|CoerceAndRelayNTLMToSMB|CoerceAndRelayNTLMToADCS|WriteOwnerLimi |                |
+| |                        | tedRights|OwnsLimitedRights|ClaimSpecialIdentity|CoerceAndRelayNTLMToLDAP|CoerceAndRelayNTLMToLDAPS| |                |
+| |                        | ContainsIdentity|PropagatesACEsTo|GPOAppliesTo|CanApplyGPO|HasTrustKeys|WriteAltSecurityIdentities|W |                |
+| |                        | ritePublicInformation|ManageCA|ManageCertificates|ServerIs|Contains|DCFor|SameForestTrust|SpoofSIDHi |                |
+| |                        | story|AbuseTGTDelegation*]->(t)                                                                      |                |
+| |                        +------------------------------------------------------------------------------------------------------+----------------+
+| +Filter@neo4j            | not s = t                                                                                            |           1000 |
+| |                        +------------------------------------------------------------------------------------------------------+----------------+
+| +CartesianProduct@neo4j  |                                                                                                      |           1111 |
+| |\                       +------------------------------------------------------------------------------------------------------+----------------+
+| | +NodeByLabelScan@neo4j | t:Tag_Tier_Zero                                                                                      |           1112 |
+| |                        +------------------------------------------------------------------------------------------------------+----------------+
+| +AllNodesScan@neo4j      | s                                                                                                    |              4 |
++--------------------------+------------------------------------------------------------------------------------------------------+----------------+
+
+0 rows
+ready to start consuming query after 230 ms, results consumed after another 0 ms

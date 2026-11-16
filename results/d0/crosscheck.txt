@@ -1,0 +1,3 @@
+p4 dist == reach_22 dist for all 68 non-T0 users: True
+p2 count values (profile/cold/warm): []; Users with non-null dist in reach_22.csv: 34; equal: False
+p1 non-null dist counts: ['65']; reach_22.csv non-null: 65

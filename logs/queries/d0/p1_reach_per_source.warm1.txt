@@ -1,0 +1,284 @@
++----------------------------------------------------------------------------------------------------------------------+
+| objectid                                          | name                                                      | dist |
++----------------------------------------------------------------------------------------------------------------------+
+| "GHOST.CORP-S-1-1-0"                              | "EVERYONE@GHOST.CORP"                                     | NULL |
+| "GHOST.CORP-S-1-18-1"                             | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@GHOST.CORP"   | NULL |
+| "GHOST.CORP-S-1-18-4"                             | "KEY TRUST@GHOST.CORP"                                    | NULL |
+| "GHOST.CORP-S-1-18-5"                             | "MFA KEY PROPERTY@GHOST.CORP"                             | NULL |
+| "GHOST.CORP-S-1-5-11"                             | "AUTHENTICATED USERS@GHOST.CORP"                          | NULL |
+| "GHOST.CORP-S-1-5-15"                             | "THIS ORGANIZATION@GHOST.CORP"                            | NULL |
+| "GHOST.CORP-S-1-5-17"                             | "IUSR@GHOST.CORP"                                         | NULL |
+| "GHOST.CORP-S-1-5-2"                              | "NETWORK@GHOST.CORP"                                      | NULL |
+| "GHOST.CORP-S-1-5-20"                             | "NETWORK SERVICE@GHOST.CORP"                              | NULL |
+| "GHOST.CORP-S-1-5-32-545"                         | "USERS@GHOST.CORP"                                        | NULL |
+| "GHOST.CORP-S-1-5-32-546"                         | "GUESTS@GHOST.CORP"                                       | NULL |
+| "GHOST.CORP-S-1-5-32-552"                         | "REPLICATORS@GHOST.CORP"                                  | NULL |
+| "GHOST.CORP-S-1-5-32-554"                         | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@GHOST.CORP"           | NULL |
+| "GHOST.CORP-S-1-5-32-555"                         | "REMOTE DESKTOP USERS@GHOST.CORP"                         | NULL |
+| "GHOST.CORP-S-1-5-32-556"                         | "NETWORK CONFIGURATION OPERATORS@GHOST.CORP"              | NULL |
+| "GHOST.CORP-S-1-5-32-558"                         | "PERFORMANCE MONITOR USERS@GHOST.CORP"                    | NULL |
+| "GHOST.CORP-S-1-5-32-560"                         | "WINDOWS AUTHORIZATION ACCESS GROUP@GHOST.CORP"           | NULL |
+| "GHOST.CORP-S-1-5-32-561"                         | "TERMINAL SERVER LICENSE SERVERS@GHOST.CORP"              | NULL |
+| "GHOST.CORP-S-1-5-32-568"                         | "IIS_IUSRS@GHOST.CORP"                                    | NULL |
+| "GHOST.CORP-S-1-5-32-573"                         | "EVENT LOG READERS@GHOST.CORP"                            | NULL |
+| "GHOST.CORP-S-1-5-32-574"                         | "CERTIFICATE SERVICE DCOM ACCESS@GHOST.CORP"              | NULL |
+| "GHOST.CORP-S-1-5-32-575"                         | "RDS REMOTE ACCESS SERVERS@GHOST.CORP"                    | NULL |
+| "GHOST.CORP-S-1-5-32-576"                         | "RDS ENDPOINT SERVERS@GHOST.CORP"                         | NULL |
+| "GHOST.CORP-S-1-5-32-577"                         | "RDS MANAGEMENT SERVERS@GHOST.CORP"                       | NULL |
+| "GHOST.CORP-S-1-5-32-578"                         | "HYPER-V ADMINISTRATORS@GHOST.CORP"                       | NULL |
+| "GHOST.CORP-S-1-5-32-579"                         | "ACCESS CONTROL ASSISTANCE OPERATORS@GHOST.CORP"          | NULL |
+| "GHOST.CORP-S-1-5-32-580"                         | "REMOTE MANAGEMENT USERS@GHOST.CORP"                      | NULL |
+| "GHOST.CORP-S-1-5-32-582"                         | "STORAGE REPLICA ADMINISTRATORS@GHOST.CORP"               | NULL |
+| "GHOST.CORP-S-1-5-4"                              | "INTERACTIVE@GHOST.CORP"                                  | NULL |
+| "GHOST.CORP-S-1-5-64-10"                          | "NTLM AUTHENTICATION@GHOST.CORP"                          | NULL |
+| "GHOST.CORP-S-1-5-64-14"                          | "SCHANNEL AUTHENTICATION@GHOST.CORP"                      | NULL |
+| "GHOST.CORP-S-1-5-65-1"                           | "THIS ORGANIZATION CERTIFICATE@GHOST.CORP"                | NULL |
+| "PHANTOM.CORP-S-1-1-0"                            | "EVERYONE@PHANTOM.CORP"                                   | 4    |
+| "PHANTOM.CORP-S-1-18-1"                           | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@PHANTOM.CORP" | NULL |
+| "PHANTOM.CORP-S-1-18-4"                           | "KEY TRUST@PHANTOM.CORP"                                  | NULL |
+| "PHANTOM.CORP-S-1-18-5"                           | "MFA KEY PROPERTY@PHANTOM.CORP"                           | NULL |
+| "PHANTOM.CORP-S-1-5-11"                           | "AUTHENTICATED USERS@PHANTOM.CORP"                        | 5    |
+| "PHANTOM.CORP-S-1-5-15"                           | "THIS ORGANIZATION@PHANTOM.CORP"                          | NULL |
+| "PHANTOM.CORP-S-1-5-17"                           | "IUSR@PHANTOM.CORP"                                       | NULL |
+| "PHANTOM.CORP-S-1-5-2"                            | "NETWORK@PHANTOM.CORP"                                    | NULL |
+| "PHANTOM.CORP-S-1-5-20"                           | "NETWORK SERVICE@PHANTOM.CORP"                            | NULL |
+| "PHANTOM.CORP-S-1-5-32-545"                       | "USERS@PHANTOM.CORP"                                      | NULL |
+| "PHANTOM.CORP-S-1-5-32-546"                       | "GUESTS@PHANTOM.CORP"                                     | NULL |
+| "PHANTOM.CORP-S-1-5-32-552"                       | "REPLICATORS@PHANTOM.CORP"                                | NULL |
+| "PHANTOM.CORP-S-1-5-32-554"                       | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@PHANTOM.CORP"         | NULL |
+| "PHANTOM.CORP-S-1-5-32-555"                       | "REMOTE DESKTOP USERS@PHANTOM.CORP"                       | NULL |
+| "PHANTOM.CORP-S-1-5-32-556"                       | "NETWORK CONFIGURATION OPERATORS@PHANTOM.CORP"            | NULL |
+| "PHANTOM.CORP-S-1-5-32-558"                       | "PERFORMANCE MONITOR USERS@PHANTOM.CORP"                  | NULL |
+| "PHANTOM.CORP-S-1-5-32-560"                       | "WINDOWS AUTHORIZATION ACCESS GROUP@PHANTOM.CORP"         | NULL |
+| "PHANTOM.CORP-S-1-5-32-561"                       | "TERMINAL SERVER LICENSE SERVERS@PHANTOM.CORP"            | NULL |
+| "PHANTOM.CORP-S-1-5-32-568"                       | "IIS_IUSRS@PHANTOM.CORP"                                  | NULL |
+| "PHANTOM.CORP-S-1-5-32-573"                       | "EVENT LOG READERS@PHANTOM.CORP"                          | NULL |
+| "PHANTOM.CORP-S-1-5-32-574"                       | "CERTIFICATE SERVICE DCOM ACCESS@PHANTOM.CORP"            | NULL |
+| "PHANTOM.CORP-S-1-5-32-575"                       | "RDS REMOTE ACCESS SERVERS@PHANTOM.CORP"                  | NULL |
+| "PHANTOM.CORP-S-1-5-32-576"                       | "RDS ENDPOINT SERVERS@PHANTOM.CORP"                       | NULL |
+| "PHANTOM.CORP-S-1-5-32-577"                       | "RDS MANAGEMENT SERVERS@PHANTOM.CORP"                     | NULL |
+| "PHANTOM.CORP-S-1-5-32-578"                       | "HYPER-V ADMINISTRATORS@PHANTOM.CORP"                     | NULL |
+| "PHANTOM.CORP-S-1-5-32-579"                       | "ACCESS CONTROL ASSISTANCE OPERATORS@PHANTOM.CORP"        | NULL |
+| "PHANTOM.CORP-S-1-5-32-580"                       | "REMOTE MANAGEMENT USERS@PHANTOM.CORP"                    | NULL |
+| "PHANTOM.CORP-S-1-5-32-582"                       | "STORAGE REPLICA ADMINISTRATORS@PHANTOM.CORP"             | NULL |
+| "PHANTOM.CORP-S-1-5-4"                            | "INTERACTIVE@PHANTOM.CORP"                                | NULL |
+| "PHANTOM.CORP-S-1-5-64-10"                        | "NTLM AUTHENTICATION@PHANTOM.CORP"                        | NULL |
+| "PHANTOM.CORP-S-1-5-64-14"                        | "SCHANNEL AUTHENTICATION@PHANTOM.CORP"                    | NULL |
+| "PHANTOM.CORP-S-1-5-65-1"                         | "THIS ORGANIZATION CERTIFICATE@PHANTOM.CORP"              | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-1102"   | "DNSUPDATEPROXY@PHANTOM.CORP"                             | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-1103"   | "JONAS-TEST-MS01.PHANTOM.CORP"                            | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-1120"   | "PAYMENT01.PHANTOM.CORP"                                  | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-1129"   | "HELPDESK@PHANTOM.CORP"                                   | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-1138"   | "TIER2SUPPORT@PHANTOM.CORP"                               | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2101"   | "DF-MS-SHS.PHANTOM.CORP"                                  | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2102"   | "GMSA_SHS_PWD@PHANTOM.CORP"                               | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2110"   | "T1_TONYMONTANA@PHANTOM.CORP"                             | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-2111"   | "T1_ADMINS@PHANTOM.CORP"                                  | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-2114"   | "T0_ADMINS@PHANTOM.CORP"                                  | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2115"   | "SHARPHOUND@PHANTOM.CORP"                                 | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2116"   | "T2_HANNAHMONTANA@PHANTOM.CORP"                           | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2117"   | "SVC_PAYADMIN@PHANTOM.CORP"                               | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2118"   | "T1_TRASH@PHANTOM.CORP"                                   | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2121"   | "T1_WACCOUNTRESTRICTIONS@PHANTOM.CORP"                    | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2123"   | "DCSYNCERS@PHANTOM.CORP"                                  | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2124"   | "DF-WIN10-DEV01.PHANTOM.CORP"                             | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2127"   | "SMSAMANGERS@PHANTOM.CORP"                                | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2128"   | "SMSAMASTER@PHANTOM.CORP"                                 | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2131"   | "SMSASIMONGROUP@PHANTOM.CORP"                             | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2132"   | "SMSASIMON@PHANTOM.CORP"                                  | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2133"   | "SMSAFULLCONTROL@PHANTOM.CORP"                            | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2134"   | "DAVID@PHANTOM.CORP"                                      | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2135"   | "GMSA_SHS2$@PHANTOM.CORP"                                 | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2136"   | "GMSA_SHS3$@PHANTOM.CORP"                                 | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2137"   | "SH2@PHANTOM.CORP"                                        | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2139"   | "LOW_PRIV@PHANTOM.CORP"                                   | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2142"   | "GMSA_SHS7$@PHANTOM.CORP"                                 | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2143"   | "SCOTT@PHANTOM.CORP"                                      | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-2147"   | "T1_FABIAN@PHANTOM.CORP"                                  | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2148"   | "SERVER01.PHANTOM.CORP"                                   | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2149"   | "SERVER02.PHANTOM.CORP"                                   | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2151"   | "KRBTGT_8221@PHANTOM.CORP"                                | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2152"   | "WREVEALONDEMANDGROUP@PHANTOM.CORP"                       | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2153"   | "WNEVERREVEAGROUP@PHANTOM.CORP"                           | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2154"   | "WMANAGEDBY@PHANTOM.CORP"                                 | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2155"   | "RODCADMINS@PHANTOM.CORP"                                 | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2157"   | "DA-NOPW@PHANTOM.CORP"                                    | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2159"   | "SMSA_BHE$@PHANTOM.CORP"                                  | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2160"   | "DISTR@PHANTOM.CORP"                                      | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2161"   | "123456789.PHANTOM.CORP"                                  | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2162"   | "ABCDEFGHIJKLMNO.PHANTOM.CORP"                            | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2163"   | "AM-WIN10-DEV02.PHANTOM.CORP"                             | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2164"   | "SRV-TARGET.PHANTOM.CORP"                                 | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2165"   | "SVC_SHS@PHANTOM.CORP"                                    | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2166"   | "SRV-COMPROMISED.PHANTOM.CORP"                            | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2168"   | "GMSA_SHS$@PHANTOM.CORP"                                  | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2169"   | "IAMADC@PHANTOM.CORP"                                     | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2170"   | "SVC_KERB_DEL@PHANTOM.CORP"                               | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2171"   | "KRB-DEL-01.PHANTOM.CORP"                                 | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2172"   | "HR@PHANTOM.CORP"                                         | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2174"   | "ALICE-LAPTOP.PHANTOM.CORP"                               | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2176"   | "SERVICE DESK@PHANTOM.CORP"                               | 4    |
+| "S-1-5-21-2697957641-2271029196-387917394-2177"   | "FILESERVER01.PHANTOM.CORP"                               | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2178"   | "GPO ADMINS - WORKSTATIONS@PHANTOM.CORP"                  | 4    |
+| "S-1-5-21-2697957641-2271029196-387917394-2180"   | "JBK@PHANTOM.CORP"                                        | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2181"   | "SVC_DOMAINJOIN@PHANTOM.CORP"                             | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2183"   | "DOMAINUSER@PHANTOM.CORP"                                 | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2184"   | "ALLEXTENDEDRIGHTS-GROUP@PHANTOM.CORP"                    | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2185"   | "GMSA_SHS21$@PHANTOM.CORP"                                | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2188"   | "HELPDESKADMINS@PHANTOM.CORP"                             | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2189"   | "SERVERADMINS@PHANTOM.CORP"                               | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-2190"   | "ADMINSERVER01.PHANTOM.CORP"                              | 1    |
+| "S-1-5-21-2697957641-2271029196-387917394-2192"   | "MANUEL@PHANTOM.CORP"                                     | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2193"   | "RG_T1_SERVER_ADMINS@PHANTOM.CORP"                        | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2195"   | "WINRMREMOTEWMIUSERS__@PHANTOM.CORP"                      | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2203"   | "STEPHEN@PHANTOM.CORP"                                    | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2204"   | "HIDDENGROUP@PHANTOM.CORP"                                | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2205"   | "TEST@PHANTOM.CORP"                                       | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2206"   | "TEST2@PHANTOM.CORP"                                      | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2208"   | "ALLCHANGES@PHANTOM.CORP"                                 | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2209"   | "SOMECHANGES@PHANTOM.CORP"                                | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2211"   | "ESC13GROUP@PHANTOM.CORP"                                 | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2212"   | "DOMAINLOCALGROUP@PHANTOM.CORP"                           | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-2214"   | "GMANAGER@PHANTOM.CORP"                                   | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2215"   | "MAPPER@PHANTOM.CORP"                                     | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2216"   | "ZZZIGNE@PHANTOM.CORP"                                    | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2219"   | "ESC13USER2@PHANTOM.CORP"                                 | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2220"   | "NOPREAUTH@PHANTOM.CORP"                                  | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2221"   | "TARGET@PHANTOM.CORP"                                     | 3    |
+| "S-1-5-21-2697957641-2271029196-387917394-2222"   | "ADMINISTRATOR"                                           | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-2223"   | "PC.PHANTOM.CORP"                                         | 7    |
+| "S-1-5-21-2697957641-2271029196-387917394-498"    | "ENTERPRISE READ-ONLY DOMAIN CONTROLLERS@PHANTOM.CORP"    | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-501"    | "GUEST@PHANTOM.CORP"                                      | 5    |
+| "S-1-5-21-2697957641-2271029196-387917394-513"    | "DOMAIN USERS@PHANTOM.CORP"                               | 2    |
+| "S-1-5-21-2697957641-2271029196-387917394-514"    | "DOMAIN GUESTS@PHANTOM.CORP"                              | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-515"    | "DOMAIN COMPUTERS@PHANTOM.CORP"                           | 6    |
+| "S-1-5-21-2697957641-2271029196-387917394-520"    | "GROUP POLICY CREATOR OWNERS@PHANTOM.CORP"                | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-521"    | "READ-ONLY DOMAIN CONTROLLERS@PHANTOM.CORP"               | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-522"    | "CLONEABLE DOMAIN CONTROLLERS@PHANTOM.CORP"               | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-525"    | "PROTECTED USERS@PHANTOM.CORP"                            | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-553"    | "RAS AND IAS SERVERS@PHANTOM.CORP"                        | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-571"    | "ALLOWED RODC PASSWORD REPLICATION GROUP@PHANTOM.CORP"    | NULL |
+| "S-1-5-21-2697957641-2271029196-387917394-572"    | "DENIED RODC PASSWORD REPLICATION GROUP@PHANTOM.CORP"     | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-1102"  | "DNSUPDATEPROXY@GHOST.CORP"                               | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-501"   | "GUEST@GHOST.CORP"                                        | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-513"   | "DOMAIN USERS@GHOST.CORP"                                 | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-514"   | "DOMAIN GUESTS@GHOST.CORP"                                | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-515"   | "DOMAIN COMPUTERS@GHOST.CORP"                             | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-520"   | "GROUP POLICY CREATOR OWNERS@GHOST.CORP"                  | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-521"   | "READ-ONLY DOMAIN CONTROLLERS@GHOST.CORP"                 | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-522"   | "CLONEABLE DOMAIN CONTROLLERS@GHOST.CORP"                 | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-525"   | "PROTECTED USERS@GHOST.CORP"                              | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-553"   | "RAS AND IAS SERVERS@GHOST.CORP"                          | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-571"   | "ALLOWED RODC PASSWORD REPLICATION GROUP@GHOST.CORP"      | NULL |
+| "S-1-5-21-2845847946-3451170323-4261139666-572"   | "DENIED RODC PASSWORD REPLICATION GROUP@GHOST.CORP"       | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1102"  | "DNSUPDATEPROXY@WRAITH.CORP"                              | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1107"  | "T0_ADMINS_DOMAIN@WRAITH.CORP"                            | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1114"  | "EXTSRV01.WRAITH.CORP"                                    | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1115"  | "LAPS-READERS@WRAITH.CORP"                                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1116"  | "KRBTGT_16199@WRAITH.CORP"                                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1117"  | "EXTSRV02.WRAITH.CORP"                                    | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1118"  | "RODC-MANAGERS@WRAITH.CORP"                               | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-11203" | "UNCON.WRAITH.CORP"                                       | 1    |
+| "S-1-5-21-3702535222-3822678775-2090119576-1122"  | "CERT-MANAGERZ@WRAITH.CORP"                               | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1124"  | "ORGANIZATION MANAGEMENT@WRAITH.CORP"                     | 1    |
+| "S-1-5-21-3702535222-3822678775-2090119576-1125"  | "RECIPIENT MANAGEMENT@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1126"  | "VIEW-ONLY ORGANIZATION MANAGEMENT@WRAITH.CORP"           | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1127"  | "PUBLIC FOLDER MANAGEMENT@WRAITH.CORP"                    | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1128"  | "UM MANAGEMENT@WRAITH.CORP"                               | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1129"  | "HELP DESK@WRAITH.CORP"                                   | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1130"  | "RECORDS MANAGEMENT@WRAITH.CORP"                          | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1131"  | "DISCOVERY MANAGEMENT@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1132"  | "SERVER MANAGEMENT@WRAITH.CORP"                           | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1133"  | "DELEGATED SETUP@WRAITH.CORP"                             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1134"  | "HYGIENE MANAGEMENT@WRAITH.CORP"                          | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1135"  | "COMPLIANCE MANAGEMENT@WRAITH.CORP"                       | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1136"  | "SECURITY READER@WRAITH.CORP"                             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1137"  | "SECURITY ADMINISTRATOR@WRAITH.CORP"                      | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1138"  | "EXCHANGE SERVERS@WRAITH.CORP"                            | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1140"  | "MANAGED AVAILABILITY SERVERS@WRAITH.CORP"                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1142"  | "EXCHANGELEGACYINTEROP@WRAITH.CORP"                       | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1143"  | "$N31000-BBHT9IVGI4SP@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1144"  | "SM_B155AF8B1A654AD7B@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1145"  | "SM_EEB7D57B1FB548CF8@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1146"  | "SM_1A7427FCEEAF44A0B@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1147"  | "SM_156A673DB2BF45D48@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1148"  | "SM_6352FF0D1E8A4B359@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1149"  | "SM_D27DF2C10F6F4DCEB@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1150"  | "SM_5662B6499D81481EA@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1151"  | "SM_2BAE44F73C6440FEB@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1152"  | "SM_B3E37754DB7F4DE8B@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1153"  | "$141000-LDV9MS90TKNJ@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1154"  | "HEALTHMAILBOXC658051@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1155"  | "HEALTHMAILBOX7EA9F2A@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1156"  | "HEALTHMAILBOX69CCCDD@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1157"  | "HEALTHMAILBOXABC60D0@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1158"  | "HEALTHMAILBOXF48EA85@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1159"  | "HEALTHMAILBOX5B9D5FF@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1160"  | "HEALTHMAILBOX2B7B5D1@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1161"  | "HEALTHMAILBOX3741A31@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1162"  | "HEALTHMAILBOX94A5D11@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1163"  | "HEALTHMAILBOX3FCFECE@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1164"  | "HEALTHMAILBOX64077ED@WRAITH.CORP"                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1165"  | "ACTIVE DIRECTORY ADMINISTRATORS@WRAITH.CORP"             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1166"  | "TRUSTER@WRAITH.CORP"                                     | 1    |
+| "S-1-5-21-3702535222-3822678775-2090119576-1167"  | "WHATTHEHELL@WRAITH.CORP"                                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1174"  | "TESTER@WRAITH.CORP"                                      | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1175"  | "T1-ADMIN@WRAITH.CORP"                                    | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1179"  | "TARGET@WRAITH.CORP"                                      | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1180"  | "TEST.WRAITH.CORP"                                        | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1181"  | "VICTIMCOMPUTERA.WRAITH.CORP"                             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1182"  | "VICTIMUSERB@WRAITH.CORP"                                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1183"  | "TARGETUSERB@WRAITH.CORP"                                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1184"  | "VICTIMUSERC@WRAITH.CORP"                                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1185"  | "TARGETUSERD@WRAITH.CORP"                                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1186"  | "TARGETUSERD2"                                            | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-1188"  | "TARGETCOMPUTERC.WRAITH.CORP"                             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-498"   | "ENTERPRISE READ-ONLY DOMAIN CONTROLLERS@WRAITH.CORP"     | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-501"   | "GUEST@WRAITH.CORP"                                       | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-513"   | "DOMAIN USERS@WRAITH.CORP"                                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-514"   | "DOMAIN GUESTS@WRAITH.CORP"                               | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-515"   | "DOMAIN COMPUTERS@WRAITH.CORP"                            | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-520"   | "GROUP POLICY CREATOR OWNERS@WRAITH.CORP"                 | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-521"   | "READ-ONLY DOMAIN CONTROLLERS@WRAITH.CORP"                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-522"   | "CLONEABLE DOMAIN CONTROLLERS@WRAITH.CORP"                | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-525"   | "PROTECTED USERS@WRAITH.CORP"                             | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-553"   | "RAS AND IAS SERVERS@WRAITH.CORP"                         | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-571"   | "ALLOWED RODC PASSWORD REPLICATION GROUP@WRAITH.CORP"     | NULL |
+| "S-1-5-21-3702535222-3822678775-2090119576-572"   | "DENIED RODC PASSWORD REPLICATION GROUP@WRAITH.CORP"      | NULL |
+| "WRAITH.CORP-S-1-1-0"                             | "EVERYONE@WRAITH.CORP"                                    | NULL |
+| "WRAITH.CORP-S-1-18-1"                            | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@WRAITH.CORP"  | NULL |
+| "WRAITH.CORP-S-1-18-4"                            | "KEY TRUST@WRAITH.CORP"                                   | NULL |
+| "WRAITH.CORP-S-1-18-5"                            | "MFA KEY PROPERTY@WRAITH.CORP"                            | NULL |
+| "WRAITH.CORP-S-1-5-11"                            | "AUTHENTICATED USERS@WRAITH.CORP"                         | NULL |
+| "WRAITH.CORP-S-1-5-15"                            | "THIS ORGANIZATION@WRAITH.CORP"                           | NULL |
+| "WRAITH.CORP-S-1-5-17"                            | "IUSR@WRAITH.CORP"                                        | NULL |
+| "WRAITH.CORP-S-1-5-2"                             | "NETWORK@WRAITH.CORP"                                     | NULL |
+| "WRAITH.CORP-S-1-5-20"                            | "NETWORK SERVICE@WRAITH.CORP"                             | NULL |
+| "WRAITH.CORP-S-1-5-32-545"                        | "USERS@WRAITH.CORP"                                       | NULL |
+| "WRAITH.CORP-S-1-5-32-546"                        | "GUESTS@WRAITH.CORP"                                      | NULL |
+| "WRAITH.CORP-S-1-5-32-552"                        | "REPLICATORS@WRAITH.CORP"                                 | NULL |
+| "WRAITH.CORP-S-1-5-32-554"                        | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@WRAITH.CORP"          | NULL |
+| "WRAITH.CORP-S-1-5-32-555"                        | "REMOTE DESKTOP USERS@WRAITH.CORP"                        | NULL |
+| "WRAITH.CORP-S-1-5-32-556"                        | "NETWORK CONFIGURATION OPERATORS@WRAITH.CORP"             | NULL |
+| "WRAITH.CORP-S-1-5-32-558"                        | "PERFORMANCE MONITOR USERS@WRAITH.CORP"                   | NULL |
+| "WRAITH.CORP-S-1-5-32-560"                        | "WINDOWS AUTHORIZATION ACCESS GROUP@WRAITH.CORP"          | NULL |
+| "WRAITH.CORP-S-1-5-32-561"                        | "TERMINAL SERVER LICENSE SERVERS@WRAITH.CORP"             | NULL |
+| "WRAITH.CORP-S-1-5-32-568"                        | "IIS_IUSRS@WRAITH.CORP"                                   | NULL |
+| "WRAITH.CORP-S-1-5-32-573"                        | "EVENT LOG READERS@WRAITH.CORP"                           | NULL |
+| "WRAITH.CORP-S-1-5-32-574"                        | "CERTIFICATE SERVICE DCOM ACCESS@WRAITH.CORP"             | NULL |
+| "WRAITH.CORP-S-1-5-32-575"                        | "RDS REMOTE ACCESS SERVERS@WRAITH.CORP"                   | NULL |
+| "WRAITH.CORP-S-1-5-32-576"                        | "RDS ENDPOINT SERVERS@WRAITH.CORP"                        | NULL |
+| "WRAITH.CORP-S-1-5-32-577"                        | "RDS MANAGEMENT SERVERS@WRAITH.CORP"                      | NULL |
+| "WRAITH.CORP-S-1-5-32-578"                        | "HYPER-V ADMINISTRATORS@WRAITH.CORP"                      | NULL |
+| "WRAITH.CORP-S-1-5-32-579"                        | "ACCESS CONTROL ASSISTANCE OPERATORS@WRAITH.CORP"         | NULL |
+| "WRAITH.CORP-S-1-5-32-580"                        | "REMOTE MANAGEMENT USERS@WRAITH.CORP"                     | NULL |
+| "WRAITH.CORP-S-1-5-32-582"                        | "STORAGE REPLICA ADMINISTRATORS@WRAITH.CORP"              | NULL |
+| "WRAITH.CORP-S-1-5-4"                             | "INTERACTIVE@WRAITH.CORP"                                 | NULL |
+| "WRAITH.CORP-S-1-5-64-10"                         | "NTLM AUTHENTICATION@WRAITH.CORP"                         | NULL |
+| "WRAITH.CORP-S-1-5-64-14"                         | "SCHANNEL AUTHENTICATION@WRAITH.CORP"                     | NULL |
+| "WRAITH.CORP-S-1-5-65-1"                          | "THIS ORGANIZATION CERTIFICATE@WRAITH.CORP"               | NULL |
+| "WRAITH.CORP-S-1-5-7"                             | "ANONYMOUS@WRAITH.CORP"                                   | NULL |
++----------------------------------------------------------------------------------------------------------------------+
+
+277 rows
+ready to start consuming query after 3 ms, results consumed after another 3311 ms

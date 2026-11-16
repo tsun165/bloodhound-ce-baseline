@@ -1,0 +1,37 @@
+== d0 p1_reach_per_source
+  p1_reach_per_source run=explain cache=- wall_ms=4364 status=ok
+  p1_reach_per_source run=profile cache=- wall_ms=6819 status=ok
+  restart+ready: neo4j_ready 2026-11-16T16:21:31,477085900+07:00 total_wait_ms_since_restart_begin=31181 probes=12
+  p1_reach_per_source run=1 cache=cold wall_ms=6499 status=ok
+  p1_reach_per_source run=1 cache=warm wall_ms=4731 status=ok
+  p1_reach_per_source run=2 cache=warm wall_ms=4906 status=ok
+  p1_reach_per_source run=3 cache=warm wall_ms=4612 status=ok
+  p1_reach_per_source run=4 cache=warm wall_ms=4661 status=ok
+  p1_reach_per_source run=5 cache=warm wall_ms=4648 status=ok
+== d0 p2_exists_all
+  p2_exists_all run=explain cache=- wall_ms=1612 status=ok
+  p2_exists_all run=profile cache=- wall_ms=300094 status=timeout
+  restart+ready: neo4j_ready 2026-11-16T16:27:36,978016400+07:00 total_wait_ms_since_restart_begin=27014 probes=11
+  p2_exists_all run=1 cache=cold wall_ms=300079 status=timeout
+  p2_exists_all run=1 cache=warm wall_ms=300096 status=timeout
+  p2_exists_all run=2 cache=warm wall_ms=300097 status=timeout
+  p2_exists_all run=3 cache=warm wall_ms=300087 status=timeout
+  p2_exists_all run=4 cache=warm wall_ms=300088 status=timeout
+  p2_exists_all run=5 cache=warm wall_ms=300083 status=timeout
+== d0 p5_prebuilt
+  p5_prebuilt run=explain cache=- wall_ms=1684 status=ok
+  p5_prebuilt run=profile cache=- wall_ms=3080 status=ok
+  restart+ready: neo4j_ready 2026-11-16T16:58:12,338840700+07:00 total_wait_ms_since_restart_begin=15053 probes=5
+  p5_prebuilt run=1 cache=cold wall_ms=3223 status=ok
+  p5_prebuilt run=1 cache=warm wall_ms=2397 status=ok
+  p5_prebuilt run=2 cache=warm wall_ms=2360 status=ok
+  p5_prebuilt run=3 cache=warm wall_ms=2334 status=ok
+  p5_prebuilt run=4 cache=warm wall_ms=2300 status=ok
+  p5_prebuilt run=5 cache=warm wall_ms=2314 status=ok
+== d0 p3_reverse_traversal skipped
+== d0 p4_single_source
+  users: 68
+  p4_single_source run=explain cache=- wall_ms=1572 status=ok
+  p4_single_source run=profile cache=- wall_ms=1563 status=ok
+  restart+ready: neo4j_ready 2026-11-16T16:58:50,295548400+07:00 total_wait_ms_since_restart_begin=14453 probes=5
+  p4_single_source run=session cache=pass1=cold,pass2-4=warm wall_ms=8845 status=ok

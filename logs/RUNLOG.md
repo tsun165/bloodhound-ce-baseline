@@ -164,3 +164,18 @@ docker compose exec -T graph-db sh -c "ls -la /data/databases /data/transactions
 - cmd: `bash scripts/export_correctness.sh d0`
 - output: logs/raw/016-export-d0-all.log
 - ghi chú: Xuất kết quả tính đúng D0 (sau khi phân tích xong lúc 09:16:31Z)
+
+### — trạng thái máy trước đo hiệu năng D0
+- 2026-11-16T16:20 (ngay trước mục perf-d0): cắm sạc (BatteryStatus=2), Power mode Best performance (overlay ded574b5…), CPU load 5 %, RAM trống ~0,8 GB, không việc nặng song song. Datapipe CE idle (kiểm trước từng câu, xem logs/queries/d0/datapipe_checks.log). Các câu chạy tuần tự.
+
+### 25. perf-d0
+- start: 2026-11-16T16:20:46+07:00 · end: 2026-11-16T16:59:01+07:00 · duration_s: 2295.215 · exit: 0
+- cmd: `bash scripts/perf.sh d0`
+- output: logs/raw/025-perf-d0.log
+- ghi chú: Đo hiệu năng D0: p1,p2,p5 (EXPLAIN, PROFILE, restart, 1 lạnh + 5 ấm), p3 skipped, p4 (1 session 4 lượt: lượt 1 lạnh, 2-4 ấm). Chi tiết: scripts/perf.sh
+
+### 26. build-results-d0
+- start: 2026-11-16T16:59:15+07:00 · end: 2026-11-16T16:59:17+07:00 · duration_s: 1.638 · exit: 0
+- cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/build_results.py d0`
+- output: logs/raw/026-build-results-d0.log
+- ghi chú: Dựng results/d0 từ log thô (python:3.11-slim, chỉ stdlib)
