@@ -44,3 +44,50 @@ for i in $(seq 1 60); do docker info >/dev/null 2>&1 && break; sleep 5; done
 docker info --format "after: NCPU={{.NCPU}} MemTotal={{.MemTotal}}"`
 - output: logs/raw/005-wslconfig-and-restart.log
 - ghi chú: User đồng ý: Total Memory Docker 3.68 GiB < 4 GB nên đặt memory=5GB swap=2GB trong ~/.wslconfig (trước đó chưa có file), wsl --shutdown, mở lại Docker Desktop
+
+### 6. capture-env-before-host
+- start: 2026-11-16T16:04:09+07:00 · end: 2026-11-16T16:04:20+07:00 · duration_s: 10.593 · exit: 0
+- cmd: `bash scripts/capture_env.sh before host`
+- output: logs/raw/006-capture-env-before-host.log
+- ghi chú: Chụp môi trường before (host/docker/images/compose), trước khi dựng CE
+
+### 7. capture-env-before-host-2
+- start: 2026-11-16T16:07:12+07:00 · end: 2026-11-16T16:07:20+07:00 · duration_s: 7.811 · exit: 0
+- cmd: `bash scripts/capture_env.sh before host`
+- output: logs/raw/007-capture-env-before-host-2.log
+- ghi chú: Chụp lại before sau khi user tắt Energy saver và đặt Power mode (plugged in) = Best performance. Lần #6 bị ghi khi đang Best power efficiency (Energy saver On) nên bị thay thế; log #6 vẫn giữ.
+
+### — trạng thái máy trước đo cpu_ref (before)
+- thời điểm: 2026-11-16T16:07+07:00 (ngay trước mục 8)
+- cắm sạc: có (Win32_Battery.BatteryStatus=2). Power mode khi cắm sạc: Best performance (overlay ded574b5-45a0-4f42-8737-46345c09c238, kiểm bằng PowerGetEffectiveOverlayScheme). Energy saver: user đã tắt.
+- việc nặng song song: không (user đã đóng bớt ứng dụng; Claude desktop app + Docker Desktop vẫn chạy). Chưa dựng CE.
+- RAM trống của máy: ~0,87 GB (< 5 GB khuyến nghị; máy 8 GB và WSL/Docker được cấp 5 GB). Xem logs/env/before/hardware.txt.
+
+### 8. cpu-ref-before
+- start: 2026-11-16T16:07:20+07:00 · end: 2026-11-16T16:07:36+07:00 · duration_s: 15.432 · exit: 0
+- cmd: `for i in 1 2 3; do echo "run $i $(date --iso-8601=seconds)"; MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W)/scripts:/s:ro" python:3.11-slim python /s/cpu_ref.py; done`
+- output: logs/raw/008-cpu-ref-before.log
+- ghi chú: cpu_ref 3 lần trước khi chạy CE (mỗi lần = 1 container python:3.11-slim, 5 vòng work())
+
+### 9. compose-up
+- start: 2026-11-16T16:07:48+07:00 · end: 2026-11-16T16:13:07+07:00 · duration_s: 318.554 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose up -d 2>&1; for i in $(seq 1 60); do c=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8080/api/version); [ "$c" = 200 ] && break; sleep 5; done; echo "api/version http=$c after ~$((i*5))s"; curl -s http://127.0.0.1:8080/api/version; echo; docker compose ps`
+- output: logs/raw/009-compose-up.log
+- ghi chú: Dựng CE v9.9.2 (database sạch, volume mới) cho D0
+
+### 10. api-login
+- start: 2026-11-16T16:13:19+07:00 · end: 2026-11-16T16:13:21+07:00 · duration_s: 2.631 · exit: 0
+- cmd: `bash scripts/bh_api.sh login && bash scripts/bh_api.sh GET /api/version; echo; bash scripts/bh_api.sh GET /api/v2/self`
+- output: logs/raw/010-api-login.log
+
+### 11. capture-env-before-neo4j
+- start: 2026-11-16T16:13:30+07:00 · end: 2026-11-16T16:13:39+07:00 · duration_s: 9.143 · exit: 0
+- cmd: `bash scripts/capture_env.sh before neo4j`
+- output: logs/raw/011-capture-env-before-neo4j.log
+- ghi chú: neo4j.txt before: stack vừa dựng, DB rỗng, trước ingest D0
+
+### 12. capture-env-before-neo4j-2
+- start: 2026-11-16T16:14:07+07:00 · end: 2026-11-16T16:14:17+07:00 · duration_s: 10.285 · exit: 0
+- cmd: `bash scripts/capture_env.sh before neo4j`
+- output: logs/raw/012-capture-env-before-neo4j-2.log
+- ghi chú: Chụp lại neo4j.txt before để thêm heap thực tế qua JMX (lần #11 thiếu)

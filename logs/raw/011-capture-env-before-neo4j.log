@@ -1,0 +1,8 @@
+captured before/neo4j -> logs/env/before
+total 69
+-rw-r--r-- 1 <user> 197609  2579 Nov 16 16:07 compose.resolved.yml
+-rw-r--r-- 1 <user> 197609   592 Nov 16 16:07 cpu_ref.txt
+-rw-r--r-- 1 <user> 197609  4571 Nov 16 16:07 docker.txt
+-rw-r--r-- 1 <user> 197609   948 Nov 16 16:07 hardware.txt
+-rw-r--r-- 1 <user> 197609   969 Nov 16 16:07 images.txt
+-rw-r--r-- 1 <user> 197609 45641 Nov 16 16:13 neo4j.txt

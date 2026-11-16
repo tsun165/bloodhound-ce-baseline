@@ -1,0 +1,90 @@
+name: attack_path_prediction_indentity
+services:
+  app-db:
+    environment:
+      PGUSER: bloodhound
+      POSTGRES_DB: bloodhound
+      POSTGRES_PASSWORD: <redacted>
+      POSTGRES_USER: bloodhound
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U bloodhound -d bloodhound -h 127.0.0.1 -p 5432
+      timeout: 5s
+      interval: 10s
+      retries: 5
+      start_period: 30s
+    image: docker.io/library/postgres:18@sha256:2ea8630df176ad090ec92136dee850397c5af8781e4bcf2e4162593691c61bbc
+    networks:
+      default: null
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /var/lib/postgresql
+        volume: {}
+  bloodhound:
+    depends_on:
+      app-db:
+        condition: service_healthy
+        required: true
+      graph-db:
+        condition: service_healthy
+        required: true
+    environment:
+      bhe_database_connection: user=bloodhound password=<redacted>
+        dbname=bloodhound host=app-db
+      bhe_default_admin_password: <redacted>
+      bhe_disable_cypher_complexity_limit: "false"
+      bhe_enable_cypher_mutations: "false"
+      bhe_graph_driver: neo4j
+      bhe_graph_query_memory_limit: "2"
+      bhe_neo4j_connection: neo4j://neo4j:<redacted>@graph-db:7687/
+      bhe_recreate_default_admin: "false"
+    image: docker.io/specterops/bloodhound:9.9.2@sha256:47a21323d05185b284fff799c2b96bcc1d110f06f45b190f7ad83e69ef5e0d68
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 8080
+        published: "8080"
+        protocol: tcp
+  graph-db:
+    environment:
+      NEO4J_AUTH: neo4j/<redacted>
+      NEO4J_dbms_allow__upgrade: "true"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - wget -O /dev/null -q http://localhost:7474 || exit 1
+      timeout: 5s
+      interval: 10s
+      retries: 5
+      start_period: 30s
+    image: docker.io/library/neo4j:4.4.42@sha256:73b5a47eb9952f47fcc42fcc80bdd6bd0d6b71eea9a1a345c216675498c790e4
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 7687
+        published: "7687"
+        protocol: tcp
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 7474
+        published: "7474"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: neo4j-data
+        target: /data
+        volume: {}
+networks:
+  default:
+    name: attack_path_prediction_indentity_default
+volumes:
+  neo4j-data:
+    name: attack_path_prediction_indentity_neo4j-data
+  postgres-data:
+    name: attack_path_prediction_indentity_postgres-data

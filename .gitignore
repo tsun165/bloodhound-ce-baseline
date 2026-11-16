@@ -6,3 +6,4 @@ vendor/
 !.env.example
 logs/raw/*.tmp
 __pycache__/
+.bh_token

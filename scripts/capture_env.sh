@@ -52,6 +52,8 @@ if [ "$part" = neo4j ] || [ "$part" = all ]; then
     echo; echo "## SHOW INDEXES"; echo "SHOW INDEXES;" | CS
     echo; echo "## SHOW CONSTRAINTS"; echo "SHOW CONSTRAINTS;" | CS
     echo; echo "## APOC / GDS procedures"; echo "CALL dbms.procedures() YIELD name WHERE name STARTS WITH 'apoc' OR name STARTS WITH 'gds' RETURN name;" | CS
+    echo; echo "## JVM heap actually in use (JMX java.lang:type=Memory, bytes) + JVM args"
+    echo 'CALL dbms.queryJmx("java.lang:type=Memory") YIELD attributes RETURN attributes.HeapMemoryUsage.value.properties AS heap; CALL dbms.queryJmx("java.lang:type=Runtime") YIELD attributes RETURN attributes.InputArguments.value AS jvm_args;' | CS
     echo; echo "## heap / pagecache as seen by the JVM (neo4j container)"
     docker compose exec -T graph-db sh -c 'ls /var/lib/neo4j/labs /var/lib/neo4j/plugins 2>&1; grep -E "^(dbms\.memory|#?dbms\.memory)" /var/lib/neo4j/conf/neo4j.conf 2>&1'
     echo; echo "## neo4j store dirs"; docker compose exec -T graph-db sh -c 'du -sb /data/databases/* /data/transactions/* 2>&1'
