@@ -1,0 +1,4 @@
+repo: https://github.com/SpecterOps/BloodHound
+tag: v9.9.2
+commit: 93dcb33af324ef6b080f9bd110d65c8ee2ea8bc4
+cloned: shallow (--depth 1) into vendor/BloodHound (gitignored)

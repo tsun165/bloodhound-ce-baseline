@@ -1,0 +1,11 @@
+before: NCPU=12 MemTotal=3951841280
+[wsl2]
+memory=5GB
+swap=2GB
+SUCCESS: The process "Docker Desktop.exe" with PID 14784 has been terminated.
+SUCCESS: The process "Docker Desktop.exe" with PID 8108 has been terminated.
+SUCCESS: The process "Docker Desktop.exe" with PID 13508 has been terminated.
+SUCCESS: The process "Docker Desktop.exe" with PID 5140 has been terminated.
+SUCCESS: The process "Docker Desktop.exe" with PID 18304 has been terminated.
+wsl shutdown rc=0
+after: NCPU=12 MemTotal=5157691392

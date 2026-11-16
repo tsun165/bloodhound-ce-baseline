@@ -1,0 +1,9 @@
+# Datasets (downloaded 2026-11-16T15:51:13+07:00)
+# columns: dataset<TAB>url<TAB>file<TAB>size_bytes<TAB>sha256
+# D0 source page: https://bloodhound.specterops.io/get-started/quickstart/community-edition-quickstart (link 'Active Directory' under '1. Download sample data')
+# D0 repo SpecterOps/BloodHound-Docs, last commit touching file: 0c522921840d753bda0425b62f231da0e3c79362
+# D1 repo m4lwhere/Bloodhound-CE-Sample-Data HEAD at download: 4d365b8774b6ac5db44a510db8bdfbb2151de48b (only the 3 SharpHound zips; ce_branch_bloodhoundpy_* NOT used)
+d0	https://raw.githubusercontent.com/SpecterOps/BloodHound-Docs/main/docs/assets/sample-data/ad_sampledata.zip	ad_sampledata.zip	165712	d32eb854bfaa1610078681c508a0ff7f2567f089eb9de00429a1cc951bf0b96e
+d1	https://raw.githubusercontent.com/m4lwhere/Bloodhound-CE-Sample-Data/main/ESSOS_20240410083816_BloodHound-2.3.3.zip	ESSOS_20240410083816_BloodHound-2.3.3.zip	32272	9d3efe4d60fd6392abb8ec8c85b9b09b518983ab4e769a468c6d9b82f058286c
+d1	https://raw.githubusercontent.com/m4lwhere/Bloodhound-CE-Sample-Data/main/NORTH_20240410083414_BloodHound-2.3.3.zip	NORTH_20240410083414_BloodHound-2.3.3.zip	31595	9f4482553b3d6b20df16e2fd615d543ac267f0e9a062ec4578d517548b4c666c
+d1	https://raw.githubusercontent.com/m4lwhere/Bloodhound-CE-Sample-Data/main/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip	SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip	32150	71c78ef79b4617a3a9938ded41010f6479d282319644bed335976fa2303f4d78

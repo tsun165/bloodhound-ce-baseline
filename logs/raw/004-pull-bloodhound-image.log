@@ -1,0 +1,90 @@
+9.9.2: Pulling from specterops/bloodhound
+a5789fc40e82: Pulling fs layer
+990a9c434e5e: Pulling fs layer
+39dc083afc39: Pulling fs layer
+bf7a4185f015: Pulling fs layer
+2780920e5dbf: Pulling fs layer
+7c12895b777b: Pulling fs layer
+bf7a4185f015: Waiting
+2780920e5dbf: Waiting
+7c12895b777b: Waiting
+3214acf345c0: Pulling fs layer
+3214acf345c0: Waiting
+52630fc75a18: Pulling fs layer
+dd64bf2dd177: Pulling fs layer
+52630fc75a18: Waiting
+b839dfae01f6: Pulling fs layer
+dd64bf2dd177: Waiting
+dcaa5a89b0cc: Pulling fs layer
+b839dfae01f6: Waiting
+dcaa5a89b0cc: Waiting
+96ed2737ae31: Pulling fs layer
+d40c1b0e1dce: Pulling fs layer
+96ed2737ae31: Waiting
+d40c1b0e1dce: Waiting
+3f27c160bf81: Pulling fs layer
+021e024fe94f: Pulling fs layer
+3f27c160bf81: Waiting
+319fa50709b9: Pulling fs layer
+021e024fe94f: Waiting
+9eab2fb5ae98: Pulling fs layer
+319fa50709b9: Waiting
+3d0d5a5acc63: Pulling fs layer
+9eab2fb5ae98: Waiting
+3d0d5a5acc63: Waiting
+990a9c434e5e: Verifying Checksum
+990a9c434e5e: Download complete
+a5789fc40e82: Download complete
+39dc083afc39: Verifying Checksum
+39dc083afc39: Download complete
+bf7a4185f015: Download complete
+2780920e5dbf: Verifying Checksum
+2780920e5dbf: Download complete
+7c12895b777b: Verifying Checksum
+7c12895b777b: Download complete
+52630fc75a18: Verifying Checksum
+52630fc75a18: Download complete
+b839dfae01f6: Verifying Checksum
+b839dfae01f6: Download complete
+dd64bf2dd177: Verifying Checksum
+dd64bf2dd177: Download complete
+dcaa5a89b0cc: Verifying Checksum
+dcaa5a89b0cc: Download complete
+96ed2737ae31: Verifying Checksum
+96ed2737ae31: Download complete
+3214acf345c0: Verifying Checksum
+3214acf345c0: Download complete
+3f27c160bf81: Download complete
+319fa50709b9: Verifying Checksum
+319fa50709b9: Download complete
+a5789fc40e82: Pull complete
+990a9c434e5e: Pull complete
+021e024fe94f: Verifying Checksum
+021e024fe94f: Download complete
+3d0d5a5acc63: Verifying Checksum
+3d0d5a5acc63: Download complete
+9eab2fb5ae98: Verifying Checksum
+9eab2fb5ae98: Download complete
+d40c1b0e1dce: Verifying Checksum
+d40c1b0e1dce: Download complete
+39dc083afc39: Pull complete
+bf7a4185f015: Pull complete
+2780920e5dbf: Pull complete
+7c12895b777b: Pull complete
+3214acf345c0: Pull complete
+52630fc75a18: Pull complete
+dd64bf2dd177: Pull complete
+b839dfae01f6: Pull complete
+dcaa5a89b0cc: Pull complete
+96ed2737ae31: Pull complete
+d40c1b0e1dce: Pull complete
+3f27c160bf81: Pull complete
+021e024fe94f: Pull complete
+319fa50709b9: Pull complete
+9eab2fb5ae98: Pull complete
+3d0d5a5acc63: Pull complete
+Digest: sha256:47a21323d05185b284fff799c2b96bcc1d110f06f45b190f7ad83e69ef5e0d68
+Status: Downloaded newer image for specterops/bloodhound:9.9.2
+docker.io/specterops/bloodhound:9.9.2
+REPOSITORY              TAG       DIGEST                                                                    IMAGE ID       CREATED      SIZE
+specterops/bloodhound   9.9.2     sha256:47a21323d05185b284fff799c2b96bcc1d110f06f45b190f7ad83e69ef5e0d68   01c9d54ed44d   9 days ago   122MB

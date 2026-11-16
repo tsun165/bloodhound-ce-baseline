@@ -1,0 +1,104 @@
+data/d0:
+total 164
+-rw-r--r-- 1 <user> 197609 165712 Nov 16 15:50 ad_sampledata.zip
+
+data/d1:
+total 96
+-rw-r--r-- 1 <user> 197609 32272 Nov 16 15:50 ESSOS_20240410083816_BloodHound-2.3.3.zip
+-rw-r--r-- 1 <user> 197609 31595 Nov 16 15:50 NORTH_20240410083414_BloodHound-2.3.3.zip
+-rw-r--r-- 1 <user> 197609 32150 Nov 16 15:50 SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip
+d32eb854bfaa1610078681c508a0ff7f2567f089eb9de00429a1cc951bf0b96e *data/d0/ad_sampledata.zip
+9d3efe4d60fd6392abb8ec8c85b9b09b518983ab4e769a468c6d9b82f058286c *data/d1/ESSOS_20240410083816_BloodHound-2.3.3.zip
+9f4482553b3d6b20df16e2fd615d543ac267f0e9a062ec4578d517548b4c666c *data/d1/NORTH_20240410083414_BloodHound-2.3.3.zip
+71c78ef79b4617a3a9938ded41010f6479d282319644bed335976fa2303f4d78 *data/d1/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip
+== data/d0/ad_sampledata.zip
+Archive:  data/d0/ad_sampledata.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    10521  2024-03-07 03:13   20240305110018_aiacas.json
+   209820  2024-03-07 03:13   20240305110018_certtemplates.json
+    93716  2024-03-27 16:56   20240305110018_computers.json
+   349309  2024-04-10 19:01   20240305110018_containers.json
+     8053  2024-03-26 22:30   20240305110018_domains.json
+    16731  2024-03-07 03:13   20240305110018_enterprisecas.json
+    43667  2024-04-11 17:45   20240305110018_gpos.json
+   156154  2024-11-18 11:02   20240305110018_groups.json
+     2190  2024-03-07 03:13   20240305110018_ntauthstores.json
+    24097  2024-04-10 21:34   20240305110018_ous.json
+    10471  2024-03-07 03:13   20240305110018_rootcas.json
+   181760  2024-04-11 17:53   20240305110018_users.json
+     4354  2024-03-07 03:34   20240305110427_computers.json
+   344807  2024-03-07 03:28   20240305110427_containers.json
+     3862  2024-03-07 03:28   20240305110427_domains.json
+     5810  2024-03-07 03:28   20240305110427_gpos.json
+    96038  2024-03-25 21:53   20240305110427_groups.json
+     2096  2024-03-07 03:28   20240305110427_ous.json
+    22192  2024-03-25 21:53   20240305110427_users.json
+     5005  2024-03-07 03:42   20240305111414_aiacas.json
+   137279  2024-03-07 03:42   20240305111414_certtemplates.json
+    69576  2024-11-18 11:07   20240305111414_computers.json
+  1315277  2024-03-07 03:53   20240305111414_containers.json
+     5598  2024-03-07 03:42   20240305111414_domains.json
+    19476  2024-03-07 04:00   20240305111414_enterprisecas.json
+    14511  2024-03-07 03:42   20240305111414_gpos.json
+   200519  2024-03-25 22:41   20240305111414_groups.json
+     2194  2024-03-07 03:42   20240305111414_ntauthstores.json
+    10965  2024-03-07 03:42   20240305111414_ous.json
+     2541  2024-03-07 03:42   20240305111414_rootcas.json
+   150005  2024-03-25 21:58   20240305111414_users.json
+---------                     -------
+  3518594                     31 files
+== data/d1/ESSOS_20240410083816_BloodHound-2.3.3.zip
+Archive:  data/d1/ESSOS_20240410083816_BloodHound-2.3.3.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    12003  2024-04-10 08:38   ESSOS_20240410083816_computers.json
+    33934  2024-04-10 08:38   ESSOS_20240410083816_users.json
+    98921  2024-04-10 08:38   ESSOS_20240410083816_groups.json
+   267887  2024-04-10 08:38   ESSOS_20240410083816_containers.json
+     2747  2024-04-10 08:38   ESSOS_20240410083816_domains.json
+     5688  2024-04-10 08:38   ESSOS_20240410083816_gpos.json
+     2737  2024-04-10 08:38   ESSOS_20240410083816_ous.json
+     1934  2024-04-10 08:38   ESSOS_20240410083816_rootcas.json
+     1917  2024-04-10 08:38   ESSOS_20240410083816_aiacas.json
+     5762  2024-04-10 08:38   ESSOS_20240410083816_enterprisecas.json
+     1630  2024-04-10 08:38   ESSOS_20240410083816_ntauthstores.json
+    88991  2024-04-10 08:38   ESSOS_20240410083816_certtemplates.json
+---------                     -------
+   524151                     12 files
+== data/d1/NORTH_20240410083414_BloodHound-2.3.3.zip
+Archive:  data/d1/NORTH_20240410083414_BloodHound-2.3.3.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    13711  2024-04-10 08:34   NORTH_20240410083414_computers.json
+    42446  2024-04-10 08:34   NORTH_20240410083414_users.json
+    93142  2024-04-10 08:34   NORTH_20240410083414_groups.json
+   265340  2024-04-10 08:34   NORTH_20240410083414_containers.json
+     3163  2024-04-10 08:34   NORTH_20240410083414_domains.json
+     5494  2024-04-10 08:34   NORTH_20240410083414_gpos.json
+     1733  2024-04-10 08:34   NORTH_20240410083414_ous.json
+     1970  2024-04-10 08:34   NORTH_20240410083414_rootcas.json
+     1954  2024-04-10 08:34   NORTH_20240410083414_aiacas.json
+     5304  2024-04-10 08:34   NORTH_20240410083414_enterprisecas.json
+     1651  2024-04-10 08:34   NORTH_20240410083414_ntauthstores.json
+    78029  2024-04-10 08:34   NORTH_20240410083414_certtemplates.json
+---------                     -------
+   513937                     12 files
+== data/d1/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip
+Archive:  data/d1/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     9814  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_computers.json
+    39707  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_users.json
+   105833  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_groups.json
+   266059  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_containers.json
+     3045  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_domains.json
+     3878  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_gpos.json
+    10913  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_ous.json
+     1970  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_rootcas.json
+     1954  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_aiacas.json
+     5304  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_enterprisecas.json
+     1651  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_ntauthstores.json
+    78029  2024-04-10 08:36   SEVENKINGDOMS_20240410083609_certtemplates.json
+---------                     -------
+   528157                     12 files

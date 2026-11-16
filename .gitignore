@@ -1,0 +1,8 @@
+data/
+vendor/
+.env
+*.env
+.env.*
+!.env.example
+logs/raw/*.tmp
+__pycache__/
