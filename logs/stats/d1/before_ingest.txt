@@ -1,0 +1,4 @@
+CONTAINER ID   NAME                                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O         PIDS
+f0b553257764   attack_path_prediction_indentity-bloodhound-1   0.00%     2.076GiB / 4.803GiB   43.22%    535kB / 586kB   12MB / 0B         17
+d88f85737d07   attack_path_prediction_indentity-graph-db-1     4.43%     745.6MiB / 4.803GiB   15.16%    229kB / 323kB   210MB / 192MB     95
+5181443171d9   attack_path_prediction_indentity-app-db-1       0.12%     68.04MiB / 4.803GiB   1.38%     356kB / 208kB   50.8MB / 62.4MB   14

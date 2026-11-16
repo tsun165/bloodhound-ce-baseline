@@ -179,3 +179,86 @@ docker compose exec -T graph-db sh -c "ls -la /data/databases /data/transactions
 - cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/build_results.py d0`
 - output: logs/raw/026-build-results-d0.log
 - ghi chú: Dựng results/d0 từ log thô (python:3.11-slim, chỉ stdlib)
+
+### 27. compose-down-v
+- start: 2026-11-16T17:06:43+07:00 · end: 2026-11-16T17:06:48+07:00 · duration_s: 5.130 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose down -v 2>&1; docker volume ls | grep attack_path || echo "no project volumes left"`
+- output: logs/raw/027-compose-down-v.log
+- ghi chú: User đồng ý: docker compose down -v (xoá volume neo4j-data, postgres-data của project) để D1 có database sạch
+
+### 28. compose-up-d1
+- start: 2026-11-16T17:06:49+07:00 · end: 2026-11-16T17:07:27+07:00 · duration_s: 38.572 · exit: 0
+- cmd: `set -a; . ./.env; set +a; t0=$(date +%s); docker compose up -d 2>&1; for i in $(seq 1 120); do bash scripts/bh_api.sh login >/dev/null 2>&1 && break; sleep 2; done; echo "login ok after $(( $(date +%s) - t0 ))s (probes=$i)"; bash scripts/bh_api.sh GET /api/version; echo; bash scripts/bh_api.sh GET /api/v2/datapipe/status; echo; docker compose ps`
+- output: logs/raw/028-compose-up-d1.log
+- ghi chú: Dựng lại CE (cùng compose, cùng image digest) với volume mới cho D1; chờ tới khi login API thành công
+
+### 29. d1-precheck
+- start: 2026-11-16T17:07:36+07:00 · end: 2026-11-16T17:07:40+07:00 · duration_s: 4.097 · exit: 0
+- cmd: `set -a; . ./.env; set +a; for i in $(seq 1 60); do s=$(bash scripts/bh_api.sh GET /api/v2/datapipe/status); echo "$s" | grep -q "\"status\":\"idle\"" && break; sleep 5; done; echo "$s"; echo "MATCH (n) RETURN count(n) AS nodes; MATCH ()-[r]->() RETURN count(r) AS rels;" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain; docker stats --no-stream | tee logs/stats/d1/before_ingest.txt`
+- output: logs/raw/029-d1-precheck.log
+- ghi chú: Chờ datapipe idle sau khởi động, xác nhận Neo4j rỗng (database sạch) trước ingest D1
+
+### — trạng thái máy trước nạp D1
+- 2026-11-16T17:07:52+07:00: cắm sạc (BatteryStatus=2), RAM trống ~724 MB. Lệnh kiểm Power mode lúc này **lỗi** (quoting PowerShell trong bash, in ra Guid rỗng 0000…, không phải số đo). Kiểm lại đúng cách ngay sau ingest lúc 2026-11-16T17:09:05+07:00: overlay=ded574b5-45a0-4f42-8737-46345c09c238 (Best performance). Không có dấu hiệu đổi chế độ giữa chừng nhưng không chứng minh được cho đúng thời điểm ingest. Không có việc nặng song song. Database sạch bằng `docker compose down -v` + `up -d` (mục 27, 28), Neo4j còn 1 node MigrationData, 0 cạnh (mục 29).
+
+### 30. ingest-d1
+- start: 2026-11-16T17:07:52+07:00 · end: 2026-11-16T17:08:56+07:00 · duration_s: 63.133 · exit: 0
+- cmd: `bash scripts/ingest.sh d1 data/d1/ESSOS_20240410083816_BloodHound-2.3.3.zip data/d1/NORTH_20240410083414_BloodHound-2.3.3.zip data/d1/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip`
+- output: logs/raw/030-ingest-d1.log
+- ghi chú: Nạp D1: 3 zip SharpHound (ESSOS, NORTH, SEVENKINGDOMS) vào CÙNG một ingest job, database sạch
+
+### 31. collect-d1-after-analysis
+- start: 2026-11-16T17:09:30+07:00 · end: 2026-11-16T17:09:35+07:00 · duration_s: 4.041 · exit: 0
+- cmd: `
+docker compose logs --timestamps bloodhound | perl scripts/redact.pl > logs/ingest/d1/bloodhound.log
+docker compose logs --timestamps graph-db | perl scripts/redact.pl > logs/ingest/d1/graph-db.log
+docker stats --no-stream | tee logs/stats/d1/after_analysis.txt
+docker compose exec -T graph-db sh -c "ls -la /data/databases /data/transactions; du -sb /data/databases/neo4j /data/transactions/neo4j" | tee logs/stats/d1/store_size.txt`
+- output: logs/raw/031-collect-d1-after-analysis.log
+- ghi chú: Sau khi phân tích D1 xong: log bloodhound/graph-db, docker stats, dung lượng store
+
+### 33. export-d1-node_counts
+- start: 2026-11-16T17:09:35+07:00 · end: 2026-11-16T17:09:37+07:00 · duration_s: 1.872 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_node_counts.cypher > results/d1/node_counts.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/node_counts.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/033-export-d1-node_counts.log
+
+### 34. export-d1-edge_counts
+- start: 2026-11-16T17:09:38+07:00 · end: 2026-11-16T17:09:39+07:00 · duration_s: 1.430 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_edge_counts.cypher > results/d1/edge_counts.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/edge_counts.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/034-export-d1-edge_counts.log
+
+### 35. export-d1-nodes
+- start: 2026-11-16T17:09:39+07:00 · end: 2026-11-16T17:09:41+07:00 · duration_s: 1.599 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_nodes.cypher > results/d1/nodes.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/nodes.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/035-export-d1-nodes.log
+
+### 36. export-d1-edges_22
+- start: 2026-11-16T17:09:41+07:00 · end: 2026-11-16T17:09:43+07:00 · duration_s: 1.952 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_edges_22.cypher > results/d1/edges_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/edges_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/036-export-d1-edges_22.log
+
+### 37. export-d1-tier0
+- start: 2026-11-16T17:09:44+07:00 · end: 2026-11-16T17:09:45+07:00 · duration_s: 1.417 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_tier0.cypher > results/d1/tier0.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/tier0.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/037-export-d1-tier0.log
+
+### 38. export-d1-reach_22
+- start: 2026-11-16T17:09:46+07:00 · end: 2026-11-16T17:09:49+07:00 · duration_s: 3.803 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_reach_22.cypher > results/d1/reach_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/reach_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/038-export-d1-reach_22.log
+
+### 39. export-d1-reach_all
+- start: 2026-11-16T17:09:50+07:00 · end: 2026-11-16T17:09:57+07:00 · duration_s: 7.551 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_reach_all.cypher > results/d1/reach_all.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/reach_all.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/039-export-d1-reach_all.log
+
+### 40. export-d1-prebuilt_tier0
+- start: 2026-11-16T17:09:58+07:00 · end: 2026-11-16T17:10:03+07:00 · duration_s: 4.948 · exit: 0
+- cmd: `bash scripts/bh_api.sh login >/dev/null && perl -MJSON::PP -0e 'local $/; my $q=<STDIN>; $q =~ s/;\s*\z//; print JSON::PP->new->canonical->encode({query=>$q, include_properties=>JSON::PP::true})' < queries/q_prebuilt_tier0.cypher | bash scripts/bh_api.sh POST /api/v2/graphs/cypher -H 'Content-Type: application/json' --data-binary @- -o results/d1/prebuilt_tier0.json -w 'http=%{http_code} bytes=%{size_download}\n'`
+- output: logs/raw/040-export-d1-prebuilt_tier0.log
+
+### 32. export-d1-all
+- start: 2026-11-16T17:09:35+07:00 · end: 2026-11-16T17:10:03+07:00 · duration_s: 27.774 · exit: 0
+- cmd: `bash scripts/export_correctness.sh d1`
+- output: logs/raw/032-export-d1-all.log
+- ghi chú: Xuất kết quả tính đúng D1

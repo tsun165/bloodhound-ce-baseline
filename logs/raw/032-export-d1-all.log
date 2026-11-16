@@ -1,0 +1,8 @@
+[run.sh] #33 export-d1-node_counts exit=0 dur=1.872s -> logs/raw/033-export-d1-node_counts.log
+[run.sh] #34 export-d1-edge_counts exit=0 dur=1.430s -> logs/raw/034-export-d1-edge_counts.log
+[run.sh] #35 export-d1-nodes exit=0 dur=1.599s -> logs/raw/035-export-d1-nodes.log
+[run.sh] #36 export-d1-edges_22 exit=0 dur=1.952s -> logs/raw/036-export-d1-edges_22.log
+[run.sh] #37 export-d1-tier0 exit=0 dur=1.417s -> logs/raw/037-export-d1-tier0.log
+[run.sh] #38 export-d1-reach_22 exit=0 dur=3.803s -> logs/raw/038-export-d1-reach_22.log
+[run.sh] #39 export-d1-reach_all exit=0 dur=7.551s -> logs/raw/039-export-d1-reach_all.log
+[run.sh] #40 export-d1-prebuilt_tier0 exit=0 dur=4.948s -> logs/raw/040-export-d1-prebuilt_tier0.log

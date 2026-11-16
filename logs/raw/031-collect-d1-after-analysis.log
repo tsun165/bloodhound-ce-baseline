@@ -1,0 +1,20 @@
+CONTAINER ID   NAME                                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O       PIDS
+f0b553257764   attack_path_prediction_indentity-bloodhound-1   0.00%     2.31GiB / 4.803GiB    48.10%    2.83MB / 3.98MB   53.1MB / 38MB   17
+d88f85737d07   attack_path_prediction_indentity-graph-db-1     1.23%     820.7MiB / 4.803GiB   16.69%    3.3MB / 2.15MB    247MB / 226MB   135
+5181443171d9   attack_path_prediction_indentity-app-db-1       0.02%     92.08MiB / 4.803GiB   1.87%     637kB / 554kB     67MB / 82.2MB   17
+/data/databases:
+total 16
+drwxrwxrwx 4 neo4j neo4j 4096 Nov 16 10:06 .
+drwxrwxrwx 5 neo4j neo4j 4096 Nov 16 10:06 ..
+drwxr-xr-x 3 neo4j neo4j 4096 Nov 16 10:07 neo4j
+-rw-r--r-- 1 neo4j neo4j    0 Nov 16 10:06 store_lock
+drwxr-xr-x 3 neo4j neo4j 4096 Nov 16 10:06 system
+
+/data/transactions:
+total 16
+drwxrwxrwx 4 neo4j neo4j 4096 Nov 16 10:06 .
+drwxrwxrwx 5 neo4j neo4j 4096 Nov 16 10:06 ..
+drwxr-xr-x 2 neo4j neo4j 4096 Nov 16 10:06 neo4j
+drwxr-xr-x 2 neo4j neo4j 4096 Nov 16 10:06 system
+18184908	/data/databases/neo4j
+262148160	/data/transactions/neo4j
