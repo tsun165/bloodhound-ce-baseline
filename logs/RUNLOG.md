@@ -91,3 +91,76 @@ docker info --format "after: NCPU={{.NCPU}} MemTotal={{.MemTotal}}"`
 - cmd: `bash scripts/capture_env.sh before neo4j`
 - output: logs/raw/012-capture-env-before-neo4j-2.log
 - ghi chú: Chụp lại neo4j.txt before để thêm heap thực tế qua JMX (lần #11 thiếu)
+
+### — ghi chú cho mục 9 (compose-up)
+- vòng chờ trong mục 9 đợi `GET /api/version` trả 200, nhưng endpoint này cần auth (trả 401) nên vòng chờ chạy hết 60×5 s. Duration 318 s của mục 9 **không** phải thời gian khởi động CE. Theo log, container healthy và API đã phản hồi sớm hơn nhiều.
+
+### — trạng thái máy trước nạp D0
+- cắm sạc, Power mode = Best performance (như trên), không có việc nặng song song, chỉ chạy CE. Nạp qua **API** (`POST /api/v2/file-upload/start` → `POST /api/v2/file-upload/{id}` (Content-Type application/zip) → `POST /api/v2/file-upload/{id}/end`), poll 5 s `GET /api/v2/datapipe/status` + `GET /api/v2/file-upload?id=eq:<job>`.
+
+### 13. stats-d0-before-ingest
+- start: 2026-11-16T16:15:31+07:00 · end: 2026-11-16T16:15:33+07:00 · duration_s: 2.390 · exit: 0
+- cmd: `docker stats --no-stream | tee logs/stats/d0/before_ingest.txt`
+- output: logs/raw/013-stats-d0-before-ingest.log
+
+### 14. ingest-d0
+- start: 2026-11-16T16:15:34+07:00 · end: 2026-11-16T16:16:34+07:00 · duration_s: 59.795 · exit: 0
+- cmd: `bash scripts/ingest.sh d0 data/d0/ad_sampledata.zip`
+- output: logs/raw/014-ingest-d0.log
+- ghi chú: Nạp D0 (ad_sampledata.zip) qua API vào database sạch (volume mới tạo ở mục 9)
+
+### 15. collect-d0-after-analysis
+- start: 2026-11-16T16:16:58+07:00 · end: 2026-11-16T16:17:04+07:00 · duration_s: 6.186 · exit: 0
+- cmd: `
+docker compose logs --timestamps bloodhound | perl scripts/redact.pl > logs/ingest/d0/bloodhound.log
+docker compose logs --timestamps graph-db | perl scripts/redact.pl > logs/ingest/d0/graph-db.log
+docker stats --no-stream | tee logs/stats/d0/after_analysis.txt
+docker compose exec -T graph-db sh -c "ls -la /data/databases /data/transactions; du -sb /data/databases/neo4j /data/transactions/neo4j" | tee logs/stats/d0/store_size.txt`
+- output: logs/raw/015-collect-d0-after-analysis.log
+- ghi chú: Sau khi phân tích D0 xong: log bloodhound/graph-db, docker stats, dung lượng store Neo4j
+
+### 17. export-d0-node_counts
+- start: 2026-11-16T16:18:50+07:00 · end: 2026-11-16T16:18:52+07:00 · duration_s: 2.231 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_node_counts.cypher > results/d0/node_counts.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/node_counts.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/017-export-d0-node_counts.log
+
+### 18. export-d0-edge_counts
+- start: 2026-11-16T16:18:52+07:00 · end: 2026-11-16T16:18:54+07:00 · duration_s: 1.657 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_edge_counts.cypher > results/d0/edge_counts.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/edge_counts.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/018-export-d0-edge_counts.log
+
+### 19. export-d0-nodes
+- start: 2026-11-16T16:18:55+07:00 · end: 2026-11-16T16:18:56+07:00 · duration_s: 1.552 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_nodes.cypher > results/d0/nodes.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/nodes.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/019-export-d0-nodes.log
+
+### 20. export-d0-edges_22
+- start: 2026-11-16T16:18:56+07:00 · end: 2026-11-16T16:18:59+07:00 · duration_s: 2.068 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_edges_22.cypher > results/d0/edges_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/edges_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/020-export-d0-edges_22.log
+
+### 21. export-d0-tier0
+- start: 2026-11-16T16:18:59+07:00 · end: 2026-11-16T16:19:00+07:00 · duration_s: 1.442 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_tier0.cypher > results/d0/tier0.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/tier0.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/021-export-d0-tier0.log
+
+### 22. export-d0-reach_22
+- start: 2026-11-16T16:19:01+07:00 · end: 2026-11-16T16:19:07+07:00 · duration_s: 5.917 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_reach_22.cypher > results/d0/reach_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/reach_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/022-export-d0-reach_22.log
+
+### 23. export-d0-reach_all
+- start: 2026-11-16T16:19:07+07:00 · end: 2026-11-16T16:19:25+07:00 · duration_s: 17.513 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_reach_all.cypher > results/d0/reach_all.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/reach_all.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/023-export-d0-reach_all.log
+
+### 24. export-d0-prebuilt_tier0
+- start: 2026-11-16T16:19:25+07:00 · end: 2026-11-16T16:19:43+07:00 · duration_s: 17.875 · exit: 0
+- cmd: `bash scripts/bh_api.sh login >/dev/null && perl -MJSON::PP -0e 'local $/; my $q=<STDIN>; $q =~ s/;\s*\z//; print JSON::PP->new->canonical->encode({query=>$q, include_properties=>JSON::PP::true})' < queries/q_prebuilt_tier0.cypher | bash scripts/bh_api.sh POST /api/v2/graphs/cypher -H 'Content-Type: application/json' --data-binary @- -o results/d0/prebuilt_tier0.json -w 'http=%{http_code} bytes=%{size_download}\n'`
+- output: logs/raw/024-export-d0-prebuilt_tier0.log
+
+### 16. export-d0-all
+- start: 2026-11-16T16:18:49+07:00 · end: 2026-11-16T16:19:43+07:00 · duration_s: 53.697 · exit: 0
+- cmd: `bash scripts/export_correctness.sh d0`
+- output: logs/raw/016-export-d0-all.log
+- ghi chú: Xuất kết quả tính đúng D0 (sau khi phân tích xong lúc 09:16:31Z)

@@ -1,0 +1,16 @@
+graph-db-1  | 2026-11-16T09:07:53.504040251Z Changed password for user 'neo4j'. IMPORTANT: this change will only take effect if performed before the database is started for the first time.
+graph-db-1  | 2026-11-16T09:07:55.351237285Z 2026-11-16 09:07:55.350+0000 INFO  Starting...
+graph-db-1  | 2026-11-16T09:07:55.694657905Z 2026-11-16 09:07:55.694+0000 INFO  This instance is ServerId{4c7b8e2b} (4c7b8e2b-5bf2-4ca5-bcaa-df5317fb45bb)
+graph-db-1  | 2026-11-16T09:07:56.753549305Z 2026-11-16 09:07:56.753+0000 INFO  ======== Neo4j 4.4.42 ========
+graph-db-1  | 2026-11-16T09:07:58.380524094Z 2026-11-16 09:07:58.380+0000 INFO  Initializing system graph model for component 'security-users' with version -1 and status UNINITIALIZED
+graph-db-1  | 2026-11-16T09:07:58.388793224Z 2026-11-16 09:07:58.388+0000 INFO  Setting up initial user from `auth.ini` file: neo4j
+graph-db-1  | 2026-11-16T09:07:58.389052596Z 2026-11-16 09:07:58.388+0000 INFO  Creating new user 'neo4j' (passwordChangeRequired=false, suspended=false)
+graph-db-1  | 2026-11-16T09:07:58.404360003Z 2026-11-16 09:07:58.404+0000 INFO  Setting version for 'security-users' to 3
+graph-db-1  | 2026-11-16T09:07:58.408005984Z 2026-11-16 09:07:58.407+0000 INFO  After initialization of system graph model component 'security-users' have version 3 and status CURRENT
+graph-db-1  | 2026-11-16T09:07:58.413326300Z 2026-11-16 09:07:58.413+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+graph-db-1  | 2026-11-16T09:07:58.822460898Z 2026-11-16 09:07:58.822+0000 INFO  Bolt enabled on [0:0:0:0:0:0:0:0]:7687.
+graph-db-1  | 2026-11-16T09:07:59.515099116Z 2026-11-16 09:07:59.514+0000 INFO  Remote interface available at http://localhost:7474/
+graph-db-1  | 2026-11-16T09:07:59.518474312Z 2026-11-16 09:07:59.518+0000 INFO  id: B065EA243F7C4CA81B0B45A66A3391C5CEEB114B0B2EB3F19F264790DE52EE00
+graph-db-1  | 2026-11-16T09:07:59.518600221Z 2026-11-16 09:07:59.518+0000 INFO  name: system
+graph-db-1  | 2026-11-16T09:07:59.518711114Z 2026-11-16 09:07:59.518+0000 INFO  creationDate: 2026-11-16T09:07:57.32Z
+graph-db-1  | 2026-11-16T09:07:59.518902669Z 2026-11-16 09:07:59.518+0000 INFO  Started.

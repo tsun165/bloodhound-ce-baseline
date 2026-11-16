@@ -1,0 +1,1 @@
+MATCH (s:User) WHERE NOT s:Tag_Tier_Zero AND EXISTS { MATCH (s)-[:MemberOf|Contains|AdminTo|HasSession|GenericAll|GenericWrite|WriteDacl|WriteOwner|Owns|ForceChangePassword|AddMember|AllowedToDelegate|DCSync|GPLink|AllExtendedRights|ReadLAPSPassword|AddSelf|AllowedToAct|CanRDP|CanPSRemote|ExecuteDCOM|SQLAdmin*1..]->(:Tag_Tier_Zero) } RETURN count(s);

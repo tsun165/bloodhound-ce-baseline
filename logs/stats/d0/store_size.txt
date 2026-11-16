@@ -1,0 +1,16 @@
+/data/databases:
+total 16
+drwxrwxrwx 4 neo4j neo4j 4096 Nov 16 09:07 .
+drwxrwxrwx 5 neo4j neo4j 4096 Nov 16 09:07 ..
+drwxr-xr-x 3 neo4j neo4j 4096 Nov 16 09:08 neo4j
+-rw-r--r-- 1 neo4j neo4j    0 Nov 16 09:07 store_lock
+drwxr-xr-x 3 neo4j neo4j 4096 Nov 16 09:07 system
+
+/data/transactions:
+total 16
+drwxrwxrwx 4 neo4j neo4j 4096 Nov 16 09:07 .
+drwxrwxrwx 5 neo4j neo4j 4096 Nov 16 09:07 ..
+drwxr-xr-x 2 neo4j neo4j 4096 Nov 16 09:07 neo4j
+drwxr-xr-x 2 neo4j neo4j 4096 Nov 16 09:07 system
+18184908	/data/databases/neo4j
+262148160	/data/transactions/neo4j

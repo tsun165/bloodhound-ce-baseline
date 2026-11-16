@@ -1,0 +1,17 @@
+label, n
+"Base", 1519
+"Container", 939
+"Tag_Tier_Zero", 280
+"Group", 243
+"CertTemplate", 106
+"User", 99
+"Computer", 34
+"GPO", 32
+"ADLocalGroup", 28
+"OU", 20
+"AIACA", 6
+"Domain", 5
+"RootCA", 5
+"EnterpriseCA", 4
+"NTAuthStore", 2
+"MigrationData", 1
