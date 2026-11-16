@@ -1,0 +1,8 @@
+p4 dist == reach_22 dist for all 68 non-T0 users: True
+p2 count values (profile/cold/warm): []; Users with non-null dist in reach_22.csv: 34; NOT COMPARABLE: p2 returned no value (every run timed out)
+p1 non-null dist counts: ['65']; reach_22.csv non-null: 65
+built results/d0: perf.csv (304 rows), p4_users.csv, ingest.json, env.json, queries.md, crosscheck.txt
+p4 dist == reach_22 dist for all 28 non-T0 users: True
+p2 count values (profile/cold/warm): []; Users with non-null dist in reach_22.csv: 14; NOT COMPARABLE: p2 returned no value (every run timed out)
+p1 non-null dist counts: ['19']; reach_22.csv non-null: 19
+built results/d1: perf.csv (144 rows), p4_users.csv, ingest.json, env.json, queries.md, crosscheck.txt

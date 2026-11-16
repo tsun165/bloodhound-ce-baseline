@@ -1,0 +1,37 @@
+== d1 p1_reach_per_source
+  p1_reach_per_source run=explain cache=- wall_ms=2508 status=ok
+  p1_reach_per_source run=profile cache=- wall_ms=3393 status=ok
+  restart+ready: neo4j_ready 2026-11-16T17:10:56,165809700+07:00 total_wait_ms_since_restart_begin=20161 probes=7
+  p1_reach_per_source run=1 cache=cold wall_ms=3675 status=ok
+  p1_reach_per_source run=1 cache=warm wall_ms=2446 status=ok
+  p1_reach_per_source run=2 cache=warm wall_ms=2176 status=ok
+  p1_reach_per_source run=3 cache=warm wall_ms=2188 status=ok
+  p1_reach_per_source run=4 cache=warm wall_ms=2151 status=ok
+  p1_reach_per_source run=5 cache=warm wall_ms=2232 status=ok
+== d1 p2_exists_all
+  p2_exists_all run=explain cache=- wall_ms=1456 status=ok
+  p2_exists_all run=profile cache=- wall_ms=300104 status=timeout
+  restart+ready: neo4j_ready 2026-11-16T17:16:34,676001100+07:00 total_wait_ms_since_restart_begin=15518 probes=5
+  p2_exists_all run=1 cache=cold wall_ms=300089 status=timeout
+  p2_exists_all run=1 cache=warm wall_ms=300089 status=timeout
+  p2_exists_all run=2 cache=warm wall_ms=300242 status=timeout
+  p2_exists_all run=3 cache=warm wall_ms=300107 status=timeout
+  p2_exists_all run=4 cache=warm wall_ms=300090 status=timeout
+  p2_exists_all run=5 cache=warm wall_ms=300097 status=timeout
+== d1 p5_prebuilt
+  p5_prebuilt run=explain cache=- wall_ms=1905 status=ok
+  p5_prebuilt run=profile cache=- wall_ms=4064 status=ok
+  restart+ready: neo4j_ready 2026-11-16T17:47:12,244963100+07:00 total_wait_ms_since_restart_begin=15239 probes=5
+  p5_prebuilt run=1 cache=cold wall_ms=4004 status=ok
+  p5_prebuilt run=1 cache=warm wall_ms=3153 status=ok
+  p5_prebuilt run=2 cache=warm wall_ms=2961 status=ok
+  p5_prebuilt run=3 cache=warm wall_ms=2919 status=ok
+  p5_prebuilt run=4 cache=warm wall_ms=2852 status=ok
+  p5_prebuilt run=5 cache=warm wall_ms=2907 status=ok
+== d1 p3_reverse_traversal skipped
+== d1 p4_single_source
+  users: 28
+  p4_single_source run=explain cache=- wall_ms=1595 status=ok
+  p4_single_source run=profile cache=- wall_ms=1566 status=ok
+  restart+ready: neo4j_ready 2026-11-16T17:47:55,625294700+07:00 total_wait_ms_since_restart_begin=14463 probes=5
+  p4_single_source run=session cache=pass1=cold,pass2-4=warm wall_ms=4411 status=ok

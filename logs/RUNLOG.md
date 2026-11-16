@@ -262,3 +262,61 @@ docker compose exec -T graph-db sh -c "ls -la /data/databases /data/transactions
 - cmd: `bash scripts/export_correctness.sh d1`
 - output: logs/raw/032-export-d1-all.log
 - ghi chú: Xuất kết quả tính đúng D1
+
+### — trạng thái máy trước đo hiệu năng D1
+- 2026-11-16T17:10:22+07:00: overlay=ded574b5-45a0-4f42-8737-46345c09c238 battery_status=2 free_ram_mb=680 cpu_load_pct=33 (scripts/power_state.ps1; ded574b5… = Best performance, battery_status 2 = cắm sạc). Không việc nặng song song; datapipe idle (logs/queries/d1/datapipe_checks.log).
+
+### 41. perf-d1
+- start: 2026-11-16T17:10:27+07:00 · end: 2026-11-16T17:48:02+07:00 · duration_s: 2255.521 · exit: 0
+- cmd: `bash scripts/perf.sh d1`
+- output: logs/raw/041-perf-d1.log
+- ghi chú: Đo hiệu năng D1, cùng quy trình với D0 (scripts/perf.sh)
+
+### — trạng thái máy trước cpu_ref (after)
+- 2026-11-16T17:48:19+07:00: overlay=ded574b5-45a0-4f42-8737-46345c09c238 battery_status=2 free_ram_mb=559 cpu_load_pct=4. Đo hiệu năng D1 đã xong; CE vẫn chạy nhưng datapipe idle, không có query nào.
+
+### 42. cpu-ref-after
+- start: 2026-11-16T17:48:20+07:00 · end: 2026-11-16T17:48:35+07:00 · duration_s: 15.283 · exit: 0
+- cmd: `for i in 1 2 3; do echo "run $i $(date --iso-8601=seconds)"; MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W)/scripts:/s:ro" python:3.11-slim python /s/cpu_ref.py; done`
+- output: logs/raw/042-cpu-ref-after.log
+- ghi chú: cpu_ref 3 lần sau khi xong mọi phép đo (CE vẫn chạy, idle)
+
+### 43. capture-env-after
+- start: 2026-11-16T17:48:44+07:00 · end: 2026-11-16T17:49:05+07:00 · duration_s: 20.934 · exit: 0
+- cmd: `bash scripts/capture_env.sh after all`
+- output: logs/raw/043-capture-env-after.log
+- ghi chú: Chụp môi trường after (host/docker/images/compose + neo4j với D1 đang nạp)
+
+### 44. build-results-d1
+- start: 2026-11-16T17:49:05+07:00 · end: 2026-11-16T17:49:07+07:00 · duration_s: 1.533 · exit: 0
+- cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/build_results.py d1`
+- output: logs/raw/044-build-results-d1.log
+- ghi chú: Dựng results/d1 từ log thô
+
+### 45. build-results-d0-d1
+- start: 2026-11-16T17:49:18+07:00 · end: 2026-11-16T17:49:21+07:00 · duration_s: 2.908 · exit: 0
+- cmd: `for d in d0 d1; do MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/build_results.py $d; done`
+- output: logs/raw/045-build-results-d0-d1.log
+- ghi chú: Dựng lại results d0, d1 (sửa câu chữ kiểm chéo p2 khi p2 timeout)
+
+### 46. summarize
+- start: 2026-11-16T17:49:21+07:00 · end: 2026-11-16T17:49:22+07:00 · duration_s: 0.904 · exit: 0
+- cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/summarize.py d0 d1`
+- output: logs/raw/046-summarize.log
+
+### 47. d1-store-after-checkpoint
+- start: 2026-11-16T17:49:41+07:00 · end: 2026-11-16T17:49:44+07:00 · duration_s: 3.620 · exit: 0
+- cmd: `set -a; . ./.env; set +a
+C="docker compose exec -T graph-db"
+echo "== before checkpoint"; $C sh -c "du -sb /data/databases/neo4j /data/transactions/neo4j; du -sk /data/databases/neo4j /data/transactions/neo4j; ls -la /data/transactions/neo4j"
+echo "CALL db.checkpoint();" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain
+echo "== after checkpoint"; $C sh -c "du -sb /data/databases/neo4j /data/transactions/neo4j; du -sk /data/databases/neo4j /data/transactions/neo4j; ls -la /data/databases/neo4j /data/transactions/neo4j"
+echo "CALL dbms.queryJmx(\"org.neo4j:*\") YIELD name RETURN name;" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain`
+- output: logs/raw/047-d1-store-after-checkpoint.log
+- ghi chú: Kiểm lại dung lượng store D1: du ngay sau phân tích cho cùng số với DB rỗng. Ép CALL db.checkpoint() rồi đo du -sb (apparent) và du -sk (block thật), liệt kê file tx log
+
+### 48. d1-store-after-restart
+- start: 2026-11-16T17:53:29+07:00 · end: 2026-11-16T17:53:49+07:00 · duration_s: 20.078 · exit: 0
+- cmd: `bash scripts/store_after_restart.sh d1`
+- output: logs/raw/048-d1-store-after-restart.log
+- ghi chú: D1: restart graph-db (checkpoint) rồi du, cùng phương pháp sẽ dùng cho D0 rerun

@@ -1,0 +1,180 @@
++--------------------------------------------------------------------------------------------------------------------------------------+
+| objectid                                             | name                                                                   | dist |
++--------------------------------------------------------------------------------------------------------------------------------------+
+| "ESSOS.LOCAL-S-1-1-0"                                | "EVERYONE@ESSOS.LOCAL"                                                 | NULL |
+| "ESSOS.LOCAL-S-1-18-1"                               | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@ESSOS.LOCAL"               | NULL |
+| "ESSOS.LOCAL-S-1-18-4"                               | "KEY TRUST@ESSOS.LOCAL"                                                | NULL |
+| "ESSOS.LOCAL-S-1-18-5"                               | "MFA KEY PROPERTY@ESSOS.LOCAL"                                         | NULL |
+| "ESSOS.LOCAL-S-1-5-11"                               | "AUTHENTICATED USERS@ESSOS.LOCAL"                                      | NULL |
+| "ESSOS.LOCAL-S-1-5-15"                               | "THIS ORGANIZATION@ESSOS.LOCAL"                                        | NULL |
+| "ESSOS.LOCAL-S-1-5-17"                               | "IUSR@ESSOS.LOCAL"                                                     | NULL |
+| "ESSOS.LOCAL-S-1-5-2"                                | "NETWORK@ESSOS.LOCAL"                                                  | NULL |
+| "ESSOS.LOCAL-S-1-5-32-545"                           | "USERS@ESSOS.LOCAL"                                                    | NULL |
+| "ESSOS.LOCAL-S-1-5-32-546"                           | "GUESTS@ESSOS.LOCAL"                                                   | NULL |
+| "ESSOS.LOCAL-S-1-5-32-552"                           | "REPLICATORS@ESSOS.LOCAL"                                              | NULL |
+| "ESSOS.LOCAL-S-1-5-32-554"                           | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@ESSOS.LOCAL"                       | NULL |
+| "ESSOS.LOCAL-S-1-5-32-555"                           | "REMOTE DESKTOP USERS@ESSOS.LOCAL"                                     | NULL |
+| "ESSOS.LOCAL-S-1-5-32-556"                           | "NETWORK CONFIGURATION OPERATORS@ESSOS.LOCAL"                          | NULL |
+| "ESSOS.LOCAL-S-1-5-32-558"                           | "PERFORMANCE MONITOR USERS@ESSOS.LOCAL"                                | NULL |
+| "ESSOS.LOCAL-S-1-5-32-560"                           | "WINDOWS AUTHORIZATION ACCESS GROUP@ESSOS.LOCAL"                       | NULL |
+| "ESSOS.LOCAL-S-1-5-32-561"                           | "TERMINAL SERVER LICENSE SERVERS@ESSOS.LOCAL"                          | NULL |
+| "ESSOS.LOCAL-S-1-5-32-568"                           | "IIS_IUSRS@ESSOS.LOCAL"                                                | NULL |
+| "ESSOS.LOCAL-S-1-5-32-573"                           | "EVENT LOG READERS@ESSOS.LOCAL"                                        | NULL |
+| "ESSOS.LOCAL-S-1-5-32-574"                           | "CERTIFICATE SERVICE DCOM ACCESS@ESSOS.LOCAL"                          | NULL |
+| "ESSOS.LOCAL-S-1-5-32-575"                           | "RDS REMOTE ACCESS SERVERS@ESSOS.LOCAL"                                | NULL |
+| "ESSOS.LOCAL-S-1-5-32-576"                           | "RDS ENDPOINT SERVERS@ESSOS.LOCAL"                                     | NULL |
+| "ESSOS.LOCAL-S-1-5-32-577"                           | "RDS MANAGEMENT SERVERS@ESSOS.LOCAL"                                   | NULL |
+| "ESSOS.LOCAL-S-1-5-32-578"                           | "HYPER-V ADMINISTRATORS@ESSOS.LOCAL"                                   | NULL |
+| "ESSOS.LOCAL-S-1-5-32-579"                           | "ACCESS CONTROL ASSISTANCE OPERATORS@ESSOS.LOCAL"                      | NULL |
+| "ESSOS.LOCAL-S-1-5-32-580"                           | "REMOTE MANAGEMENT USERS@ESSOS.LOCAL"                                  | NULL |
+| "ESSOS.LOCAL-S-1-5-32-581"                           | "SYSTEM MANAGED ACCOUNTS GROUP@ESSOS.LOCAL"                            | NULL |
+| "ESSOS.LOCAL-S-1-5-32-582"                           | "STORAGE REPLICA ADMINISTRATORS@ESSOS.LOCAL"                           | NULL |
+| "ESSOS.LOCAL-S-1-5-4"                                | "INTERACTIVE@ESSOS.LOCAL"                                              | NULL |
+| "ESSOS.LOCAL-S-1-5-64-10"                            | "NTLM AUTHENTICATION@ESSOS.LOCAL"                                      | NULL |
+| "ESSOS.LOCAL-S-1-5-64-14"                            | "SCHANNEL AUTHENTICATION@ESSOS.LOCAL"                                  | NULL |
+| "ESSOS.LOCAL-S-1-5-65-1"                             | "THIS ORGANIZATION CERTIFICATE@ESSOS.LOCAL"                            | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-1-0"                  | "EVERYONE@NORTH.SEVENKINGDOMS.LOCAL"                                   | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-18-1"                 | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@NORTH.SEVENKINGDOMS.LOCAL" | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-18-4"                 | "KEY TRUST@NORTH.SEVENKINGDOMS.LOCAL"                                  | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-18-5"                 | "MFA KEY PROPERTY@NORTH.SEVENKINGDOMS.LOCAL"                           | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-11"                 | "AUTHENTICATED USERS@NORTH.SEVENKINGDOMS.LOCAL"                        | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-15"                 | "THIS ORGANIZATION@NORTH.SEVENKINGDOMS.LOCAL"                          | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-17"                 | "IUSR@NORTH.SEVENKINGDOMS.LOCAL"                                       | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-2"                  | "NETWORK@NORTH.SEVENKINGDOMS.LOCAL"                                    | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-545"             | "USERS@NORTH.SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-546"             | "GUESTS@NORTH.SEVENKINGDOMS.LOCAL"                                     | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-552"             | "REPLICATORS@NORTH.SEVENKINGDOMS.LOCAL"                                | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-554"             | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@NORTH.SEVENKINGDOMS.LOCAL"         | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-555"             | "REMOTE DESKTOP USERS@NORTH.SEVENKINGDOMS.LOCAL"                       | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-556"             | "NETWORK CONFIGURATION OPERATORS@NORTH.SEVENKINGDOMS.LOCAL"            | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-558"             | "PERFORMANCE MONITOR USERS@NORTH.SEVENKINGDOMS.LOCAL"                  | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-560"             | "WINDOWS AUTHORIZATION ACCESS GROUP@NORTH.SEVENKINGDOMS.LOCAL"         | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-561"             | "TERMINAL SERVER LICENSE SERVERS@NORTH.SEVENKINGDOMS.LOCAL"            | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-568"             | "IIS_IUSRS@NORTH.SEVENKINGDOMS.LOCAL"                                  | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-573"             | "EVENT LOG READERS@NORTH.SEVENKINGDOMS.LOCAL"                          | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-574"             | "CERTIFICATE SERVICE DCOM ACCESS@NORTH.SEVENKINGDOMS.LOCAL"            | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-575"             | "RDS REMOTE ACCESS SERVERS@NORTH.SEVENKINGDOMS.LOCAL"                  | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-576"             | "RDS ENDPOINT SERVERS@NORTH.SEVENKINGDOMS.LOCAL"                       | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-577"             | "RDS MANAGEMENT SERVERS@NORTH.SEVENKINGDOMS.LOCAL"                     | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-578"             | "HYPER-V ADMINISTRATORS@NORTH.SEVENKINGDOMS.LOCAL"                     | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-579"             | "ACCESS CONTROL ASSISTANCE OPERATORS@NORTH.SEVENKINGDOMS.LOCAL"        | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-580"             | "REMOTE MANAGEMENT USERS@NORTH.SEVENKINGDOMS.LOCAL"                    | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-32-582"             | "STORAGE REPLICA ADMINISTRATORS@NORTH.SEVENKINGDOMS.LOCAL"             | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-4"                  | "INTERACTIVE@NORTH.SEVENKINGDOMS.LOCAL"                                | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-64-10"              | "NTLM AUTHENTICATION@NORTH.SEVENKINGDOMS.LOCAL"                        | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-64-14"              | "SCHANNEL AUTHENTICATION@NORTH.SEVENKINGDOMS.LOCAL"                    | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-65-1"               | "THIS ORGANIZATION CERTIFICATE@NORTH.SEVENKINGDOMS.LOCAL"              | NULL |
+| "NORTH.SEVENKINGDOMS.LOCAL-S-1-5-7"                  | "ANONYMOUS@NORTH.SEVENKINGDOMS.LOCAL"                                  | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-1103"      | "DNSUPDATEPROXY@SEVENKINGDOMS.LOCAL"                                   | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-1106"      | "LANNISTER@SEVENKINGDOMS.LOCAL"                                        | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-1107"      | "BARATHEON@SEVENKINGDOMS.LOCAL"                                        | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-1108"      | "SMALL COUNCIL@SEVENKINGDOMS.LOCAL"                                    | 4    |
+| "S-1-5-21-1032618810-739172636-1489167904-1109"      | "DRAGONSTONE@SEVENKINGDOMS.LOCAL"                                      | 3    |
+| "S-1-5-21-1032618810-739172636-1489167904-1110"      | "KINGSGUARD@SEVENKINGDOMS.LOCAL"                                       | 2    |
+| "S-1-5-21-1032618810-739172636-1489167904-1112"      | "ACROSSTHENARROWSEA@SEVENKINGDOMS.LOCAL"                               | 1    |
+| "S-1-5-21-1032618810-739172636-1489167904-1113"      | "TYWIN.LANNISTER@SEVENKINGDOMS.LOCAL"                                  | 8    |
+| "S-1-5-21-1032618810-739172636-1489167904-1114"      | "JAIME.LANNISTER@SEVENKINGDOMS.LOCAL"                                  | 7    |
+| "S-1-5-21-1032618810-739172636-1489167904-1116"      | "TYRON.LANNISTER@SEVENKINGDOMS.LOCAL"                                  | 5    |
+| "S-1-5-21-1032618810-739172636-1489167904-1118"      | "JOFFREY.BARATHEON@SEVENKINGDOMS.LOCAL"                                | 6    |
+| "S-1-5-21-1032618810-739172636-1489167904-1119"      | "RENLY.BARATHEON@SEVENKINGDOMS.LOCAL"                                  | 1    |
+| "S-1-5-21-1032618810-739172636-1489167904-1120"      | "STANNIS.BARATHEON@SEVENKINGDOMS.LOCAL"                                | 1    |
+| "S-1-5-21-1032618810-739172636-1489167904-1121"      | "PETYER.BAELISH@SEVENKINGDOMS.LOCAL"                                   | 5    |
+| "S-1-5-21-1032618810-739172636-1489167904-1122"      | "LORD.VARYS@SEVENKINGDOMS.LOCAL"                                       | 1    |
+| "S-1-5-21-1032618810-739172636-1489167904-1123"      | "MAESTER.PYCELLE@SEVENKINGDOMS.LOCAL"                                  | 5    |
+| "S-1-5-21-1032618810-739172636-1489167904-498"       | "ENTERPRISE READ-ONLY DOMAIN CONTROLLERS@SEVENKINGDOMS.LOCAL"          | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-501"       | "GUEST@SEVENKINGDOMS.LOCAL"                                            | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-513"       | "DOMAIN USERS@SEVENKINGDOMS.LOCAL"                                     | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-514"       | "DOMAIN GUESTS@SEVENKINGDOMS.LOCAL"                                    | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-515"       | "DOMAIN COMPUTERS@SEVENKINGDOMS.LOCAL"                                 | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-520"       | "GROUP POLICY CREATOR OWNERS@SEVENKINGDOMS.LOCAL"                      | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-521"       | "READ-ONLY DOMAIN CONTROLLERS@SEVENKINGDOMS.LOCAL"                     | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-522"       | "CLONEABLE DOMAIN CONTROLLERS@SEVENKINGDOMS.LOCAL"                     | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-525"       | "PROTECTED USERS@SEVENKINGDOMS.LOCAL"                                  | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-553"       | "RAS AND IAS SERVERS@SEVENKINGDOMS.LOCAL"                              | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-571"       | "ALLOWED RODC PASSWORD REPLICATION GROUP@SEVENKINGDOMS.LOCAL"          | NULL |
+| "S-1-5-21-1032618810-739172636-1489167904-572"       | "DENIED RODC PASSWORD REPLICATION GROUP@SEVENKINGDOMS.LOCAL"           | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1103"     | "DNSUPDATEPROXY@NORTH.SEVENKINGDOMS.LOCAL"                             | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1105"     | "CASTELBLACK.NORTH.SEVENKINGDOMS.LOCAL"                                | 1    |
+| "S-1-5-21-1252223512-2665318757-2669098637-1106"     | "STARK@NORTH.SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1107"     | "NIGHT WATCH@NORTH.SEVENKINGDOMS.LOCAL"                                | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1108"     | "MORMONT@NORTH.SEVENKINGDOMS.LOCAL"                                    | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1109"     | "ACROSSTHESEA@NORTH.SEVENKINGDOMS.LOCAL"                               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1110"     | "ARYA.STARK@NORTH.SEVENKINGDOMS.LOCAL"                                 | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1114"     | "SANSA.STARK@NORTH.SEVENKINGDOMS.LOCAL"                                | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1115"     | "BRANDON.STARK@NORTH.SEVENKINGDOMS.LOCAL"                              | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1116"     | "RICKON.STARK@NORTH.SEVENKINGDOMS.LOCAL"                               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1117"     | "HODOR@NORTH.SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1118"     | "JON.SNOW@NORTH.SEVENKINGDOMS.LOCAL"                                   | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1119"     | "SAMWELL.TARLY@NORTH.SEVENKINGDOMS.LOCAL"                              | 1    |
+| "S-1-5-21-1252223512-2665318757-2669098637-1120"     | "JEOR.MORMONT@NORTH.SEVENKINGDOMS.LOCAL"                               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-1121"     | "SQL_SVC@NORTH.SEVENKINGDOMS.LOCAL"                                    | 2    |
+| "S-1-5-21-1252223512-2665318757-2669098637-501"      | "GUEST@NORTH.SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-513"      | "DOMAIN USERS@NORTH.SEVENKINGDOMS.LOCAL"                               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-514"      | "DOMAIN GUESTS@NORTH.SEVENKINGDOMS.LOCAL"                              | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-515"      | "DOMAIN COMPUTERS@NORTH.SEVENKINGDOMS.LOCAL"                           | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-520"      | "GROUP POLICY CREATOR OWNERS@NORTH.SEVENKINGDOMS.LOCAL"                | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-521"      | "READ-ONLY DOMAIN CONTROLLERS@NORTH.SEVENKINGDOMS.LOCAL"               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-522"      | "CLONEABLE DOMAIN CONTROLLERS@NORTH.SEVENKINGDOMS.LOCAL"               | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-525"      | "PROTECTED USERS@NORTH.SEVENKINGDOMS.LOCAL"                            | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-553"      | "RAS AND IAS SERVERS@NORTH.SEVENKINGDOMS.LOCAL"                        | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-571"      | "ALLOWED RODC PASSWORD REPLICATION GROUP@NORTH.SEVENKINGDOMS.LOCAL"    | NULL |
+| "S-1-5-21-1252223512-2665318757-2669098637-572"      | "DENIED RODC PASSWORD REPLICATION GROUP@NORTH.SEVENKINGDOMS.LOCAL"     | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1103"     | "DNSUPDATEPROXY@ESSOS.LOCAL"                                           | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1104-544" | NULL                                                                   | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1106"     | "TARGARYEN@ESSOS.LOCAL"                                                | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1107"     | "DOTHRAKI@ESSOS.LOCAL"                                                 | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1110"     | "DRAGONSFRIENDS@ESSOS.LOCAL"                                           | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1111"     | "SPYS@ESSOS.LOCAL"                                                     | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1113"     | "VISERYS.TARGARYEN@ESSOS.LOCAL"                                        | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1114"     | "KHAL.DROGO@ESSOS.LOCAL"                                               | 1    |
+| "S-1-5-21-2158876063-2930955257-1391117225-1115"     | "JORAH.MORMONT@ESSOS.LOCAL"                                            | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-1116"     | "MISSANDEI@ESSOS.LOCAL"                                                | 2    |
+| "S-1-5-21-2158876063-2930955257-1391117225-1118"     | "SQL_SVC@ESSOS.LOCAL"                                                  | 1    |
+| "S-1-5-21-2158876063-2930955257-1391117225-1119"     | "GMSADRAGON$@ESSOS.LOCAL"                                              | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-498"      | "ENTERPRISE READ-ONLY DOMAIN CONTROLLERS@ESSOS.LOCAL"                  | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-501"      | "GUEST@ESSOS.LOCAL"                                                    | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-503"      | "DEFAULTACCOUNT@ESSOS.LOCAL"                                           | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-513"      | "DOMAIN USERS@ESSOS.LOCAL"                                             | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-514"      | "DOMAIN GUESTS@ESSOS.LOCAL"                                            | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-515"      | "DOMAIN COMPUTERS@ESSOS.LOCAL"                                         | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-520"      | "GROUP POLICY CREATOR OWNERS@ESSOS.LOCAL"                              | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-521"      | "READ-ONLY DOMAIN CONTROLLERS@ESSOS.LOCAL"                             | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-522"      | "CLONEABLE DOMAIN CONTROLLERS@ESSOS.LOCAL"                             | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-525"      | "PROTECTED USERS@ESSOS.LOCAL"                                          | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-553"      | "RAS AND IAS SERVERS@ESSOS.LOCAL"                                      | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-571"      | "ALLOWED RODC PASSWORD REPLICATION GROUP@ESSOS.LOCAL"                  | NULL |
+| "S-1-5-21-2158876063-2930955257-1391117225-572"      | "DENIED RODC PASSWORD REPLICATION GROUP@ESSOS.LOCAL"                   | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-1-0"                        | "EVERYONE@SEVENKINGDOMS.LOCAL"                                         | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-18-1"                       | "AUTHENTICATION AUTHORITY ASSERTED IDENTITY@SEVENKINGDOMS.LOCAL"       | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-18-4"                       | "KEY TRUST@SEVENKINGDOMS.LOCAL"                                        | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-18-5"                       | "MFA KEY PROPERTY@SEVENKINGDOMS.LOCAL"                                 | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-11"                       | "AUTHENTICATED USERS@SEVENKINGDOMS.LOCAL"                              | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-15"                       | "THIS ORGANIZATION@SEVENKINGDOMS.LOCAL"                                | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-2"                        | "NETWORK@SEVENKINGDOMS.LOCAL"                                          | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-545"                   | "USERS@SEVENKINGDOMS.LOCAL"                                            | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-546"                   | "GUESTS@SEVENKINGDOMS.LOCAL"                                           | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-552"                   | "REPLICATORS@SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-554"                   | "PRE-WINDOWS 2000 COMPATIBLE ACCESS@SEVENKINGDOMS.LOCAL"               | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-555"                   | "REMOTE DESKTOP USERS@SEVENKINGDOMS.LOCAL"                             | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-556"                   | "NETWORK CONFIGURATION OPERATORS@SEVENKINGDOMS.LOCAL"                  | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-558"                   | "PERFORMANCE MONITOR USERS@SEVENKINGDOMS.LOCAL"                        | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-560"                   | "WINDOWS AUTHORIZATION ACCESS GROUP@SEVENKINGDOMS.LOCAL"               | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-561"                   | "TERMINAL SERVER LICENSE SERVERS@SEVENKINGDOMS.LOCAL"                  | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-568"                   | "IIS_IUSRS@SEVENKINGDOMS.LOCAL"                                        | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-573"                   | "EVENT LOG READERS@SEVENKINGDOMS.LOCAL"                                | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-574"                   | "CERTIFICATE SERVICE DCOM ACCESS@SEVENKINGDOMS.LOCAL"                  | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-575"                   | "RDS REMOTE ACCESS SERVERS@SEVENKINGDOMS.LOCAL"                        | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-576"                   | "RDS ENDPOINT SERVERS@SEVENKINGDOMS.LOCAL"                             | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-577"                   | "RDS MANAGEMENT SERVERS@SEVENKINGDOMS.LOCAL"                           | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-578"                   | "HYPER-V ADMINISTRATORS@SEVENKINGDOMS.LOCAL"                           | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-579"                   | "ACCESS CONTROL ASSISTANCE OPERATORS@SEVENKINGDOMS.LOCAL"              | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-580"                   | "REMOTE MANAGEMENT USERS@SEVENKINGDOMS.LOCAL"                          | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-32-582"                   | "STORAGE REPLICA ADMINISTRATORS@SEVENKINGDOMS.LOCAL"                   | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-4"                        | "INTERACTIVE@SEVENKINGDOMS.LOCAL"                                      | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-64-10"                    | "NTLM AUTHENTICATION@SEVENKINGDOMS.LOCAL"                              | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-64-14"                    | "SCHANNEL AUTHENTICATION@SEVENKINGDOMS.LOCAL"                          | NULL |
+| "SEVENKINGDOMS.LOCAL-S-1-5-65-1"                     | "THIS ORGANIZATION CERTIFICATE@SEVENKINGDOMS.LOCAL"                    | NULL |
++--------------------------------------------------------------------------------------------------------------------------------------+
+
+173 rows
+ready to start consuming query after 2 ms, results consumed after another 849 ms

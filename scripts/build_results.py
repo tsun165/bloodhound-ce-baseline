@@ -121,7 +121,7 @@ checks.append(f"p4 dist == reach_22 dist for all {len(users)} non-T0 users: {not
 p2 = [r["result_value"] for r in rows if r["query_id"] == "p2_exists_all" and r["run"] not in ("explain",) and r["status"] == "ok"]
 users_reach = sum(1 for u in users if reach.get(u, "") != "")
 checks.append(f"p2 count values (profile/cold/warm): {sorted(set(p2))}; Users with non-null dist in reach_22.csv: {users_reach}; "
-              f"equal: {set(p2) == {str(users_reach)}}")
+              + (f"equal: {set(p2) == {str(users_reach)}}" if p2 else "NOT COMPARABLE: p2 returned no value (every run timed out)"))
 p1 = sorted({r["result_value"] for r in rows if r["query_id"] == "p1_reach_per_source" and r["run"] != "explain"})
 checks.append(f"p1 non-null dist counts: {p1}; reach_22.csv non-null: {sum(1 for v in reach.values() if v)}")
 open(f"{R}/crosscheck.txt", "w", encoding="utf-8").write("\n".join(checks) + "\n")

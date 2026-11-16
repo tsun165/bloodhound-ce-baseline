@@ -1,0 +1,3 @@
+## du -sb (apparent bytes)
+21289821	/data/databases/neo4j
+262149120	/data/transactions/neo4j

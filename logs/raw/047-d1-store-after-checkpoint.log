@@ -1,0 +1,63 @@
+== before checkpoint
+21289821	/data/databases/neo4j
+262148928	/data/transactions/neo4j
+21576	/data/databases/neo4j
+256008	/data/transactions/neo4j
+total 256012
+drwxr-xr-x 2 neo4j neo4j      4096 Nov 16 10:06 .
+drwxrwxrwx 4 neo4j neo4j      4096 Nov 16 10:06 ..
+-rw-r--r-- 1 neo4j neo4j       832 Nov 16 10:47 checkpoint.0
+-rw-r--r-- 1 neo4j neo4j 262144000 Nov 16 10:08 neostore.transaction.db.0
+There is no procedure with the name `db.checkpoint` registered for this database instance. Please ensure you've spelled the procedure name correctly and that the procedure is properly deployed.
+== after checkpoint
+21289821	/data/databases/neo4j
+262148928	/data/transactions/neo4j
+21576	/data/databases/neo4j
+256008	/data/transactions/neo4j
+/data/databases/neo4j:
+total 3268
+drwxr-xr-x 3 neo4j neo4j   4096 Nov 16 10:07 .
+drwxrwxrwx 4 neo4j neo4j   4096 Nov 16 10:06 ..
+-rw-r--r-- 1 neo4j neo4j      0 Nov 16 10:06 database_lock
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore
+-rw-r--r-- 1 neo4j neo4j  65536 Nov 16 10:47 neostore.counts.db
+-rw-r--r-- 1 neo4j neo4j 614400 Nov 16 10:47 neostore.indexstats.db
+-rw-r--r-- 1 neo4j neo4j  49152 Nov 16 10:47 neostore.labelscanstore.db
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.labeltokenstore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.labeltokenstore.db.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.labeltokenstore.db.names
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.labeltokenstore.db.names.id
+-rw-r--r-- 1 neo4j neo4j  16384 Nov 16 10:10 neostore.nodestore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.nodestore.db.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:06 neostore.nodestore.db.labels
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.nodestore.db.labels.id
+-rw-r--r-- 1 neo4j neo4j 991232 Nov 16 10:10 neostore.propertystore.db
+-rw-r--r-- 1 neo4j neo4j  65536 Nov 16 10:10 neostore.propertystore.db.arrays
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.propertystore.db.arrays.id
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.propertystore.db.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.propertystore.db.index
+-rw-r--r-- 1 neo4j neo4j  49152 Nov 16 10:47 neostore.propertystore.db.index.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.propertystore.db.index.keys
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.propertystore.db.index.keys.id
+-rw-r--r-- 1 neo4j neo4j 483328 Nov 16 10:10 neostore.propertystore.db.strings
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.propertystore.db.strings.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.relationshipgroupstore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.relationshipgroupstore.db.id
+-rw-r--r-- 1 neo4j neo4j  49152 Nov 16 10:47 neostore.relationshipgroupstore.degrees.db
+-rw-r--r-- 1 neo4j neo4j 286720 Nov 16 10:10 neostore.relationshipstore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.relationshipstore.db.id
+-rw-r--r-- 1 neo4j neo4j  49152 Nov 16 10:47 neostore.relationshiptypescanstore.db
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.relationshiptypestore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.relationshiptypestore.db.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.relationshiptypestore.db.names
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.relationshiptypestore.db.names.id
+-rw-r--r-- 1 neo4j neo4j   8192 Nov 16 10:10 neostore.schemastore.db
+-rw-r--r-- 1 neo4j neo4j  40960 Nov 16 10:47 neostore.schemastore.db.id
+drwxr-xr-x 3 neo4j neo4j   4096 Nov 16 10:07 schema
+
+/data/transactions/neo4j:
+total 256012
+drwxr-xr-x 2 neo4j neo4j      4096 Nov 16 10:06 .
+drwxrwxrwx 4 neo4j neo4j      4096 Nov 16 10:06 ..
+-rw-r--r-- 1 neo4j neo4j       832 Nov 16 10:47 checkpoint.0
+-rw-r--r-- 1 neo4j neo4j 262144000 Nov 16 10:08 neostore.transaction.db.0

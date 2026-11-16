@@ -1,0 +1,29 @@
+dataset	query_id	param	run	cache	wall_ms	status	exit	started	file
+d1	p1_reach_per_source		explain	-	2508	ok	0	2026-11-16T17:10:29+07:00	logs/queries/d1/p1_reach_per_source.explain.txt
+d1	p1_reach_per_source		profile	-	3393	ok	0	2026-11-16T17:10:32+07:00	logs/queries/d1/p1_reach_per_source.profile.txt
+d1	p1_reach_per_source		1	cold	3675	ok	0	2026-11-16T17:10:56+07:00	logs/queries/d1/p1_reach_per_source.cold.txt
+d1	p1_reach_per_source		1	warm	2446	ok	0	2026-11-16T17:11:00+07:00	logs/queries/d1/p1_reach_per_source.warm1.txt
+d1	p1_reach_per_source		2	warm	2176	ok	0	2026-11-16T17:11:02+07:00	logs/queries/d1/p1_reach_per_source.warm2.txt
+d1	p1_reach_per_source		3	warm	2188	ok	0	2026-11-16T17:11:04+07:00	logs/queries/d1/p1_reach_per_source.warm3.txt
+d1	p1_reach_per_source		4	warm	2151	ok	0	2026-11-16T17:11:07+07:00	logs/queries/d1/p1_reach_per_source.warm4.txt
+d1	p1_reach_per_source		5	warm	2232	ok	0	2026-11-16T17:11:09+07:00	logs/queries/d1/p1_reach_per_source.warm5.txt
+d1	p2_exists_all		explain	-	1456	ok	0	2026-11-16T17:11:15+07:00	logs/queries/d1/p2_exists_all.explain.txt
+d1	p2_exists_all		profile	-	300104	timeout	124	2026-11-16T17:11:17+07:00	logs/queries/d1/p2_exists_all.profile.txt
+d1	p2_exists_all		1	cold	300089	timeout	124	2026-11-16T17:16:34+07:00	logs/queries/d1/p2_exists_all.cold.txt
+d1	p2_exists_all		1	warm	300089	timeout	124	2026-11-16T17:21:36+07:00	logs/queries/d1/p2_exists_all.warm1.txt
+d1	p2_exists_all		2	warm	300242	timeout	124	2026-11-16T17:26:38+07:00	logs/queries/d1/p2_exists_all.warm2.txt
+d1	p2_exists_all		3	warm	300107	timeout	124	2026-11-16T17:31:40+07:00	logs/queries/d1/p2_exists_all.warm3.txt
+d1	p2_exists_all		4	warm	300090	timeout	124	2026-11-16T17:36:42+07:00	logs/queries/d1/p2_exists_all.warm4.txt
+d1	p2_exists_all		5	warm	300097	timeout	124	2026-11-16T17:41:44+07:00	logs/queries/d1/p2_exists_all.warm5.txt
+d1	p5_prebuilt		explain	-	1905	ok	0	2026-11-16T17:46:50+07:00	logs/queries/d1/p5_prebuilt.explain.txt
+d1	p5_prebuilt		profile	-	4064	ok	0	2026-11-16T17:46:52+07:00	logs/queries/d1/p5_prebuilt.profile.txt
+d1	p5_prebuilt		1	cold	4004	ok	0	2026-11-16T17:47:12+07:00	logs/queries/d1/p5_prebuilt.cold.txt
+d1	p5_prebuilt		1	warm	3153	ok	0	2026-11-16T17:47:16+07:00	logs/queries/d1/p5_prebuilt.warm1.txt
+d1	p5_prebuilt		2	warm	2961	ok	0	2026-11-16T17:47:19+07:00	logs/queries/d1/p5_prebuilt.warm2.txt
+d1	p5_prebuilt		3	warm	2919	ok	0	2026-11-16T17:47:22+07:00	logs/queries/d1/p5_prebuilt.warm3.txt
+d1	p5_prebuilt		4	warm	2852	ok	0	2026-11-16T17:47:25+07:00	logs/queries/d1/p5_prebuilt.warm4.txt
+d1	p5_prebuilt		5	warm	2907	ok	0	2026-11-16T17:47:28+07:00	logs/queries/d1/p5_prebuilt.warm5.txt
+d1	p3_reverse_traversal		-	-		skipped		2026-11-16T17:47:33+07:00	queries/p3_reverse_traversal.cypher
+d1	p4_single_source	S-1-5-21-1032618810-739172636-1489167904-1113	explain	-	1595	ok	0	2026-11-16T17:47:35+07:00	logs/queries/d1/p4_single_source.explain.txt
+d1	p4_single_source	first5	profile	-	1566	ok	0	2026-11-16T17:47:37+07:00	logs/queries/d1/p4_single_source.profile.txt
+d1	p4_single_source	all_users	session	pass1=cold,pass2-4=warm	4411	ok	0	2026-11-16T17:47:55+07:00	logs/queries/d1/p4_single_source.session.txt

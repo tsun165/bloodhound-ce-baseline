@@ -1,0 +1,408 @@
+# captured: 2026-11-16T17:48:55+07:00
+## CALL dbms.components()
+name, versions, edition
+"Neo4j Kernel", ["4.4.42"], "community"
+
+## memory config
+name, value
+"dbms.memory.heap.initial_size", "No Value"
+"dbms.memory.heap.max_size", "No Value"
+"dbms.memory.off_heap.block_cache_size", "128"
+"dbms.memory.off_heap.max_cacheable_block_size", "512.00KiB"
+"dbms.memory.off_heap.max_size", "2.00GiB"
+"dbms.memory.pagecache.directio", "false"
+"dbms.memory.pagecache.flush.buffer.enabled", "false"
+"dbms.memory.pagecache.flush.buffer.size_in_pages", "128"
+"dbms.memory.pagecache.scan.prefetchers", "4"
+"dbms.memory.pagecache.size", "512M"
+"dbms.memory.pagecache.swapper", "No Value"
+"dbms.memory.pagecache.warmup.enable", "true"
+"dbms.memory.pagecache.warmup.preload", "false"
+"dbms.memory.pagecache.warmup.preload.allowlist", ".*"
+"dbms.memory.pagecache.warmup.preload.whitelist", ".*"
+"dbms.memory.pagecache.warmup.profile.interval", "1m"
+"dbms.memory.tracking.enable", "true"
+"dbms.memory.transaction.database_max_size", "0B"
+"dbms.memory.transaction.global_max_size", "0B"
+"dbms.memory.transaction.max_size", "0B"
+"dbms.tx_state.memory_allocation", "ON_HEAP"
+
+## SHOW INDEXES
+id, name, state, populationPercent, uniqueness, type, entityType, labelsOrTypes, properties, indexProvider
+196, "adlocalgroup_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["domainsid"], "native-btree-1.0"
+211, "adlocalgroup_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["environmentid"], "native-btree-1.0"
+233, "adlocalgroup_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["name"], "lucene+native-3.0"
+61, "adlocalgroup_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["objectid"], "native-btree-1.0"
+173, "adlocalgroup_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["system_tags"], "lucene+native-3.0"
+125, "adlocalgroup_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["tenantid"], "native-btree-1.0"
+161, "adlocalgroup_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalGroup"], ["user_tags"], "lucene+native-3.0"
+268, "adlocaluser_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["domainsid"], "native-btree-1.0"
+107, "adlocaluser_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["environmentid"], "native-btree-1.0"
+194, "adlocaluser_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["name"], "lucene+native-3.0"
+63, "adlocaluser_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["objectid"], "native-btree-1.0"
+172, "adlocaluser_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["system_tags"], "lucene+native-3.0"
+294, "adlocaluser_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["tenantid"], "native-btree-1.0"
+223, "adlocaluser_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["ADLocalUser"], ["user_tags"], "lucene+native-3.0"
+130, "aiaca_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["domainsid"], "native-btree-1.0"
+176, "aiaca_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["environmentid"], "native-btree-1.0"
+301, "aiaca_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["name"], "lucene+native-3.0"
+81, "aiaca_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AIACA"], ["objectid"], "native-btree-1.0"
+247, "aiaca_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["system_tags"], "lucene+native-3.0"
+164, "aiaca_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["tenantid"], "native-btree-1.0"
+280, "aiaca_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AIACA"], ["user_tags"], "lucene+native-3.0"
+309, "azapp_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["domainsid"], "native-btree-1.0"
+151, "azapp_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["environmentid"], "native-btree-1.0"
+112, "azapp_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["name"], "lucene+native-3.0"
+25, "azapp_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZApp"], ["objectid"], "native-btree-1.0"
+328, "azapp_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["system_tags"], "lucene+native-3.0"
+263, "azapp_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["tenantid"], "native-btree-1.0"
+101, "azapp_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZApp"], ["user_tags"], "lucene+native-3.0"
+139, "azautomationaccount_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["domainsid"], "native-btree-1.0"
+315, "azautomationaccount_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["environmentid"], "native-btree-1.0"
+330, "azautomationaccount_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["name"], "lucene+native-3.0"
+29, "azautomationaccount_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["objectid"], "native-btree-1.0"
+179, "azautomationaccount_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["system_tags"], "lucene+native-3.0"
+270, "azautomationaccount_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["tenantid"], "native-btree-1.0"
+267, "azautomationaccount_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZAutomationAccount"], ["user_tags"], "lucene+native-3.0"
+304, "azbase_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["domainsid"], "native-btree-1.0"
+245, "azbase_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["environmentid"], "native-btree-1.0"
+131, "azbase_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["name"], "lucene+native-3.0"
+47, "azbase_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZBase"], ["objectid"], "native-btree-1.0"
+208, "azbase_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["system_tags"], "lucene+native-3.0"
+154, "azbase_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["tenantid"], "native-btree-1.0"
+215, "azbase_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZBase"], ["user_tags"], "lucene+native-3.0"
+104, "azcontainerregistry_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["domainsid"], "native-btree-1.0"
+231, "azcontainerregistry_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["environmentid"], "native-btree-1.0"
+322, "azcontainerregistry_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["name"], "lucene+native-3.0"
+73, "azcontainerregistry_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["objectid"], "native-btree-1.0"
+203, "azcontainerregistry_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["system_tags"], "lucene+native-3.0"
+255, "azcontainerregistry_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["tenantid"], "native-btree-1.0"
+120, "azcontainerregistry_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZContainerRegistry"], ["user_tags"], "lucene+native-3.0"
+91, "azdevice_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["domainsid"], "native-btree-1.0"
+206, "azdevice_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["environmentid"], "native-btree-1.0"
+291, "azdevice_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["name"], "lucene+native-3.0"
+49, "azdevice_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZDevice"], ["objectid"], "native-btree-1.0"
+160, "azdevice_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["system_tags"], "lucene+native-3.0"
+273, "azdevice_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["tenantid"], "native-btree-1.0"
+180, "azdevice_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZDevice"], ["user_tags"], "lucene+native-3.0"
+337, "azfederatedidentitycredential_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["domainsid"], "native-btree-1.0"
+317, "azfederatedidentitycredential_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["environmentid"], "native-btree-1.0"
+217, "azfederatedidentitycredential_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["name"], "lucene+native-3.0"
+45, "azfederatedidentitycredential_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["objectid"], "native-btree-1.0"
+183, "azfederatedidentitycredential_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["system_tags"], "lucene+native-3.0"
+230, "azfederatedidentitycredential_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["tenantid"], "native-btree-1.0"
+306, "azfederatedidentitycredential_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFederatedIdentityCredential"], ["user_tags"], "lucene+native-3.0"
+119, "azfunctionapp_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["domainsid"], "native-btree-1.0"
+299, "azfunctionapp_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["environmentid"], "native-btree-1.0"
+305, "azfunctionapp_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["name"], "lucene+native-3.0"
+67, "azfunctionapp_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["objectid"], "native-btree-1.0"
+295, "azfunctionapp_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["system_tags"], "lucene+native-3.0"
+99, "azfunctionapp_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["tenantid"], "native-btree-1.0"
+221, "azfunctionapp_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZFunctionApp"], ["user_tags"], "lucene+native-3.0"
+326, "azgroup_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["domainsid"], "native-btree-1.0"
+187, "azgroup_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["environmentid"], "native-btree-1.0"
+254, "azgroup_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["name"], "lucene+native-3.0"
+43, "azgroup_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZGroup"], ["objectid"], "native-btree-1.0"
+281, "azgroup_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["system_tags"], "lucene+native-3.0"
+110, "azgroup_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["tenantid"], "native-btree-1.0"
+192, "azgroup_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZGroup"], ["user_tags"], "lucene+native-3.0"
+141, "azkeyvault_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["domainsid"], "native-btree-1.0"
+297, "azkeyvault_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["environmentid"], "native-btree-1.0"
+296, "azkeyvault_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["name"], "lucene+native-3.0"
+35, "azkeyvault_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["objectid"], "native-btree-1.0"
+128, "azkeyvault_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["system_tags"], "lucene+native-3.0"
+311, "azkeyvault_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["tenantid"], "native-btree-1.0"
+275, "azkeyvault_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZKeyVault"], ["user_tags"], "lucene+native-3.0"
+253, "azlogicapp_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["domainsid"], "native-btree-1.0"
+108, "azlogicapp_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["environmentid"], "native-btree-1.0"
+214, "azlogicapp_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["name"], "lucene+native-3.0"
+37, "azlogicapp_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["objectid"], "native-btree-1.0"
+287, "azlogicapp_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["system_tags"], "lucene+native-3.0"
+272, "azlogicapp_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["tenantid"], "native-btree-1.0"
+199, "azlogicapp_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZLogicApp"], ["user_tags"], "lucene+native-3.0"
+335, "azmanagedcluster_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["domainsid"], "native-btree-1.0"
+205, "azmanagedcluster_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["environmentid"], "native-btree-1.0"
+137, "azmanagedcluster_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["name"], "lucene+native-3.0"
+9, "azmanagedcluster_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["objectid"], "native-btree-1.0"
+165, "azmanagedcluster_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["system_tags"], "lucene+native-3.0"
+138, "azmanagedcluster_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["tenantid"], "native-btree-1.0"
+227, "azmanagedcluster_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagedCluster"], ["user_tags"], "lucene+native-3.0"
+123, "azmanagementgroup_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["domainsid"], "native-btree-1.0"
+244, "azmanagementgroup_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["environmentid"], "native-btree-1.0"
+265, "azmanagementgroup_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["name"], "lucene+native-3.0"
+53, "azmanagementgroup_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["objectid"], "native-btree-1.0"
+166, "azmanagementgroup_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["system_tags"], "lucene+native-3.0"
+182, "azmanagementgroup_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["tenantid"], "native-btree-1.0"
+316, "azmanagementgroup_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZManagementGroup"], ["user_tags"], "lucene+native-3.0"
+136, "azresourcegroup_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["domainsid"], "native-btree-1.0"
+271, "azresourcegroup_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["environmentid"], "native-btree-1.0"
+134, "azresourcegroup_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["name"], "lucene+native-3.0"
+15, "azresourcegroup_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["objectid"], "native-btree-1.0"
+184, "azresourcegroup_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["system_tags"], "lucene+native-3.0"
+333, "azresourcegroup_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["tenantid"], "native-btree-1.0"
+209, "azresourcegroup_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZResourceGroup"], ["user_tags"], "lucene+native-3.0"
+302, "azrole_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["domainsid"], "native-btree-1.0"
+145, "azrole_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["environmentid"], "native-btree-1.0"
+188, "azrole_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["name"], "lucene+native-3.0"
+33, "azrole_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZRole"], ["objectid"], "native-btree-1.0"
+159, "azrole_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["system_tags"], "lucene+native-3.0"
+201, "azrole_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["tenantid"], "native-btree-1.0"
+292, "azrole_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZRole"], ["user_tags"], "lucene+native-3.0"
+246, "azserviceprincipal_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["domainsid"], "native-btree-1.0"
+169, "azserviceprincipal_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["environmentid"], "native-btree-1.0"
+278, "azserviceprincipal_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["name"], "lucene+native-3.0"
+75, "azserviceprincipal_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["objectid"], "native-btree-1.0"
+148, "azserviceprincipal_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["system_tags"], "lucene+native-3.0"
+89, "azserviceprincipal_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["tenantid"], "native-btree-1.0"
+286, "azserviceprincipal_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZServicePrincipal"], ["user_tags"], "lucene+native-3.0"
+150, "azsubscription_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["domainsid"], "native-btree-1.0"
+343, "azsubscription_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["environmentid"], "native-btree-1.0"
+285, "azsubscription_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["name"], "lucene+native-3.0"
+39, "azsubscription_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZSubscription"], ["objectid"], "native-btree-1.0"
+237, "azsubscription_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["system_tags"], "lucene+native-3.0"
+198, "azsubscription_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["tenantid"], "native-btree-1.0"
+153, "azsubscription_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZSubscription"], ["user_tags"], "lucene+native-3.0"
+310, "aztenant_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["domainsid"], "native-btree-1.0"
+256, "aztenant_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["environmentid"], "native-btree-1.0"
+341, "aztenant_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["name"], "lucene+native-3.0"
+83, "aztenant_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZTenant"], ["objectid"], "native-btree-1.0"
+97, "aztenant_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["system_tags"], "lucene+native-3.0"
+258, "aztenant_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["tenantid"], "native-btree-1.0"
+300, "aztenant_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZTenant"], ["user_tags"], "lucene+native-3.0"
+111, "azuser_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["domainsid"], "native-btree-1.0"
+329, "azuser_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["environmentid"], "native-btree-1.0"
+114, "azuser_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["name"], "lucene+native-3.0"
+23, "azuser_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZUser"], ["objectid"], "native-btree-1.0"
+175, "azuser_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["system_tags"], "lucene+native-3.0"
+252, "azuser_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["tenantid"], "native-btree-1.0"
+144, "azuser_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZUser"], ["user_tags"], "lucene+native-3.0"
+308, "azvm_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["domainsid"], "native-btree-1.0"
+340, "azvm_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["environmentid"], "native-btree-1.0"
+234, "azvm_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["name"], "lucene+native-3.0"
+51, "azvm_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZVM"], ["objectid"], "native-btree-1.0"
+103, "azvm_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["system_tags"], "lucene+native-3.0"
+235, "azvm_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["tenantid"], "native-btree-1.0"
+257, "azvm_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVM"], ["user_tags"], "lucene+native-3.0"
+102, "azvmscaleset_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["domainsid"], "native-btree-1.0"
+181, "azvmscaleset_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["environmentid"], "native-btree-1.0"
+113, "azvmscaleset_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["name"], "lucene+native-3.0"
+7, "azvmscaleset_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["objectid"], "native-btree-1.0"
+266, "azvmscaleset_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["system_tags"], "lucene+native-3.0"
+241, "azvmscaleset_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["tenantid"], "native-btree-1.0"
+191, "azvmscaleset_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZVMScaleSet"], ["user_tags"], "lucene+native-3.0"
+174, "azwebapp_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["domainsid"], "native-btree-1.0"
+186, "azwebapp_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["environmentid"], "native-btree-1.0"
+243, "azwebapp_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["name"], "lucene+native-3.0"
+71, "azwebapp_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["AZWebApp"], ["objectid"], "native-btree-1.0"
+303, "azwebapp_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["system_tags"], "lucene+native-3.0"
+127, "azwebapp_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["tenantid"], "native-btree-1.0"
+155, "azwebapp_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["AZWebApp"], ["user_tags"], "lucene+native-3.0"
+225, "base_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["domainsid"], "native-btree-1.0"
+282, "base_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["environmentid"], "native-btree-1.0"
+126, "base_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["name"], "lucene+native-3.0"
+85, "base_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Base"], ["objectid"], "native-btree-1.0"
+284, "base_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["system_tags"], "lucene+native-3.0"
+132, "base_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["tenantid"], "native-btree-1.0"
+105, "base_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Base"], ["user_tags"], "lucene+native-3.0"
+117, "certtemplate_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["domainsid"], "native-btree-1.0"
+325, "certtemplate_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["environmentid"], "native-btree-1.0"
+238, "certtemplate_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["name"], "lucene+native-3.0"
+17, "certtemplate_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["CertTemplate"], ["objectid"], "native-btree-1.0"
+190, "certtemplate_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["system_tags"], "lucene+native-3.0"
+289, "certtemplate_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["tenantid"], "native-btree-1.0"
+290, "certtemplate_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["CertTemplate"], ["user_tags"], "lucene+native-3.0"
+94, "computer_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["domainsid"], "native-btree-1.0"
+251, "computer_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["environmentid"], "native-btree-1.0"
+259, "computer_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["name"], "lucene+native-3.0"
+57, "computer_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Computer"], ["objectid"], "native-btree-1.0"
+115, "computer_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["system_tags"], "lucene+native-3.0"
+319, "computer_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["tenantid"], "native-btree-1.0"
+307, "computer_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Computer"], ["user_tags"], "lucene+native-3.0"
+158, "container_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["domainsid"], "native-btree-1.0"
+140, "container_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["environmentid"], "native-btree-1.0"
+124, "container_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["name"], "lucene+native-3.0"
+59, "container_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Container"], ["objectid"], "native-btree-1.0"
+220, "container_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["system_tags"], "lucene+native-3.0"
+216, "container_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["tenantid"], "native-btree-1.0"
+229, "container_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Container"], ["user_tags"], "lucene+native-3.0"
+135, "domain_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["domainsid"], "native-btree-1.0"
+334, "domain_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["environmentid"], "native-btree-1.0"
+189, "domain_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["name"], "lucene+native-3.0"
+21, "domain_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Domain"], ["objectid"], "native-btree-1.0"
+336, "domain_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["system_tags"], "lucene+native-3.0"
+207, "domain_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["tenantid"], "native-btree-1.0"
+202, "domain_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Domain"], ["user_tags"], "lucene+native-3.0"
+338, "enterpriseca_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["domainsid"], "native-btree-1.0"
+177, "enterpriseca_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["environmentid"], "native-btree-1.0"
+88, "enterpriseca_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["name"], "lucene+native-3.0"
+69, "enterpriseca_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["objectid"], "native-btree-1.0"
+200, "enterpriseca_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["system_tags"], "lucene+native-3.0"
+288, "enterpriseca_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["tenantid"], "native-btree-1.0"
+242, "enterpriseca_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["EnterpriseCA"], ["user_tags"], "lucene+native-3.0"
+133, "gpo_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["domainsid"], "native-btree-1.0"
+276, "gpo_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["environmentid"], "native-btree-1.0"
+318, "gpo_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["name"], "lucene+native-3.0"
+11, "gpo_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["GPO"], ["objectid"], "native-btree-1.0"
+314, "gpo_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["system_tags"], "lucene+native-3.0"
+274, "gpo_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["tenantid"], "native-btree-1.0"
+320, "gpo_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["GPO"], ["user_tags"], "lucene+native-3.0"
+204, "group_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["domainsid"], "native-btree-1.0"
+197, "group_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["environmentid"], "native-btree-1.0"
+218, "group_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["name"], "lucene+native-3.0"
+31, "group_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Group"], ["objectid"], "native-btree-1.0"
+162, "group_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["system_tags"], "lucene+native-3.0"
+228, "group_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["tenantid"], "native-btree-1.0"
+248, "group_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Group"], ["user_tags"], "lucene+native-3.0"
+1, "index_343aff4e", "ONLINE", 100.0, "NONUNIQUE", "LOOKUP", "NODE", NULL, NULL, "token-lookup-1.0"
+2, "index_f7700477", "ONLINE", 100.0, "NONUNIQUE", "LOOKUP", "RELATIONSHIP", NULL, NULL, "token-lookup-1.0"
+332, "issuancepolicy_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["domainsid"], "native-btree-1.0"
+96, "issuancepolicy_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["environmentid"], "native-btree-1.0"
+293, "issuancepolicy_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["name"], "lucene+native-3.0"
+41, "issuancepolicy_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["objectid"], "native-btree-1.0"
+327, "issuancepolicy_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["system_tags"], "lucene+native-3.0"
+232, "issuancepolicy_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["tenantid"], "native-btree-1.0"
+157, "issuancepolicy_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["IssuancePolicy"], ["user_tags"], "lucene+native-3.0"
+298, "meta_owner_objectid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Meta"], ["owner_objectid"], "lucene+native-3.0"
+92, "meta_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Meta"], ["system_tags"], "lucene+native-3.0"
+121, "meta_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Meta"], ["user_tags"], "lucene+native-3.0"
+95, "metadetail_owner_objectid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MetaDetail"], ["owner_objectid"], "lucene+native-3.0"
+212, "metadetail_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MetaDetail"], ["system_tags"], "lucene+native-3.0"
+344, "metadetail_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MetaDetail"], ["user_tags"], "lucene+native-3.0"
+331, "migrationdata_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["domainsid"], "native-btree-1.0"
+118, "migrationdata_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["environmentid"], "native-btree-1.0"
+279, "migrationdata_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["name"], "lucene+native-3.0"
+77, "migrationdata_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["MigrationData"], ["objectid"], "native-btree-1.0"
+239, "migrationdata_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["system_tags"], "lucene+native-3.0"
+168, "migrationdata_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["tenantid"], "native-btree-1.0"
+213, "migrationdata_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["MigrationData"], ["user_tags"], "lucene+native-3.0"
+170, "ntauthstore_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["domainsid"], "native-btree-1.0"
+277, "ntauthstore_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["environmentid"], "native-btree-1.0"
+324, "ntauthstore_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["name"], "lucene+native-3.0"
+19, "ntauthstore_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["objectid"], "native-btree-1.0"
+240, "ntauthstore_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["system_tags"], "lucene+native-3.0"
+260, "ntauthstore_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["tenantid"], "native-btree-1.0"
+90, "ntauthstore_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["NTAuthStore"], ["user_tags"], "lucene+native-3.0"
+93, "ou_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["domainsid"], "native-btree-1.0"
+195, "ou_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["environmentid"], "native-btree-1.0"
+129, "ou_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["name"], "lucene+native-3.0"
+79, "ou_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["OU"], ["objectid"], "native-btree-1.0"
+156, "ou_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["system_tags"], "lucene+native-3.0"
+224, "ou_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["tenantid"], "native-btree-1.0"
+313, "ou_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["OU"], ["user_tags"], "lucene+native-3.0"
+122, "rootca_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["domainsid"], "native-btree-1.0"
+342, "rootca_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["environmentid"], "native-btree-1.0"
+171, "rootca_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["name"], "lucene+native-3.0"
+5, "rootca_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["RootCA"], ["objectid"], "native-btree-1.0"
+339, "rootca_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["system_tags"], "lucene+native-3.0"
+264, "rootca_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["tenantid"], "native-btree-1.0"
+87, "rootca_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["RootCA"], ["user_tags"], "lucene+native-3.0"
+262, "site_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["domainsid"], "native-btree-1.0"
+143, "site_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["environmentid"], "native-btree-1.0"
+100, "site_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["name"], "lucene+native-3.0"
+13, "site_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Site"], ["objectid"], "native-btree-1.0"
+178, "site_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["system_tags"], "lucene+native-3.0"
+269, "site_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["tenantid"], "native-btree-1.0"
+106, "site_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Site"], ["user_tags"], "lucene+native-3.0"
+236, "siteserver_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["domainsid"], "native-btree-1.0"
+323, "siteserver_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["environmentid"], "native-btree-1.0"
+147, "siteserver_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["name"], "lucene+native-3.0"
+27, "siteserver_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["SiteServer"], ["objectid"], "native-btree-1.0"
+149, "siteserver_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["system_tags"], "lucene+native-3.0"
+250, "siteserver_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["tenantid"], "native-btree-1.0"
+261, "siteserver_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteServer"], ["user_tags"], "lucene+native-3.0"
+98, "sitesubnet_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["domainsid"], "native-btree-1.0"
+109, "sitesubnet_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["environmentid"], "native-btree-1.0"
+321, "sitesubnet_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["name"], "lucene+native-3.0"
+55, "sitesubnet_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["objectid"], "native-btree-1.0"
+167, "sitesubnet_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["system_tags"], "lucene+native-3.0"
+312, "sitesubnet_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["tenantid"], "native-btree-1.0"
+193, "sitesubnet_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["SiteSubnet"], ["user_tags"], "lucene+native-3.0"
+142, "user_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["domainsid"], "native-btree-1.0"
+163, "user_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["environmentid"], "native-btree-1.0"
+249, "user_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["name"], "lucene+native-3.0"
+65, "user_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["User"], ["objectid"], "native-btree-1.0"
+185, "user_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["system_tags"], "lucene+native-3.0"
+116, "user_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["tenantid"], "native-btree-1.0"
+219, "user_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["User"], ["user_tags"], "lucene+native-3.0"
+222, "zone_domainsid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["domainsid"], "native-btree-1.0"
+226, "zone_environmentid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["environmentid"], "native-btree-1.0"
+152, "zone_name_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["name"], "lucene+native-3.0"
+3, "zone_objectid_constraint", "ONLINE", 100.0, "UNIQUE", "BTREE", "NODE", ["Zone"], ["objectid"], "native-btree-1.0"
+146, "zone_system_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["system_tags"], "lucene+native-3.0"
+210, "zone_tenantid_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["tenantid"], "native-btree-1.0"
+283, "zone_user_tags_index", "ONLINE", 100.0, "NONUNIQUE", "BTREE", "NODE", ["Zone"], ["user_tags"], "lucene+native-3.0"
+
+## SHOW CONSTRAINTS
+id, name, type, entityType, labelsOrTypes, properties, ownedIndexId
+62, "adlocalgroup_objectid_constraint", "UNIQUENESS", "NODE", ["ADLocalGroup"], ["objectid"], 61
+64, "adlocaluser_objectid_constraint", "UNIQUENESS", "NODE", ["ADLocalUser"], ["objectid"], 63
+82, "aiaca_objectid_constraint", "UNIQUENESS", "NODE", ["AIACA"], ["objectid"], 81
+26, "azapp_objectid_constraint", "UNIQUENESS", "NODE", ["AZApp"], ["objectid"], 25
+30, "azautomationaccount_objectid_constraint", "UNIQUENESS", "NODE", ["AZAutomationAccount"], ["objectid"], 29
+48, "azbase_objectid_constraint", "UNIQUENESS", "NODE", ["AZBase"], ["objectid"], 47
+74, "azcontainerregistry_objectid_constraint", "UNIQUENESS", "NODE", ["AZContainerRegistry"], ["objectid"], 73
+50, "azdevice_objectid_constraint", "UNIQUENESS", "NODE", ["AZDevice"], ["objectid"], 49
+46, "azfederatedidentitycredential_objectid_constraint", "UNIQUENESS", "NODE", ["AZFederatedIdentityCredential"], ["objectid"], 45
+68, "azfunctionapp_objectid_constraint", "UNIQUENESS", "NODE", ["AZFunctionApp"], ["objectid"], 67
+44, "azgroup_objectid_constraint", "UNIQUENESS", "NODE", ["AZGroup"], ["objectid"], 43
+36, "azkeyvault_objectid_constraint", "UNIQUENESS", "NODE", ["AZKeyVault"], ["objectid"], 35
+38, "azlogicapp_objectid_constraint", "UNIQUENESS", "NODE", ["AZLogicApp"], ["objectid"], 37
+10, "azmanagedcluster_objectid_constraint", "UNIQUENESS", "NODE", ["AZManagedCluster"], ["objectid"], 9
+54, "azmanagementgroup_objectid_constraint", "UNIQUENESS", "NODE", ["AZManagementGroup"], ["objectid"], 53
+16, "azresourcegroup_objectid_constraint", "UNIQUENESS", "NODE", ["AZResourceGroup"], ["objectid"], 15
+34, "azrole_objectid_constraint", "UNIQUENESS", "NODE", ["AZRole"], ["objectid"], 33
+76, "azserviceprincipal_objectid_constraint", "UNIQUENESS", "NODE", ["AZServicePrincipal"], ["objectid"], 75
+40, "azsubscription_objectid_constraint", "UNIQUENESS", "NODE", ["AZSubscription"], ["objectid"], 39
+84, "aztenant_objectid_constraint", "UNIQUENESS", "NODE", ["AZTenant"], ["objectid"], 83
+24, "azuser_objectid_constraint", "UNIQUENESS", "NODE", ["AZUser"], ["objectid"], 23
+52, "azvm_objectid_constraint", "UNIQUENESS", "NODE", ["AZVM"], ["objectid"], 51
+8, "azvmscaleset_objectid_constraint", "UNIQUENESS", "NODE", ["AZVMScaleSet"], ["objectid"], 7
+72, "azwebapp_objectid_constraint", "UNIQUENESS", "NODE", ["AZWebApp"], ["objectid"], 71
+86, "base_objectid_constraint", "UNIQUENESS", "NODE", ["Base"], ["objectid"], 85
+18, "certtemplate_objectid_constraint", "UNIQUENESS", "NODE", ["CertTemplate"], ["objectid"], 17
+58, "computer_objectid_constraint", "UNIQUENESS", "NODE", ["Computer"], ["objectid"], 57
+60, "container_objectid_constraint", "UNIQUENESS", "NODE", ["Container"], ["objectid"], 59
+22, "domain_objectid_constraint", "UNIQUENESS", "NODE", ["Domain"], ["objectid"], 21
+70, "enterpriseca_objectid_constraint", "UNIQUENESS", "NODE", ["EnterpriseCA"], ["objectid"], 69
+12, "gpo_objectid_constraint", "UNIQUENESS", "NODE", ["GPO"], ["objectid"], 11
+32, "group_objectid_constraint", "UNIQUENESS", "NODE", ["Group"], ["objectid"], 31
+42, "issuancepolicy_objectid_constraint", "UNIQUENESS", "NODE", ["IssuancePolicy"], ["objectid"], 41
+78, "migrationdata_objectid_constraint", "UNIQUENESS", "NODE", ["MigrationData"], ["objectid"], 77
+20, "ntauthstore_objectid_constraint", "UNIQUENESS", "NODE", ["NTAuthStore"], ["objectid"], 19
+80, "ou_objectid_constraint", "UNIQUENESS", "NODE", ["OU"], ["objectid"], 79
+6, "rootca_objectid_constraint", "UNIQUENESS", "NODE", ["RootCA"], ["objectid"], 5
+14, "site_objectid_constraint", "UNIQUENESS", "NODE", ["Site"], ["objectid"], 13
+28, "siteserver_objectid_constraint", "UNIQUENESS", "NODE", ["SiteServer"], ["objectid"], 27
+56, "sitesubnet_objectid_constraint", "UNIQUENESS", "NODE", ["SiteSubnet"], ["objectid"], 55
+66, "user_objectid_constraint", "UNIQUENESS", "NODE", ["User"], ["objectid"], 65
+4, "zone_objectid_constraint", "UNIQUENESS", "NODE", ["Zone"], ["objectid"], 3
+
+## APOC / GDS procedures
+
+## JVM heap actually in use (JMX java.lang:type=Memory, bytes) + JVM args
+heap
+{init: 81788928, committed: 519045120, used: 176329888, max: 1289748480}
+jvm_args
+["-XX:+UseG1GC", "-XX:-OmitStackTraceInFastThrow", "-XX:+AlwaysPreTouch", "-XX:+UnlockExperimentalVMOptions", "-XX:+TrustFinalNonStaticFields", "-XX:+DisableExplicitGC", "-XX:MaxInlineLevel=15", "-XX:-UseBiasedLocking", "-Djdk.nio.maxCachedBufferSize=262144", "-Dio.netty.tryReflectionSetAccessible=true", "-Djdk.tls.ephemeralDHKeySize=2048", "-Djdk.tls.rejectClientInitiatedRenegotiation=true", "-XX:FlightRecorderOptions=stackdepth=256", "-XX:+UnlockDiagnosticVMOptions", "-XX:+DebugNonSafepoints", "-Dlog4j2.disable.jmx=true", "-Dfile.encoding=UTF-8"]
+
+## heap / pagecache as seen by the JVM (neo4j container)
+/var/lib/neo4j/labs:
+LICENSE
+README.txt
+apoc-4.4.0.36-core.jar
+
+/var/lib/neo4j/plugins:
+README.txt
+#dbms.memory.heap.initial_size=512m
+#dbms.memory.heap.max_size=512m
+#dbms.memory.pagecache.size=10g
+#dbms.memory.transaction.global_max_size=256m
+#dbms.memory.transaction.max_size=16m
+dbms.memory.pagecache.size=512M
+
+## neo4j store dirs
+21289821	/data/databases/neo4j
+0	/data/databases/store_lock
+1118208	/data/databases/system
+262148928	/data/transactions/neo4j
+262148928	/data/transactions/system
