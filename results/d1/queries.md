@@ -110,3 +110,61 @@ WHERE s<>t
 RETURN p
 LIMIT 1000;
 ```
+
+## Câu hỏi bổ sung 19/11 (`queries/extra/`)
+
+Q1 chạy bằng `docker compose exec -T app-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --csv -v ON_ERROR_STOP=1' < queries/extra/<file>`. Q2–Q4 chạy như trên (`cypher-shell --format plain`, timeout 600 s) qua `scripts/export_extra.sh d1`; kết quả ở `results/d1/extra/`. Q4 chạy 2 lần (`ce_paths_22.csv`, `ce_paths_22_run2.csv`). Kiểm: `scripts/check_extra.sh d1`.
+
+### `q1_selectors_tier_zero.sql`
+
+```sql
+SELECT s.id, s.name, s.is_default, s.disabled_at IS NULL AS enabled, s.allow_disable
+FROM asset_group_tag_selectors s JOIN asset_group_tags t ON t.id = s.asset_group_tag_id
+WHERE t.name = 'Tier Zero' ORDER BY s.id;
+```
+
+### `q1_tier0_by_selector.sql`
+
+```sql
+SELECT n.node_object_id AS objectid, s.name AS selector_name
+FROM asset_group_tag_selector_nodes n
+JOIN asset_group_tag_selectors s ON s.id = n.selector_id
+JOIN asset_group_tags t ON t.id = s.asset_group_tag_id
+WHERE t.name = 'Tier Zero' ORDER BY objectid, selector_name;
+```
+
+### `q2_local_to_computer.cypher`
+
+```cypher
+MATCH (g)-[:LocalToComputer]->(c:Computer)
+RETURN g.objectid AS group_oid, labels(g) AS labels, c.objectid AS computer_oid, c.name AS computer
+ORDER BY group_oid, computer;
+```
+
+### `q2_member_of_local_group.cypher`
+
+```cypher
+MATCH (m)-[:MemberOfLocalGroup]->(g)
+RETURN m.objectid AS member_oid, labels(m) AS member_labels, g.objectid AS group_oid
+ORDER BY group_oid, member_oid;
+```
+
+### `q3_edges_all.cypher`
+
+```cypher
+MATCH (s)-[r]->(t) WHERE type(r) IN ["Owns", "GenericAll", "GenericWrite", "WriteOwner", "WriteDacl", "MemberOf", "ForceChangePassword", "AllExtendedRights", "AddMember", "HasSession", "GPLink", "AllowedToDelegate", "CoerceToTGT", "AllowedToAct", "AdminTo", "CanPSRemote", "CanRDP", "ExecuteDCOM", "HasSIDHistory", "AddSelf", "DCSync", "ReadLAPSPassword", "ReadGMSAPassword", "DumpSMSAPassword", "SQLAdmin", "AddAllowedToAct", "WriteSPN", "AddKeyCredentialLink", "SyncLAPSPassword", "WriteAccountRestrictions", "WriteGPLink", "GoldenCert", "ADCSESC1", "ADCSESC3", "ADCSESC4", "ADCSESC6a", "ADCSESC6b", "ADCSESC9a", "ADCSESC9b", "ADCSESC10a", "ADCSESC10b", "ADCSESC13", "SyncedToADUser", "CoerceAndRelayNTLMToSMB", "CoerceAndRelayNTLMToADCS", "WriteOwnerLimitedRights", "OwnsLimitedRights", "ClaimSpecialIdentity", "CoerceAndRelayNTLMToLDAP", "CoerceAndRelayNTLMToLDAPS", "ContainsIdentity", "PropagatesACEsTo", "GPOAppliesTo", "CanApplyGPO", "HasTrustKeys", "WriteAltSecurityIdentities", "WritePublicInformation", "ManageCA", "ManageCertificates", "ServerIs", "Contains", "DCFor", "SameForestTrust", "SpoofSIDHistory", "AbuseTGTDelegation"]
+RETURN s.objectid AS src, type(r) AS kind, t.objectid AS dst ORDER BY src, kind, dst;
+```
+
+### `q4_ce_paths_22.cypher`
+
+```cypher
+MATCH (s) WHERE (s:User OR s:Group OR s:Computer) AND NOT s:Tag_Tier_Zero
+MATCH p = shortestPath((s)-[:MemberOf|Contains|AdminTo|HasSession|GenericAll|GenericWrite|WriteDacl|WriteOwner|Owns|ForceChangePassword|AddMember|AllowedToDelegate|DCSync|GPLink|AllExtendedRights|ReadLAPSPassword|AddSelf|AllowedToAct|CanRDP|CanPSRemote|ExecuteDCOM|SQLAdmin*1..]->(t:Tag_Tier_Zero))
+WHERE s <> t
+WITH s, collect(p) AS ps, min(length(p)) AS d
+UNWIND [x IN ps WHERE length(x) = d] AS p
+RETURN s.objectid AS src, d AS dist, last(nodes(p)).objectid AS dst,
+       [n IN nodes(p) | n.objectid] AS node_oids, [r IN relationships(p) | type(r)] AS kinds
+ORDER BY src, dst;
+```

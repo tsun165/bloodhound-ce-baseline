@@ -1,0 +1,16 @@
+node_counts rc=0 rows(excl header)=16
+node_counts: KHOP results/d0/node_counts.csv
+edge_counts rc=0 rows(excl header)=61
+2,3c2,3
+< "ADCSESC10a", 7
+< "ADCSESC10b", 8
+---
+> "ADCSESC10a", 9
+> "ADCSESC10b", 10
+8,9c8,9
+< "ADCSESC9a", 14
+< "ADCSESC9b", 10
+---
+> "ADCSESC9a", 17
+> "ADCSESC9b", 12
+edge_counts: KHAC

@@ -1,0 +1,4 @@
+tier0 rc=0 rows(excl header)=280
+tier0: KHAC
+edges_22 rc=0 rows(excl header)=11862
+edges_22: giong het results/d0/edges_22.csv

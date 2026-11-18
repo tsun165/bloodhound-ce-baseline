@@ -1,0 +1,40 @@
+objectid: giống hệt (280)
+tier0: chỉ khác thứ tự nhãn trong cột labels
+edge_counts lệch:
+24a25
+> "ADCSESC9a", 17
+26d26
+< "ADCSESC9a", 14
+28,29d27
+< "ADCSESC3", 12
+< "ADCSESC6b", 12
+30a29,31
+> "ADCSESC6b", 12
+> "ADCSESC3", 12
+> "ADCSESC9b", 12
+32,33c33,34
+< "ADCSESC9b", 10
+< "ADCSESC10b", 8
+---
+> "ADCSESC10b", 10
+> "ADCSESC10a", 9
+38d38
+< "ADCSESC10a", 7
+39a40
+> "RemoteInteractiveLogonRight", 6
+42c43
+< "RemoteInteractiveLogonRight", 6
+---
+> "RootCAFor", 5
+45d45
+< "RootCAFor", 5
+47d46
+< "TrustedForNTAuth", 4
+49a49
+> "TrustedForNTAuth", 4
+58d57
+< "ReadLAPSPassword", 1
+62a62
+> "ReadLAPSPassword", 1
+results/d0/edge_counts.csv total 16654
+logs/extra/d0/edge_counts.now.csv total 16663

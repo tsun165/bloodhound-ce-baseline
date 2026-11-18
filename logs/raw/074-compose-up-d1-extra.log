@@ -1,0 +1,35 @@
+ Network attack_path_prediction_indentity_default Creating 
+ Network attack_path_prediction_indentity_default Creating 
+ Volume attack_path_prediction_indentity_postgres-data Creating 
+ Volume attack_path_prediction_indentity_postgres-data Creating 
+ Volume attack_path_prediction_indentity_neo4j-data Creating 
+ Volume attack_path_prediction_indentity_neo4j-data Creating 
+ Volume attack_path_prediction_indentity_postgres-data Created 
+ Volume attack_path_prediction_indentity_postgres-data Created 
+ Volume attack_path_prediction_indentity_neo4j-data Created 
+ Volume attack_path_prediction_indentity_neo4j-data Created 
+ Network attack_path_prediction_indentity_default Created 
+ Network attack_path_prediction_indentity_default Created 
+ Container attack_path_prediction_indentity-graph-db-1 Creating 
+ Container attack_path_prediction_indentity-app-db-1 Creating 
+ Container attack_path_prediction_indentity-app-db-1 Created 
+ Container attack_path_prediction_indentity-graph-db-1 Created 
+ Container attack_path_prediction_indentity-bloodhound-1 Creating 
+ Container attack_path_prediction_indentity-bloodhound-1 Created 
+ Container attack_path_prediction_indentity-graph-db-1 Starting 
+ Container attack_path_prediction_indentity-app-db-1 Starting 
+ Container attack_path_prediction_indentity-graph-db-1 Started 
+ Container attack_path_prediction_indentity-app-db-1 Started 
+ Container attack_path_prediction_indentity-app-db-1 Waiting 
+ Container attack_path_prediction_indentity-graph-db-1 Waiting 
+ Container attack_path_prediction_indentity-app-db-1 Healthy 
+ Container attack_path_prediction_indentity-graph-db-1 Healthy 
+ Container attack_path_prediction_indentity-bloodhound-1 Starting 
+ Container attack_path_prediction_indentity-bloodhound-1 Started 
+login ok after 128s (probes=32)
+{"data":{"API":{"current_version":"v2","deprecated_version":"none"},"server_version":"v9.9.2","product_edition":"community"}}
+{"data":{"status":"analyzing","updated_at":"2026-11-18T22:41:35.575346Z","last_complete_analysis_at":"0001-01-01T00:00:00Z","last_analysis_run_at":"2026-11-18T22:41:35.575346Z","last_complete_optimize_at":"2026-11-18T22:41:35.515378Z","next_scheduled_analysis_at":null}}
+NAME                                            IMAGE                                                                                                           COMMAND                  SERVICE      CREATED         STATUS                   PORTS
+attack_path_prediction_indentity-app-db-1       docker.io/library/postgres:18@sha256:2ea8630df176ad090ec92136dee850397c5af8781e4bcf2e4162593691c61bbc           "docker-entrypoint.s…"   app-db       2 minutes ago   Up 2 minutes (healthy)   5432/tcp
+attack_path_prediction_indentity-bloodhound-1   docker.io/specterops/bloodhound:9.9.2@sha256:47a21323d05185b284fff799c2b96bcc1d110f06f45b190f7ad83e69ef5e0d68   "/bloodhound -config…"   bloodhound   2 minutes ago   Up About a minute        127.0.0.1:8080->8080/tcp
+attack_path_prediction_indentity-graph-db-1     docker.io/library/neo4j:4.4.42@sha256:73b5a47eb9952f47fcc42fcc80bdd6bd0d6b71eea9a1a345c216675498c790e4          "tini -g -- /startup…"   graph-db     2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:7474->7474/tcp, 127.0.0.1:7687->7687/tcp

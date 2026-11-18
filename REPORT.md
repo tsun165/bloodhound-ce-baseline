@@ -121,3 +121,68 @@ Thời gian chờ Neo4j nhận truy vấn sau `restart graph-db`: 14–31 s (`lo
 - [x] `perf.csv` có dòng PROFILE (db hits; p2 PROFILE timeout nên trống) và đủ 1 lạnh + 5 ấm cho `p1`, `p2`, `p5` (`p4`: 1 + 3 mỗi user; `p3`: một dòng skipped)
 - [x] `RUNLOG.md` có mọi lệnh, kể cả lần lỗi; `logs/raw/` đủ đầu ra
 - [x] Không có mật khẩu, `.env`, tên máy, tên user, đường dẫn home, zip dữ liệu trong repo (grep lại trước khi push)
+
+## 6. Câu hỏi bổ sung 19/11
+
+Chạy ngày 2026-11-19, RUNLOG mục 56–86. Cùng stack, cùng image digest. Câu truy vấn nằm ở `queries/extra/` (chép nguyên văn vào `results/<ds>/queries.md`). Script mới gồm `scripts/export_extra.sh` (Q2–Q4), `scripts/check_extra.sh` (kiểm Q3, Q4) và `scripts/csvcol.pl` (đọc cột CSV có ngoặc kép). Script và kết quả cũ không bị sửa.
+
+**Chuẩn bị.** Docker Desktop đang tắt nên mình bật lại (mục 56), rồi `docker compose up -d` với volume cũ (mục 57). DB lúc đó chứa D0, bản nạp lại ngày 16/11. So với `results/d0/` (mục 58–60):
+- node và `edges_22.csv` khớp, `edges_22.csv` giống từng byte;
+- Tier 0 cùng 280 objectid, chỉ khác thứ tự nhãn trong cột `labels`;
+- **tổng cạnh lệch: 16 663, lần chính 16 654**, xem Vướng 19/11 số 1.
+
+Theo lựa chọn của người dùng, mình chạy tiếp trên DB này. Sau D0, `docker compose down -v` (người dùng đồng ý, mục 73), dựng lại (74), xác nhận DB rỗng (75), rồi nạp D1 bằng `scripts/ingest.sh` với 3 zip trong 1 job (mục 76, log ở `logs/ingest/d1_extra/`). D1 sau khi nạp khớp `results/d1/` hoàn toàn (mục 77): node, 8 268 cạnh, `edges_22.csv` giống từng byte, 187 Tier 0. Các file khác chỉ khác thứ tự dòng khi bằng nhau hoặc thứ tự nhãn.
+
+### Q1. Selector Tier Zero
+
+- Lệnh: `queries/extra/q1_selectors_tier_zero.sql` qua `psql --csv` trong `app-db` (mục 62) → `results/selectors_tier_zero.csv`, **44 dòng**. Cả 44 đều `is_default=t`, `enabled=t`; `allow_disable`: 17 `f`, 27 `t`. Sau `down -v`, app-db mới cho danh sách giống từng byte (mục 85).
+- **Có** bảng `asset_group_tag_selector_nodes` (`\dt`, mục 61; cột `selector_id, node_id, node_object_id, …`). Câu `queries/extra/q1_tier0_by_selector.sql` → `results/<ds>/extra/tier0_by_selector.csv` (`objectid, selector_name`; một node có thể thuộc nhiều selector):
+  - D0 (mục 63): **438 dòng**, 280 objectid khác nhau = đúng tập `results/d0/tier0.csv`, 31/44 selector có node.
+  - D1 (mục 84, xuất thêm vì app-db đã tạo mới): **255 dòng**, 187 objectid = đúng tập `results/d1/tier0.csv`, 28/44 selector có node.
+- Vướng: lần kiểm đầu (mục 64) báo lệch 1 objectid. Lỗi nằm ở câu kiểm: `cut -d,` tách sai objectid dạng DN có dấu phẩy (`CN=ENTERPRISE ADMINS,OU=GROUPS,…`). Kiểm lại bằng parser CSV (mục 65) thì 0 lệch.
+
+### Q2. `LocalToComputer`, `MemberOfLocalGroup`
+
+| | `local_to_computer.csv` | `member_of_local_group.csv` |
+|---|---|---|
+| D0 (mục 67, 68) | 29 dòng | 52 dòng |
+| D1 (mục 79, 80) | 22 dòng | 50 dòng |
+
+Cột đúng như đề. Không có kiểm chéo nào được yêu cầu. Lưu ý: thứ tự phần tử trong `labels(...)` có thể đổi sau khi restart Neo4j, nên so các cột nhãn theo tập hợp (Vướng 19/11 số 2).
+
+### Q3. Mọi cạnh thuộc 65 loại transit
+
+- `queries/extra/q3_edges_all.cypher` (danh sách sinh từ `queries/ad_transit_edge_types.txt`, 65 chuỗi) → `results/<ds>/extra/edges_all.csv`. D0 có **12 213 dòng** (40 loại có cạnh), D1 có **5 882 dòng** (29 loại). Số cạnh theo loại nằm trong `logs/raw/072-check-extra-d0.log` và `086-check-extra-d1.log`.
+- **Kiểm** (mục 72, 86): các dòng có `kind` thuộc 22 loại, lọc từ `edges_all.csv`, **giống từng byte `edges_22.csv`** (cùng dòng, cùng thứ tự). D0 có 11 862 = 11 862, D1 có 5 745 = 5 745.
+- D0: `edges_all.csv` lấy từ DB D0 nạp lại. Các loại ADCSESC9a/9b/10a/10b là 17/12/9/10, khác lần chính (Vướng 19/11 số 1).
+
+### Q4. Đường ngắn nhất theo từng cặp (nguồn, Tier 0), 22 loại
+
+- `queries/extra/q4_ce_paths_22.cypher` → `results/<ds>/extra/ce_paths_22.csv`, chạy lần 2 → `ce_paths_22_run2.csv`.
+
+| | dòng | `src` khác nhau | số đường mỗi `src` (min/max) | lần 1 / lần 2 (wall, s) |
+|---|---|---|---|---|
+| D0 (mục 70, 71) | 446 | 65 | 1 / 9 | 9.6 / 6.7 |
+| D1 (mục 82, 83) | 36 | 19 | 1 / 18 | 4.5 / 4.8 |
+
+- **Kiểm với `reach_22.csv`** (mục 72, 86): tập `(src, dist)` khác nhau của `ce_paths_22.csv` **trùng khớp** tập `(objectid, dist)` của các dòng có `dist` khác `NULL` trong `reach_22.csv`. D0 có 65 = 65, D1 có 19 = 19.
+- **Độ ổn định**: `diff ce_paths_22.csv ce_paths_22_run2.csv` cho kết quả **giống từng byte** ở cả D0 và D1 (0 `src` có đường khác). Hai lần chạy liên tiếp, không restart Neo4j. Trong câu này `shortestPath` chỉ trả **một** đường cho mỗi cặp (s, t), nên "ổn định" ở đây nghĩa là Neo4j chọn cùng một đường trong hai lần chạy. Chưa thử qua restart hay nạp lại.
+- **UI CE khi bấm một node** (đọc source `vendor/BloodHound` @ v9.9.2, không chạy):
+  - Bảng thông tin node (Entity panel) **không có mục nào hiện đường tới Tier 0**. Với AD User có các mục: Sessions, Member Of, Local Admin Privileges, Execution Privileges, Outbound/Inbound Object Control (`packages/javascript/bh-shared-ui/src/utils/content.ts:1080-1137`). Trong `content.ts` không có `label` nào chứa "path". Mục duy nhất có "Tier Zero" là "Tier Zero Objects" của GPO (danh sách object bị GPO tác động, không phải đường đi; `content.ts:936-937`). Mình mới đọc kỹ nhóm mục của User. Với các loại node khác thì chỉ dựa vào việc grep nhãn.
+  - Đường đi trong UI có từ menu chuột phải "Set as starting node" / "Set as ending node" (`packages/javascript/bh-shared-ui/src/views/Explore/ContextMenu/ContextMenuPrivilegeZonesEnabled.tsx:94-95`, bản cũ ở `cmd/ui/src/views/Explore/ContextMenu/ContextMenu.tsx:77-78`). Luồng gọi:
+    1. tab Pathfinding gọi `getShortestPathV2` (`packages/javascript/bh-shared-ui/src/hooks/useExploreGraph/queries/pathfindingSearch.ts:61,77`);
+    2. hàm này gửi `GET /api/v2/graphs/shortest-path?start_node=&end_node=&relationship_kinds=&only_traversable=true` (`packages/javascript/js-client-library/src/client.ts:2923-2935`);
+    3. route ở `cmd/api/src/api/registration/v2.go:163`, xử lý bởi `GetShortestPath` (`cmd/api/src/api/v2/pathfinding.go:126`);
+    4. rồi tới `GraphQuery.GetAllShortestPaths`, dùng `FetchAllShortestPaths` giữa **một** start node và **một** end node cụ thể (`cmd/api/src/queries/graph.go:259-292`).
+  - Như vậy endpoint này cần người dùng chọn một node đích cụ thể, không tìm "tới bất kỳ node Tier 0 nào". Nó trả **mọi** đường ngắn nhất giữa cặp đó (all shortest paths), còn Q4 dùng `shortestPath` (một đường mỗi cặp).
+  - Câu Cypher cụ thể mà driver dawgs sinh ra cho `FetchAllShortestPaths`: **chưa kiểm**.
+
+### Vướng 19/11
+
+1. **DB D0 nạp lại lệch +9 cạnh so với lần chính**. ADCSESC9a 14→17, ADCSESC9b 10→12, ADCSESC10a 7→9, ADCSESC10b 8→10; các loại khác cùng số (mục 58, 60). Nguyên nhân **chưa rõ**, có hai khả năng chưa tách được:
+   - CE tự chạy lại analysis khi khởi động (`last_analysis_run_at` 2026-11-18T22:32:50Z, mục 57);
+   - lần nạp lại D0 hôm 16/11 đã cho số này từ trước (hôm đó chỉ đếm node và Tier 0, không đếm cạnh).
+
+   Người dùng chọn chạy tiếp. Ảnh hưởng: Q2 và Q4 không bị ảnh hưởng (`edges_22` giống từng byte, `reach_22` khớp). `results/d0/extra/edges_all.csv` phản ánh DB nạp lại, không phải lần chính. D1 nạp mới không lệch.
+2. **Thứ tự nhãn trong `labels()` không cố định** giữa các lần khởi động Neo4j: `tier0.csv` D0 khác byte chỉ vì thứ tự nhãn (mục 60). Các file có cột nhãn (`local_to_computer.csv`, `member_of_local_group.csv`) nên so theo tập hợp.
+3. Trạng thái cuối: stack đang chạy, DB chứa **D1**. Bản D0 nạp lại đã bị xoá bằng `down -v` (mục 73).

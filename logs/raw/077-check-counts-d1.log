@@ -1,0 +1,10 @@
+node_counts rc=0 rows(excl header)=16
+node_counts: cung tap dong (chi khac thu tu dong/nhan)
+edge_counts rc=0 rows(excl header)=45
+edge_counts: cung tap dong (chi khac thu tu dong/nhan)
+edges_22 rc=0 rows(excl header)=5745
+edges_22: giong het byte
+tier0 rc=0 rows(excl header)=187
+tier0: cung tap dong (chi khac thu tu dong/nhan)
+results/d1/edge_counts.csv total 8268
+logs/extra/d1/edge_counts.now.csv total 8268

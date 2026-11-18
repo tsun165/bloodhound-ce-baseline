@@ -1,0 +1,5 @@
+[run.sh] #79 extra-d1-local_to_computer exit=0 dur=1.922s -> logs/raw/079-extra-d1-local_to_computer.log
+[run.sh] #80 extra-d1-member_of_local_group exit=0 dur=1.427s -> logs/raw/080-extra-d1-member_of_local_group.log
+[run.sh] #81 extra-d1-edges_all exit=0 dur=2.070s -> logs/raw/081-extra-d1-edges_all.log
+[run.sh] #82 extra-d1-ce_paths_22 exit=0 dur=4.490s -> logs/raw/082-extra-d1-ce_paths_22.log
+[run.sh] #83 extra-d1-ce_paths_22_run2 exit=0 dur=4.801s -> logs/raw/083-extra-d1-ce_paths_22_run2.log

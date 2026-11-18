@@ -1,0 +1,5 @@
+[run.sh] #67 extra-d0-local_to_computer exit=0 dur=4.251s -> logs/raw/067-extra-d0-local_to_computer.log
+[run.sh] #68 extra-d0-member_of_local_group exit=0 dur=2.268s -> logs/raw/068-extra-d0-member_of_local_group.log
+[run.sh] #69 extra-d0-edges_all exit=0 dur=3.422s -> logs/raw/069-extra-d0-edges_all.log
+[run.sh] #70 extra-d0-ce_paths_22 exit=0 dur=9.622s -> logs/raw/070-extra-d0-ce_paths_22.log
+[run.sh] #71 extra-d0-ce_paths_22_run2 exit=0 dur=6.651s -> logs/raw/071-extra-d0-ce_paths_22_run2.log

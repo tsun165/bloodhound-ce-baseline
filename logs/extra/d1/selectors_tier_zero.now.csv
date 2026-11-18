@@ -1,0 +1,45 @@
+id,name,is_default,enabled,allow_disable
+1,Security Administrator,t,t,t
+2,Account Operators,t,t,t
+3,Administrators,t,t,f
+4,Application Administrator,t,t,t
+5,AIA CA (AD object),t,t,t
+6,Enterprise Domain Controllers,t,t,f
+7,Privileged Role Administrator,t,t,f
+8,AZUREADSSOACC object,t,t,t
+9,Cryptographic Operators,t,t,t
+10,DNS Admins,t,t,t
+11,AdminSDHolder,t,t,f
+12,Distributed COM Users,t,t,t
+13,Key Admins,t,t,f
+14,Cert Publishers,t,t,t
+15,Print Operators,t,t,t
+16,NTAuth store,t,t,t
+17,Exchange Trusted Subsystem,t,t,t
+18,Administrator,t,t,f
+19,Domain root object,t,t,f
+20,Enterprise CA Computers,t,t,t
+21,Schema Admins,t,t,f
+22,Enterprise Admins,t,t,f
+23,Partner Tier2 Support,t,t,f
+24,Read-Only Domain Controllers,t,t,t
+25,Certificate template,t,t,t
+26,Knowledge Administrator,t,t,t
+27,Domain Controllers,t,t,f
+28,KRBTGT objects,t,t,t
+29,Performance Log Users,t,t,t
+30,Intune Administrator,t,t,t
+31,Enterprise Key Admins,t,t,f
+32,Global Administrator,t,t,f
+33,Privileged Authentication Administrator,t,t,f
+34,Domain Admins,t,t,f
+35,Azure tenant object,t,t,f
+36,Server Operators,t,t,t
+37,Backup Operators,t,t,f
+38,Enterprise CA (AD object),t,t,t
+39,Root CA object,t,t,t
+40,Exchange Windows Permissions,t,t,t
+41,Read-Only DCs,t,t,t
+42,Incoming Forest Trust Builders,t,t,t
+43,Sites,t,t,t
+44,Domain Controller Site Servers,t,t,t

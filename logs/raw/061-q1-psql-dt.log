@@ -1,0 +1,70 @@
+                        List of tables
+ Schema |              Name              | Type  |   Owner    
+--------+--------------------------------+-------+------------
+ public | asset_group_collection_entries | table | bloodhound
+ public | asset_group_collections        | table | bloodhound
+ public | asset_group_history            | table | bloodhound
+ public | asset_group_selectors          | table | bloodhound
+ public | asset_group_tag_selector_nodes | table | bloodhound
+ public | asset_group_tag_selector_seeds | table | bloodhound
+ public | asset_group_tag_selectors      | table | bloodhound
+ public | asset_group_tags               | table | bloodhound
+ public | asset_groups                   | table | bloodhound
+(9 rows)
+
+                                           Table "public.asset_group_tag_selectors"
+       Column       |           Type           | Collation | Nullable |                        Default                        
+--------------------+--------------------------+-----------+----------+-------------------------------------------------------
+ id                 | integer                  |           | not null | nextval('asset_group_tag_selectors_id_seq'::regclass)
+ asset_group_tag_id | integer                  |           |          | 
+ created_at         | timestamp with time zone |           |          | 
+ created_by         | text                     |           |          | 
+ updated_at         | timestamp with time zone |           |          | 
+ updated_by         | text                     |           |          | 
+ disabled_at        | timestamp with time zone |           |          | 
+ disabled_by        | text                     |           |          | 
+ name               | text                     |           | not null | 
+ description        | text                     |           | not null | ''::text
+ is_default         | boolean                  |           | not null | false
+ allow_disable      | boolean                  |           | not null | true
+ auto_certify       | integer                  |           | not null | 0
+ rule_key           | text                     |           |          | 
+ extension_id       | integer                  |           |          | 
+Indexes:
+    "asset_group_tag_selectors_pkey" PRIMARY KEY, btree (id)
+    "asset_group_tag_selectors_unique_name_asset_group_tag" UNIQUE CONSTRAINT, btree (name, asset_group_tag_id, is_default)
+    "idx_asset_group_tag_selectors_extension_id" btree (extension_id)
+    "idx_asset_group_tag_selectors_name" btree (name)
+    "idx_asset_group_tag_selectors_rule_key" UNIQUE, btree (rule_key, extension_id) WHERE rule_key IS NOT NULL
+Check constraints:
+    "asset_group_tag_selectors_rule_key_extension_id_check" CHECK (rule_key IS NULL AND extension_id IS NULL OR rule_key IS NOT NULL AND extension_id IS NOT NULL)
+Foreign-key constraints:
+    "asset_group_tag_selectors_extension_id_fkey" FOREIGN KEY (extension_id) REFERENCES schema_extensions(id) ON DELETE CASCADE
+    "fk_asset_group_tags_asset_group_selectors" FOREIGN KEY (asset_group_tag_id) REFERENCES asset_group_tags(id) ON DELETE CASCADE
+Referenced by:
+    TABLE "asset_group_tag_selector_nodes" CONSTRAINT "fk_asset_group_tag_selectors_asset_group_tag_selector_nodes" FOREIGN KEY (selector_id) REFERENCES asset_group_tag_selectors(id) ON DELETE CASCADE
+    TABLE "asset_group_tag_selector_seeds" CONSTRAINT "fk_asset_group_tag_selectors_asset_group_tag_selector_seeds" FOREIGN KEY (selector_id) REFERENCES asset_group_tag_selectors(id) ON DELETE CASCADE
+
+                  Table "public.asset_group_tag_selector_nodes"
+       Column        |           Type           | Collation | Nullable | Default 
+---------------------+--------------------------+-----------+----------+---------
+ selector_id         | integer                  |           | not null | 
+ node_id             | bigint                   |           | not null | 
+ certified           | integer                  |           | not null | 0
+ certified_by        | text                     |           |          | 
+ source              | integer                  |           |          | 
+ created_at          | timestamp with time zone |           |          | 
+ updated_at          | timestamp with time zone |           |          | 
+ node_primary_kind   | text                     |           |          | 
+ node_environment_id | text                     |           |          | 
+ node_object_id      | text                     |           |          | 
+ node_name           | text                     |           |          | 
+Indexes:
+    "asset_group_tag_selector_nodes_pkey" PRIMARY KEY, btree (selector_id, node_id)
+    "idx_agt_selector_nodes_environment_id" btree (node_environment_id)
+    "idx_agt_selector_nodes_name" btree (node_name)
+    "idx_agt_selector_nodes_object_id" btree (node_object_id)
+    "idx_agt_selector_nodes_primary_kind" btree (node_primary_kind)
+Foreign-key constraints:
+    "fk_asset_group_tag_selectors_asset_group_tag_selector_nodes" FOREIGN KEY (selector_id) REFERENCES asset_group_tag_selectors(id) ON DELETE CASCADE
+

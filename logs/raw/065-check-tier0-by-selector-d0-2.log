@@ -1,0 +1,5 @@
+distinct objectid in tier0_by_selector: 280
+tier0.csv objectid: 280
+only in selector_nodes: 0
+only in tier0.csv: 0
+rows: 438, selectors with >=1 node: 31

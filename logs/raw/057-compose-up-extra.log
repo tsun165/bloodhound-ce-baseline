@@ -1,0 +1,15 @@
+ Container attack_path_prediction_indentity-app-db-1 Starting 
+ Container attack_path_prediction_indentity-graph-db-1 Starting 
+ Container attack_path_prediction_indentity-app-db-1 Started 
+ Container attack_path_prediction_indentity-graph-db-1 Started 
+ Container attack_path_prediction_indentity-app-db-1 Waiting 
+ Container attack_path_prediction_indentity-graph-db-1 Waiting 
+ Container attack_path_prediction_indentity-app-db-1 Healthy 
+ Container attack_path_prediction_indentity-graph-db-1 Healthy 
+ Container attack_path_prediction_indentity-bloodhound-1 Starting 
+ Container attack_path_prediction_indentity-bloodhound-1 Started 
+{"data":{"status":"idle","updated_at":"2026-11-18T22:33:40.125471Z","last_complete_analysis_at":"2026-11-18T22:33:39.89652Z","last_analysis_run_at":"2026-11-18T22:32:50.340175Z","last_complete_optimize_at":"2026-11-18T22:32:50.265098Z","next_scheduled_analysis_at":null}}
+NAME                                            IMAGE                                                                                                           COMMAND                  SERVICE      CREATED      STATUS                        PORTS
+attack_path_prediction_indentity-app-db-1       docker.io/library/postgres:18@sha256:2ea8630df176ad090ec92136dee850397c5af8781e4bcf2e4162593691c61bbc           "docker-entrypoint.s…"   app-db       2 days ago   Up About a minute (healthy)   5432/tcp
+attack_path_prediction_indentity-bloodhound-1   docker.io/specterops/bloodhound:9.9.2@sha256:47a21323d05185b284fff799c2b96bcc1d110f06f45b190f7ad83e69ef5e0d68   "/bloodhound -config…"   bloodhound   2 days ago   Up 57 seconds                 127.0.0.1:8080->8080/tcp
+attack_path_prediction_indentity-graph-db-1     docker.io/library/neo4j:4.4.42@sha256:73b5a47eb9952f47fcc42fcc80bdd6bd0d6b71eea9a1a345c216675498c790e4          "tini -g -- /startup…"   graph-db     2 days ago   Up About a minute (healthy)   127.0.0.1:7474->7474/tcp, 127.0.0.1:7687->7687/tcp

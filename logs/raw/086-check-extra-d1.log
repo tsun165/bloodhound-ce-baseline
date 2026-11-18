@@ -1,0 +1,50 @@
+== Q3: edges_all rows with kind in 22 vs edges_22.csv
+edges_all rows (excl header): 5882
+rows with kind in 22: 5745; edges_22.csv rows: 5745
+Q3 check: identical to edges_22.csv (same lines, same order)
+kinds in edges_all (count):
+   1317 WriteDacl
+   1316 WriteOwner
+   1008 GenericAll
+    729 Contains
+    722 Owns
+    323 GenericWrite
+    199 MemberOf
+     88 AllExtendedRights
+     66 AddKeyCredentialLink
+     25 ClaimSpecialIdentity
+     19 AdminTo
+      8 ManageCertificates
+      8 ManageCA
+      8 GPLink
+      8 ADCSESC3
+      6 DCSync
+      5 HasSession
+      5 ADCSESC4
+      5 ADCSESC1
+      3 DCFor
+      2 SyncLAPSPassword
+      2 SpoofSIDHistory
+      2 SameForestTrust
+      2 SQLAdmin
+      2 GoldenCert
+      1 ReadGMSAPassword
+      1 ForceChangePassword
+      1 AddSelf
+      1 AddMember
+== Q4: distinct (src, dist) of ce_paths_22 vs reach_22 rows with dist not NULL
+ce_paths_22: rows=36 distinct src=19 distinct (src,dist)=19
+reach_22: rows with dist=19
+Q4 check: (src, dist) set identical
+dist histogram (src count):
+      8 1
+      3 2
+      1 3
+      1 4
+      3 5
+      1 6
+      1 7
+      1 8
+paths per src: min/max = 1/18
+== Q4 stability: diff ce_paths_22.csv ce_paths_22_run2.csv
+Q4 stability: identical (byte-for-byte)

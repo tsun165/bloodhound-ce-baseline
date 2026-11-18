@@ -1,0 +1,40 @@
+distinct objectid in tier0_by_selector: 280
+empty objectid rows: 0
+tier0.csv objectid: 280
+only in selector_nodes: 1
+"CN=ENTERPRISE ADMINS
+only in tier0.csv: 1
+CN=ENTERPRISE ADMINS
+rows per selector:
+    110 Certificate template
+     54 Administrators
+     32 Domain Admins
+     21 Domain Controllers
+     19 Enterprise Domain Controllers
+     19 Cert Publishers
+     14 Read-Only Domain Controllers
+     14 Enterprise CA Computers
+     14 Domain root object
+     14 AIA CA (AD object)
+     13 Root CA object
+     12 Enterprise CA (AD object)
+     11 Enterprise Admins
+     10 Schema Admins
+      8 NTAuth store
+      8 Exchange Windows Permissions
+      7 Print Operators
+      7 Exchange Trusted Subsystem
+      6 DNS Admins
+      6 Backup Operators
+      6 Account Operators
+      5 Key Admins
+      3 Server Operators
+      3 Performance Log Users
+      3 KRBTGT objects
+      3 Incoming Forest Trust Builders
+      3 Enterprise Key Admins
+      3 Distributed COM Users
+      3 Cryptographic Operators
+      3 Administrator
+      3 AdminSDHolder
+      1 OU=GROUPS,OU=TIER0,DC=PHANTOM,DC=CORP",Administrators

@@ -359,3 +359,179 @@ echo "CALL dbms.queryJmx(\"org.neo4j:*\") YIELD name RETURN name;" | docker comp
 - start: 2026-11-16T17:58:54+07:00 · end: 2026-11-16T17:58:55+07:00 · duration_s: 1.294 · exit: 0
 - cmd: `MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd -W):/w" -w /w python:3.11-slim python -I scripts/summarize.py d0 d1 > logs/summary_tables.md`
 - output: logs/raw/055-summarize-2.log
+
+### 56. start-docker-desktop
+- start: 2026-11-19T05:30:12+07:00 · end: 2026-11-19T05:31:54+07:00 · duration_s: 102.273 · exit: 0
+- cmd: `("/c/Program Files/Docker/Docker/Docker Desktop.exe" >/dev/null 2>&1 &); for i in $(seq 1 60); do docker info >/dev/null 2>&1 && break; sleep 5; done; docker info --format "NCPU={{.NCPU}} MemTotal={{.MemTotal}} ServerVersion={{.ServerVersion}}"`
+- output: logs/raw/056-start-docker-desktop.log
+- ghi chú: Bắt đầu việc câu hỏi bổ sung 19/11: Docker Desktop đang tắt, bật lại và chờ daemon
+
+### 57. compose-up-extra
+- start: 2026-11-19T05:32:21+07:00 · end: 2026-11-19T05:33:43+07:00 · duration_s: 82.538 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose up -d 2>&1; for i in $(seq 1 120); do bash scripts/bh_api.sh login >/dev/null 2>&1 && break; sleep 2; done; for i in $(seq 1 60); do bash scripts/bh_api.sh GET /api/v2/datapipe/status | grep -q "\"status\":\"idle\"" && break; sleep 5; done; bash scripts/bh_api.sh GET /api/v2/datapipe/status; echo; docker compose ps`
+- output: logs/raw/057-compose-up-extra.log
+- ghi chú: Bật lại stack (volume còn nguyên, DB chứa D0 lần nạp lại); graph-db lần trước Exited (137) khi Docker Desktop tắt
+
+### 58. check-counts-d0
+- start: 2026-11-19T05:34:11+07:00 · end: 2026-11-19T05:34:37+07:00 · duration_s: 25.183 · exit: 0
+- cmd: `set -a; . ./.env; set +a; for q in node_counts edge_counts; do timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_$q.cypher > logs/extra/d0/$q.now.csv; echo "$q rc=$? rows(excl header)=$(($(wc -l < logs/extra/d0/$q.now.csv)-1))"; if diff <(sort results/d0/$q.csv) <(sort logs/extra/d0/$q.now.csv); then echo "$q: KHOP results/d0/$q.csv"; else echo "$q: KHAC"; fi; done`
+- output: logs/raw/058-check-counts-d0.log
+- ghi chú: Kiểm số node/cạnh hiện tại khớp results/d0 (DB đang chứa D0 lần nạp lại)
+
+### 59. check-t0-e22-d0
+- start: 2026-11-19T05:34:56+07:00 · end: 2026-11-19T05:35:10+07:00 · duration_s: 13.064 · exit: 0
+- cmd: `set -a; . ./.env; set +a; for q in tier0 edges_22; do timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_$q.cypher > logs/extra/d0/$q.now.csv; echo "$q rc=$? rows(excl header)=$(($(wc -l < logs/extra/d0/$q.now.csv)-1))"; cmp -s results/d0/$q.csv logs/extra/d0/$q.now.csv && echo "$q: giong het results/d0/$q.csv" || echo "$q: KHAC"; done`
+- output: logs/raw/059-check-t0-e22-d0.log
+- ghi chú: Lệch edge_counts ở ADCSESC9a/9b/10a/10b: kiểm thêm Tier 0 và edges_22 so với results/d0
+
+### 60. diff-t0-d0
+- start: 2026-11-19T05:35:34+07:00 · end: 2026-11-19T05:35:35+07:00 · duration_s: 0.707 · exit: 0
+- cmd: `norm(){ perl -ne 'if(/^(.*?)\[(.*)\]\s*$/){my @l=sort split /, /,$2; print "$1\[".join(", ",@l)."]\n"} else {print}' "$1"; }; diff <(cut -d, -f1 results/d0/tier0.csv) <(cut -d, -f1 logs/extra/d0/tier0.now.csv) && echo "objectid: giống hệt (280)"; diff <(norm results/d0/tier0.csv) <(norm logs/extra/d0/tier0.now.csv) && echo "tier0: chỉ khác thứ tự nhãn trong cột labels"; echo "edge_counts lệch:"; diff results/d0/edge_counts.csv logs/extra/d0/edge_counts.now.csv; for f in results/d0/edge_counts.csv logs/extra/d0/edge_counts.now.csv; do awk -F", " "NR>1{s+=\$2} END{print FILENAME, \"total\", s}" $f; done`
+- output: logs/raw/060-diff-t0-d0.log
+- ghi chú: tier0.csv khác byte: kiểm tập objectid và labels sau khi sắp xếp nhãn
+
+### 61. q1-psql-dt
+- start: 2026-11-19T05:36:44+07:00 · end: 2026-11-19T05:36:45+07:00 · duration_s: 1.224 · exit: 0
+- cmd: `docker compose exec -T app-db sh -c "psql -U \"\$POSTGRES_USER\" -d \"\$POSTGRES_DB\" -c \"\dt asset_group*\" -c \"\d asset_group_tag_selectors\" -c \"\d asset_group_tag_selector_nodes\""`
+- output: logs/raw/061-q1-psql-dt.log
+- ghi chú: Q1: liệt kê bảng asset_group* trong app-db (user/db từ compose: PGUSER/POSTGRES_DB, mặc định bloodhound)
+
+### 62. q1-selectors-tier-zero
+- start: 2026-11-19T05:36:58+07:00 · end: 2026-11-19T05:36:59+07:00 · duration_s: 1.152 · exit: 0
+- cmd: `docker compose exec -T app-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --csv -v ON_ERROR_STOP=1' < queries/extra/q1_selectors_tier_zero.sql > results/selectors_tier_zero.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/selectors_tier_zero.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/062-q1-selectors-tier-zero.log
+- ghi chú: Q1: selector của tag Tier Zero (không phụ thuộc dataset)
+
+### 63. q1-tier0-by-selector-d0
+- start: 2026-11-19T05:37:00+07:00 · end: 2026-11-19T05:37:01+07:00 · duration_s: 0.983 · exit: 0
+- cmd: `docker compose exec -T app-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --csv -v ON_ERROR_STOP=1' < queries/extra/q1_tier0_by_selector.sql > results/d0/extra/tier0_by_selector.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/tier0_by_selector.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/063-q1-tier0-by-selector-d0.log
+- ghi chú: Q1: node được chọn bởi từng selector Tier Zero, DB đang chứa D0
+
+### 64. check-tier0-by-selector-d0
+- start: 2026-11-19T05:37:11+07:00 · end: 2026-11-19T05:37:15+07:00 · duration_s: 3.010 · exit: 0
+- cmd: `A=$(mktemp); B=$(mktemp); tail -n +2 results/d0/extra/tier0_by_selector.csv | cut -d, -f1 | sort -u > $A; tail -n +2 results/d0/tier0.csv | cut -d, -f1 | tr -d "\"" | sort -u > $B; echo "distinct objectid in tier0_by_selector: $(wc -l < $A)"; echo "empty objectid rows: $(tail -n +2 results/d0/extra/tier0_by_selector.csv | grep -c "^,")"; echo "tier0.csv objectid: $(wc -l < $B)"; echo "only in selector_nodes: $(comm -23 $A $B | wc -l)"; comm -23 $A $B | head -20; echo "only in tier0.csv: $(comm -13 $A $B | wc -l)"; comm -13 $A $B | head -20; echo "rows per selector:"; tail -n +2 results/d0/extra/tier0_by_selector.csv | cut -d, -f2- | sort | uniq -c | sort -rn; rm -f $A $B`
+- output: logs/raw/064-check-tier0-by-selector-d0.log
+- ghi chú: Q1 kiểm: tập objectid trong tier0_by_selector so với tier0.csv D0 (280)
+
+### 65. check-tier0-by-selector-d0-2
+- start: 2026-11-19T05:37:28+07:00 · end: 2026-11-19T05:37:30+07:00 · duration_s: 1.693 · exit: 0
+- cmd: `A=$(mktemp); B=$(mktemp); perl scripts/csvcol.pl 1 results/d0/extra/tier0_by_selector.csv | sort -u > $A; perl scripts/csvcol.pl 1 results/d0/tier0.csv | sort -u > $B; echo "distinct objectid in tier0_by_selector: $(wc -l < $A)"; echo "tier0.csv objectid: $(wc -l < $B)"; echo "only in selector_nodes: $(comm -23 $A $B | wc -l)"; echo "only in tier0.csv: $(comm -13 $A $B | wc -l)"; echo "rows: $(perl scripts/csvcol.pl 2 results/d0/extra/tier0_by_selector.csv | wc -l), selectors with >=1 node: $(perl scripts/csvcol.pl 2 results/d0/extra/tier0_by_selector.csv | sort -u | wc -l)"; rm -f $A $B`
+- output: logs/raw/065-check-tier0-by-selector-d0-2.log
+- ghi chú: Kiểm lại #64: objectid có dấu phẩy (DN trong ngoặc kép) bị cut tách sai; dùng scripts/csvcol.pl (Text::ParseWords)
+
+### 67. extra-d0-local_to_computer
+- start: 2026-11-19T05:38:03+07:00 · end: 2026-11-19T05:38:07+07:00 · duration_s: 4.251 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q2_local_to_computer.cypher > results/d0/extra/local_to_computer.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/local_to_computer.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/067-extra-d0-local_to_computer.log
+
+### 68. extra-d0-member_of_local_group
+- start: 2026-11-19T05:38:08+07:00 · end: 2026-11-19T05:38:10+07:00 · duration_s: 2.268 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q2_member_of_local_group.cypher > results/d0/extra/member_of_local_group.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/member_of_local_group.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/068-extra-d0-member_of_local_group.log
+
+### 69. extra-d0-edges_all
+- start: 2026-11-19T05:38:11+07:00 · end: 2026-11-19T05:38:14+07:00 · duration_s: 3.422 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q3_edges_all.cypher > results/d0/extra/edges_all.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/edges_all.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/069-extra-d0-edges_all.log
+
+### 70. extra-d0-ce_paths_22
+- start: 2026-11-19T05:38:15+07:00 · end: 2026-11-19T05:38:25+07:00 · duration_s: 9.622 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q4_ce_paths_22.cypher > results/d0/extra/ce_paths_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/ce_paths_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/070-extra-d0-ce_paths_22.log
+
+### 71. extra-d0-ce_paths_22_run2
+- start: 2026-11-19T05:38:26+07:00 · end: 2026-11-19T05:38:32+07:00 · duration_s: 6.651 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q4_ce_paths_22.cypher > results/d0/extra/ce_paths_22_run2.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d0/extra/ce_paths_22_run2.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/071-extra-d0-ce_paths_22_run2.log
+
+### 66. extra-d0-all
+- start: 2026-11-19T05:38:02+07:00 · end: 2026-11-19T05:38:33+07:00 · duration_s: 30.187 · exit: 0
+- cmd: `bash scripts/export_extra.sh d0`
+- output: logs/raw/066-extra-d0-all.log
+- ghi chú: Q2-Q4 cho D0 (DB D0 lần nạp lại, 16 663 cạnh, xem #58-#60)
+
+### 72. check-extra-d0
+- start: 2026-11-19T05:39:00+07:00 · end: 2026-11-19T05:39:03+07:00 · duration_s: 2.830 · exit: 0
+- cmd: `bash scripts/check_extra.sh d0`
+- output: logs/raw/072-check-extra-d0.log
+- ghi chú: Kiểm Q3 (22 loại trong edges_all = edges_22.csv), Q4 ((src,dist) = reach_22, diff 2 lần chạy) cho D0
+
+### 73. compose-down-v-3
+- start: 2026-11-19T05:39:29+07:00 · end: 2026-11-19T05:39:37+07:00 · duration_s: 8.170 · exit: 0
+- cmd: `set -a; . ./.env; set +a; docker compose down -v 2>&1; docker volume ls | grep attack_path || echo "no project volumes left"`
+- output: logs/raw/073-compose-down-v-3.log
+- ghi chú: User đồng ý (19/11): down -v (xoá volume D0 lần nạp lại; kết quả extra D0 đã xuất đủ) để nạp D1 vào DB sạch
+
+### 74. compose-up-d1-extra
+- start: 2026-11-19T05:39:38+07:00 · end: 2026-11-19T05:41:47+07:00 · duration_s: 129.143 · exit: 0
+- cmd: `set -a; . ./.env; set +a; t0=$(date +%s); docker compose up -d 2>&1; for i in $(seq 1 120); do bash scripts/bh_api.sh login >/dev/null 2>&1 && break; sleep 2; done; echo "login ok after $(( $(date +%s) - t0 ))s (probes=$i)"; bash scripts/bh_api.sh GET /api/version; echo; bash scripts/bh_api.sh GET /api/v2/datapipe/status; echo; docker compose ps`
+- output: logs/raw/074-compose-up-d1-extra.log
+- ghi chú: Dựng lại CE (cùng compose, cùng digest), volume mới cho D1
+
+### 75. d1-extra-precheck
+- start: 2026-11-19T05:41:49+07:00 · end: 2026-11-19T05:42:12+07:00 · duration_s: 23.181 · exit: 0
+- cmd: `set -a; . ./.env; set +a; for i in $(seq 1 60); do s=$(bash scripts/bh_api.sh GET /api/v2/datapipe/status); echo "$s" | grep -q "\"status\":\"idle\"" && break; sleep 5; done; echo "$s"; echo "MATCH (n) RETURN count(n) AS nodes; MATCH ()-[r]->() RETURN count(r) AS rels;" | docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain`
+- output: logs/raw/075-d1-extra-precheck.log
+- ghi chú: Chờ datapipe idle, xác nhận Neo4j rỗng trước ingest D1
+
+### 76. ingest-d1-extra
+- start: 2026-11-19T05:42:27+07:00 · end: 2026-11-19T05:46:03+07:00 · duration_s: 215.516 · exit: 0
+- cmd: `bash scripts/ingest.sh d1_extra data/d1/ESSOS_20240410083816_BloodHound-2.3.3.zip data/d1/NORTH_20240410083414_BloodHound-2.3.3.zip data/d1/SEVENKINGDOMS_20240410083609_BloodHound-2.3.3.zip`
+- output: logs/raw/076-ingest-d1-extra.log
+- ghi chú: Nạp D1 (3 zip, 1 job, DB sạch) cùng quy trình mục 30; ds=d1_extra để không ghi đè logs/ingest/d1
+
+### 77. check-counts-d1
+- start: 2026-11-19T05:46:30+07:00 · end: 2026-11-19T05:46:40+07:00 · duration_s: 9.599 · exit: 0
+- cmd: `set -a; . ./.env; set +a; norm(){ perl -ne 'if(/^(.*?)\[(.*)\]\s*$/){my @l=sort split /, /,$2; print "$1\[".join(", ",@l)."]\n"} else {print}' "$1"; }; for q in node_counts edge_counts edges_22 tier0; do timeout 300 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/q_$q.cypher > logs/extra/d1/$q.now.csv; echo "$q rc=$? rows(excl header)=$(($(wc -l < logs/extra/d1/$q.now.csv)-1))"; if cmp -s results/d1/$q.csv logs/extra/d1/$q.now.csv; then echo "$q: giong het byte"; elif diff <(norm results/d1/$q.csv | sort) <(norm logs/extra/d1/$q.now.csv | sort) >/dev/null; then echo "$q: cung tap dong (chi khac thu tu dong/nhan)"; else echo "$q: KHAC"; diff <(norm results/d1/$q.csv | sort) <(norm logs/extra/d1/$q.now.csv | sort); fi; done; for f in results/d1/edge_counts.csv logs/extra/d1/edge_counts.now.csv; do awk -F", " "NR>1{s+=\$2} END{print FILENAME, \"total\", s}" $f; done`
+- output: logs/raw/077-check-counts-d1.log
+- ghi chú: Kiểm node/cạnh/edges_22/tier0 sau nạp D1 so với results/d1
+
+### 79. extra-d1-local_to_computer
+- start: 2026-11-19T05:46:56+07:00 · end: 2026-11-19T05:46:58+07:00 · duration_s: 1.922 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q2_local_to_computer.cypher > results/d1/extra/local_to_computer.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/local_to_computer.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/079-extra-d1-local_to_computer.log
+
+### 80. extra-d1-member_of_local_group
+- start: 2026-11-19T05:46:59+07:00 · end: 2026-11-19T05:47:00+07:00 · duration_s: 1.427 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q2_member_of_local_group.cypher > results/d1/extra/member_of_local_group.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/member_of_local_group.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/080-extra-d1-member_of_local_group.log
+
+### 81. extra-d1-edges_all
+- start: 2026-11-19T05:47:00+07:00 · end: 2026-11-19T05:47:02+07:00 · duration_s: 2.070 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q3_edges_all.cypher > results/d1/extra/edges_all.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/edges_all.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/081-extra-d1-edges_all.log
+
+### 82. extra-d1-ce_paths_22
+- start: 2026-11-19T05:47:03+07:00 · end: 2026-11-19T05:47:07+07:00 · duration_s: 4.490 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q4_ce_paths_22.cypher > results/d1/extra/ce_paths_22.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/ce_paths_22.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/082-extra-d1-ce_paths_22.log
+
+### 83. extra-d1-ce_paths_22_run2
+- start: 2026-11-19T05:47:08+07:00 · end: 2026-11-19T05:47:13+07:00 · duration_s: 4.801 · exit: 0
+- cmd: `set -a; . ./.env; set +a; timeout 600 docker compose exec -T -e NEO4J_PASSWORD="$NEO4J_SECRET" graph-db cypher-shell -u neo4j --format plain < queries/extra/q4_ce_paths_22.cypher > results/d1/extra/ce_paths_22_run2.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/ce_paths_22_run2.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/083-extra-d1-ce_paths_22_run2.log
+
+### 78. extra-d1-all
+- start: 2026-11-19T05:46:56+07:00 · end: 2026-11-19T05:47:14+07:00 · duration_s: 17.710 · exit: 0
+- cmd: `bash scripts/export_extra.sh d1`
+- output: logs/raw/078-extra-d1-all.log
+- ghi chú: Q2-Q4 cho D1 (DB D1 sạch, khớp results/d1, #77)
+
+### 84. q1-tier0-by-selector-d1
+- start: 2026-11-19T05:47:15+07:00 · end: 2026-11-19T05:47:16+07:00 · duration_s: 1.725 · exit: 0
+- cmd: `docker compose exec -T app-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --csv -v ON_ERROR_STOP=1' < queries/extra/q1_tier0_by_selector.sql > results/d1/extra/tier0_by_selector.csv; rc=$?; echo "rows(excl header)=$(($(wc -l < results/d1/extra/tier0_by_selector.csv)-1)) rc=$rc"; exit $rc`
+- output: logs/raw/084-q1-tier0-by-selector-d1.log
+- ghi chú: Q1: node theo selector Tier Zero, DB đang chứa D1
+
+### 85. q1-selectors-recheck-d1
+- start: 2026-11-19T05:47:17+07:00 · end: 2026-11-19T05:47:19+07:00 · duration_s: 2.235 · exit: 0
+- cmd: `docker compose exec -T app-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" --csv -v ON_ERROR_STOP=1' < queries/extra/q1_selectors_tier_zero.sql > logs/extra/d1/selectors_tier_zero.now.csv; cmp -s results/selectors_tier_zero.csv logs/extra/d1/selectors_tier_zero.now.csv && echo 'selectors: giong het' || diff results/selectors_tier_zero.csv logs/extra/d1/selectors_tier_zero.now.csv; A=$(mktemp); B=$(mktemp); perl scripts/csvcol.pl 1 results/d1/extra/tier0_by_selector.csv | sort -u > $A; perl scripts/csvcol.pl 1 results/d1/tier0.csv | sort -u > $B; echo "D1 distinct objectid=$(wc -l < $A) tier0=$(wc -l < $B) only_sel=$(comm -23 $A $B | wc -l) only_t0=$(comm -13 $A $B | wc -l) selectors_with_nodes=$(perl scripts/csvcol.pl 2 results/d1/extra/tier0_by_selector.csv | sort -u | wc -l)"; rm -f $A $B`
+- output: logs/raw/085-q1-selectors-recheck-d1.log
+- ghi chú: Q1: so danh sách selector Tier Zero sau down -v (app-db mới) với results/selectors_tier_zero.csv
+
+### 86. check-extra-d1
+- start: 2026-11-19T05:47:20+07:00 · end: 2026-11-19T05:47:23+07:00 · duration_s: 2.796 · exit: 0
+- cmd: `bash scripts/check_extra.sh d1`
+- output: logs/raw/086-check-extra-d1.log
+- ghi chú: Kiểm Q3, Q4 cho D1
